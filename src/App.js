@@ -20,16 +20,18 @@ function App() {
             <Route path="/home">
               <Dashboard />
             </Route>
+            <Route path="/create/hangout">
+              <CreateHangout />
+            </Route>
             <Route path="/profile">
               <Profile />
             </Route>
-            <Route path="/hangout">
+            <Route path="/hangout/:id">
               <DetailedHangout />
             </Route>
           </Switch>
         </AuthProvider>
       </BrowserRouter>
-      );
     </div>
   );
 }
