@@ -24,4 +24,11 @@ export function PrivateRoute({ children, /* allowedRoles */ ...others }) {
       )}
     </React.Fragment>
   );
-      }
+
+  // Si gestionase roles podria hacerlo asi
+  // return (
+  //   <Route {...others}>
+  //     {allowedRoles.includes(role) ? children : <Redirect to="/login" />}
+  //   </Route>
+  // );
+}
