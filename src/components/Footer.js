@@ -1,19 +1,62 @@
 import React from "react";
+import logoLinkedin from "../img/linkedin.svg"
+import logoFacebook from "../img/facebook.svg"
+import logoTwitter from "../img/twitter.svg"
+import logoInstagram from "../img/instagram.svg"
 
 export function Footer() {
   return (
-    <footer>
+    <footer className="footer">
       <div>
-        <p>(C) Hack a Boss</p>
+        <p>(c)  2020 Hack a Boss</p>
       </div>
+      <div>
+        <h2>
+        <p>Alejandro Castro Alarcón</p>
+        </h2>
+        <h2>
+        <p>Jose Manuel Magdalena Perez</p>
+        </h2>
+      </div>
+        <div className="logos">
       <ul>
-        <ul>
-          <li>Enlaces</li>
+      
+          <li>
+          <a href="https://www.linkedin.com/">
+            <img src={logoLinkedin}alt="logo linkedin" />
+          </a>
+          </li>
+        
+      <li>
+      <a href="https://www.facebook.com/">
+       <img src={logoFacebook} alt="logo facebook"/>
+       </a>
+      </li>
+      
+        
+      <li><a href="https://www.twitter.com/">
+        <img src={logoTwitter} alt="logo twitter"/>
+        </a></li>
+        
+        
+      <li> <a href="https://www.instagram.com/">
+        <img src={logoInstagram} alt="logo insta"/>
+        </a></li>
+       
+        </ul>
+        </div>
+      
+      <ul>
+          <li>
+         <p>joseee@hotmail.com</p>
+          </li>
         </ul>
         <ul>
-          <li>Enlaces</li>
+          <li>
+         <p>Alejandro@hotmail.com</p>
+          </li>
         </ul>
-      </ul>
+      
     </footer>
   );
 }

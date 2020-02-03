@@ -15,10 +15,12 @@ export function CreateProfile(){
 
   <span>crea tu perfil</span>
 
-  <input type="email" placeholder="Email" />
-  <input type="password" placeholder="Password" />
-  <input type="password" placeholder="Repeat your password" />
-  <button type="button">Sign Up</button>
+  <input type="text" placeholder="Nombre y Apellidos" />
+  <input type="text" placeholder="Edad" />
+  <input type="text" placeholder="Categoría Profesional" />
+  <input type="text" placeholder="Puesto/Posición" />
+  <input type="text" placeholder="Sobre Mi" />
+  <button type="button">CREAR</button>
 </form>
 </div>
 
