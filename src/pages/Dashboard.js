@@ -8,7 +8,7 @@ import { Footer } from "../components/Footer";
 export function Dashboard() {
   return (
     <React.Fragment>
-      <Header />
+      <Header title="techies hangouts" />
       <NavMenu />
       <main>
         <NavFilter />

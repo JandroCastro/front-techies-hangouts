@@ -1,0 +1,18 @@
+.navMenu {
+  background-color: var(--primary);
+  width: 100%;
+}
+
+.navMenu img {
+  height: 30px;
+  width: 30px;
+}
+.navMenu label {
+  color: var(--dark);
+}
+
+.navMenu ul {
+  display: flex;
+  flex-direction: rows;
+  justify-content: space-between;
+}

@@ -1,8 +1,13 @@
 @import "./forms.css";
 @import "./header.css";
+<<<<<<< HEAD
 @import "./footer.css";
 @import "./theme.css";
 @import "./utils.css";
+=======
+@import "./theme.css";
+@import "./navmenu.css";
+>>>>>>> 7772fada148d57bd696938957f362fc3b54a05f5
 
 html {
   box-sizing: border-box;

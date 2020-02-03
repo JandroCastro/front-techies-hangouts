@@ -1,12 +1,12 @@
 :root {
   /* colors */
-  --primary: #f8c51d;
-  --secondary: #c86818;
-  --separator: #1b1b1b;
+  --primary: #0075c4;
+  --secondary: #324376;
+  --separator: #0a0908;
   --medium: #999999;
   --dark: #000;
   --bright: #fff;
-  --ko: #e92119;
+  --ko: #f24236;
   --ok: #3c8c20;
 
   /* fonts */
@@ -20,7 +20,7 @@
   --font-m: 1.2rem;
   --font-l: 1.6rem;
   --font-xl: 1.8rem;
-  --font-xxl: 2rem;
+  --font-xxl: 2.5rem;
 
   /* spacing */
   --space-xs: 0.25rem;

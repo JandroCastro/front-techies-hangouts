@@ -8,7 +8,7 @@ import { Footer } from "../components/Footer";
 export function Profile() {
   return (
     <React.Fragment>
-      <Header />
+      <Header title="YOUR PROFILE" />
       <NavMenu />
       <div>
         <AvatarContainer />
