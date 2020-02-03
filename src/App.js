@@ -30,7 +30,7 @@ function App() {
             <Route path="/profile">
               <Profile />
             </Route>
-            <Route path="/hangout/:id">
+            <Route path="/hangout">
               <DetailedHangout />
             </Route>
           </Switch>
