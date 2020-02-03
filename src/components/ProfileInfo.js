@@ -12,7 +12,7 @@ export function ProfileInfo() {
         </ul>
       </div>
       <div id="enlacesRRSS">
-        <a>Enlaces a GitHub, Linkedin, Instagram, Blogs..</a>
+        <a href="/">Enlaces a GitHub, Linkedin, Instagram, Blogs..</a>
       </div>
     </React.Fragment>
   );
