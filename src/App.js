@@ -8,6 +8,7 @@ import { Home } from "./pages/Home";
 import { CreateHangout } from "./pages/CreateHangout";
 import { Profile } from "./pages/Profile";
 import { DetailedHangout } from "./pages/DetailedHangout";
+import { CreateProfile } from "./pages/CreateProfile";
 
 function App() {
   return (
@@ -27,12 +28,16 @@ function App() {
             <Route path="/create/hangout">
               <CreateHangout />
             </Route>
+            <Route path="/Create/Profile">
+              <CreateProfile/>
+            </Route>
             <Route path="/profile">
               <Profile />
             </Route>
             <Route path="/hangout">
               <DetailedHangout />
             </Route>
+            
           </Switch>
         </AuthProvider>
       </BrowserRouter>
