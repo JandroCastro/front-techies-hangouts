@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { AuthProvider } from "./context/auth-context";
-import { PrivateRoute } from "./components/PrivateRoute";
+//import { PrivateRoute } from "./components/PrivateRoute";
 import { Login } from "./pages/Login";
 import { Dashboard } from "./pages/Dashboard";
 import { Home } from "./pages/Home";
@@ -21,18 +21,18 @@ function App() {
             <Route path="/login">
               <Login />
             </Route>
-            <PrivateRoute path="/home">
+            <Route path="/home">
               <Dashboard />
-            </PrivateRoute>
-            <PrivateRoute path="/create/hangout">
+            </Route>
+            <Route path="/create/hangout">
               <CreateHangout />
-            </PrivateRoute>
+            </Route>
             <Route path="/profile">
               <Profile />
             </Route>
-            <PrivateRoute path="/hangout/:id">
+            <Route path="/hangout/:id">
               <DetailedHangout />
-            </PrivateRoute>
+            </Route>
           </Switch>
         </AuthProvider>
       </BrowserRouter>
