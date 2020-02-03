@@ -1,9 +1,9 @@
+@import "./footer.css";
 @import "./forms.css";
 @import "./header.css";
-@import "./footer.css";
+@import "./navmenu.css";
 @import "./theme.css";
 @import "./utils.css";
-@import "./navmenu.css";
 
 html {
   box-sizing: border-box;
