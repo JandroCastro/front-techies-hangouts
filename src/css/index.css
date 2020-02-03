@@ -1,5 +1,7 @@
 @import "./forms.css";
 @import "./header.css";
+@import "./theme.css";
+@import "./navmenu.css";
 
 html {
   box-sizing: border-box;
@@ -19,12 +21,13 @@ body,
 #root {
   font-family: var(--font-primary);
   height: 100%;
-  background: var(--dark);
+  background: var(--bright);
   color: var(--primary);
   line-height: 1.3em;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  width: 100%;
 }
 
 .gutter-horizontal {
