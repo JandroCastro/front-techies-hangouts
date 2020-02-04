@@ -4,9 +4,10 @@
   background-color: var(--dark);
   color: var(--bright);
   padding: 1rem;
-  margin-top: 1rem;
-  margin-top: 50px;
-  height: 40vh;
+  margin-top: 40px;
+  
+ 
+
 }
 h2.name {
   color: var(--bright);
@@ -18,19 +19,19 @@ a img {
 
 div.logos {
   display: inline-block;
-  width: 30vh;
 }
 
 .logos ul {
   display: flex;
   width: auto;
+  
 }
 
 li{
     padding-top: 1rem;
 }
 .logos ul li {
-  padding-left: 2rem;
+  padding-left: 3.6rem;
   
   
 }
@@ -41,4 +42,5 @@ ul.email {
   flex-direction: column;
   margin-right: 2rem;
   font-size: 20px;
+  margin: 60px;
 }

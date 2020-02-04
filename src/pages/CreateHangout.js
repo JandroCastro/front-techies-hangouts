@@ -19,9 +19,9 @@ export function CreateHangout() {
           <label className="label">Máxima Capacidad </label>
           <input type="text" placeholder="introduce un número" />
           <label className="label">Descripción</label>
-          <textarea className="textarea" type="text" placeholder="introduce una breve descripción sobre ti" />
+          <textarea className="textarea" type="text" placeholder="introduce una breve descripción sobre el evento" />
         </form>
-        <button type="button">CREAR</button>
+        <button className="boton" type="button">CREAR</button>
       </div>
 
       <Footer />
