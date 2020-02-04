@@ -2,3 +2,13 @@ h1{
     text-align: center;
     margin-bottom: 1rem;
 }
+
+input{
+    width: 400px;
+ }
+
+.event{
+    display: flex;
+    align-items: flex-start;
+    padding:2rem ;
+}

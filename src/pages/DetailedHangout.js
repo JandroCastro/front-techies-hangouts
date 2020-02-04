@@ -5,7 +5,7 @@ export function DetailedHangout() {
   return (
     <React.Fragment>
       <section id="principalDeQuedada">
-        <h1>Nombre de la quedada</h1>
+        <h1 style={{marginTop: 12}}>Nombre de la quedada</h1>
         <ul>
           <li>Foto de la quedada</li>
           <li>Detalles del organizador</li>
