@@ -1,13 +1,15 @@
+@import "./avatar-container.css";
+@import "./createProfile.css";
+@import "./createHangout.css";
+@import "./header.css";
+@import "./home.css";
 @import "./footer.css";
 @import "./forms.css";
-@import "./header.css";
 @import "./navmenu.css";
 @import "./theme.css";
 @import "./utils.css";
-@import "./createProfile.css";
 @import "./nav-filter.css";
-<<<<<<< HEAD
-@import "./createHangout.css";
+@import "./profile.css";
 
 html {
   box-sizing: border-box;
@@ -35,12 +37,7 @@ body {
   width: 100%;
   height: 100%;
 }
-=======
-@import "./home.css";
-@import "./avatar-container.css";
-@import "./profile.css";
 
->>>>>>> 8874e400aa5150c2ba4fc0483f4dfc1f30e964bc
 .gutter-horizontal {
   cursor: ew-resize;
 }
@@ -53,10 +50,6 @@ h5,
 h6 {
   text-transform: uppercase;
   font-family: var(--font-secondary);
-<<<<<<< HEAD
-=======
-  color: var(--dark);
->>>>>>> 8874e400aa5150c2ba4fc0483f4dfc1f30e964bc
 }
 
 h1 {
