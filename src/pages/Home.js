@@ -30,11 +30,11 @@ export function Home() {
             <li>amplía conocimientos</li>
           </ul>
           <ul>
-            <li>navega</li>
-            <li>conoce gente</li>
-            <li>encuentra tabajo</li>
-            <li>tomate un algo</li>
-            <li>amplía conocimientos</li>
+            <li>ostia</li>
+            <li>ca ves</li>
+            <li>puto css tabajo</li>
+            <li> un algo</li>
+            <li>amplía funcimrgi</li>
           </ul>
         </section>
       </div>
