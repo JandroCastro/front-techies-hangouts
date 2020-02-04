@@ -1,4 +1,6 @@
 .footer{
+    display: flex;
+    flex-direction: column;
     background-color: var(--dark);
     color: var(--bright);
     padding: 1rem ;
@@ -7,17 +9,35 @@
     height: 40vh;
     
 }
-
+h2.name{
+    color: var(--bright)
+}
 
 a img{
     height: 40px;
 }
 
+div.logos{
+    display:inline-block;
+    width: 30vh;
+}
+
 .logos ul{
 display: flex;
-flex-direction: row;
-
+width: auto;
 }
 .logos ul li{
+
     padding-left: 2rem;
+
+}
+
+ ul.email{
+     display: flex;
+    align-items:flex-end;
+    flex-direction: column;
+    margin-right: 3rem;
+    margin: 1;
+
+   
 }

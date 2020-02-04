@@ -4,10 +4,12 @@
 @import "./navmenu.css";
 @import "./theme.css";
 @import "./utils.css";
+@import "./createProfile.css";
 
 html {
   box-sizing: border-box;
   height: 100%;
+  
 }
 
 *,
@@ -22,13 +24,13 @@ html {
 body,
 #root {
   font-family: var(--font-primary);
-  height: 100%;
+  
   background: var(--bright);
   color: var(--primary);
   line-height: 1.3em;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  
   width: 100%;
 }
 
@@ -44,7 +46,7 @@ h5,
 h6 {
   text-transform: uppercase;
   font-family: var(--font-secondary);
-  color: var(--bright);
+  color: var(--dark);
 }
 
 h1 {
