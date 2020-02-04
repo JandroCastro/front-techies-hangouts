@@ -5,11 +5,14 @@ export function Header({ title }) {
     <React.Fragment>
       <header>
         <a href="/home">
-          <img src="https://image.flaticon.com/icons/svg/25/25694.svg" />
+          <img
+            alt="Home-figure"
+            src="https://image.flaticon.com/icons/svg/25/25694.svg"
+          />
         </a>
-        <h1>
-          <a href="/home">{title}</a>
-        </h1>
+        <a href="/home">
+          <h1>{title}</h1>
+        </a>
 
         <div>
           <a href="/profile">Hola chaval</a>

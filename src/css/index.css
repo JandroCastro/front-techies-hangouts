@@ -5,6 +5,7 @@
 @import "./theme.css";
 @import "./utils.css";
 @import "./createProfile.css";
+@import "./nav-filter.css";
 
 html {
   box-sizing: border-box;

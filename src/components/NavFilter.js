@@ -1,14 +1,28 @@
 import React from "react";
+import { Datepicker } from "./Datepicker";
 
 export function NavFilter() {
   return (
-    <nav>
+    <nav className="nav-filter">
       <ul>
-        <li>Filtro de ciudades</li>
-        <li>Filtro de Temáticas</li>
-        <li>Filtro de fecha</li>
+        <li>
+          <label>Ciudades</label>
+          <select>
+            <option>Lista Ciudades</option>
+          </select>
+        </li>
+        <li>
+          <label>Temáticas</label>
+          <select>
+            <option>Lista temáticas</option>
+          </select>
+        </li>
+        <li>
+          <label>Fecha</label>
+          <Datepicker />
+        </li>
       </ul>
-      <button>Activar filtros</button>
+      <button>Filtrar</button>
     </nav>
   );
 }
