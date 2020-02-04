@@ -18,7 +18,7 @@ export function register(registerData) {
   // {
   //   params: {
   //     filter1: 'filter1',
-  //     filter2: 'filter2'REACT_APP_BACKEND_URL=REREACT_APP_BACKEND_URL=ACT_APP_BACKEND_URL=
+  //     filter2: 'filter2'
   //   }
   // }
   return axios.post(`${process.env.REACT_APP_BACKEND_URL}/users`, registerData);

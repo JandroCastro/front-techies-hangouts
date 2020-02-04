@@ -1,0 +1,40 @@
+.principal {
+  color: black;
+}
+
+.up h1 {
+  line-height: 40pt;
+  display: block;
+  margin: 1rem 3rem 1rem 3rem;
+  color: white;
+}
+
+.up {
+  height: 40vh;
+  background-image: url("../img/shawn-ang-FRuj-ST3wZE-unsplash.jpg");
+  background-position: 0% 90%;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.up button {
+  margin: 0 0 1rem 1rem;
+}
+
+.medium {
+  height: 30vh;
+  background-color: grey;
+}
+.medium ul {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.down {
+  display: flex;
+  flex-direction: column;
+}

@@ -6,8 +6,12 @@
 @import "./utils.css";
 @import "./createProfile.css";
 @import "./nav-filter.css";
+<<<<<<< HEAD
 @import "./createHangout.css";
 @import "./utils.css";
+=======
+@import "./home.css";
+>>>>>>> 8c797de3c6dcdafcbf060bf00bbfaad7131a2c8c
 
 html {
   box-sizing: border-box;
@@ -32,6 +36,13 @@ body,
   line-height: 1.3em;
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 17d70dd4315198084678c9dc82c846793f5bcd39
+>>>>>>> 8c797de3c6dcdafcbf060bf00bbfaad7131a2c8c
   width: 100%;
 }
 
@@ -47,7 +58,10 @@ h5,
 h6 {
   text-transform: uppercase;
   font-family: var(--font-secondary);
+<<<<<<< HEAD
+=======
   color: var(--dark);
+>>>>>>> 17d70dd4315198084678c9dc82c846793f5bcd39
 }
 
 h1 {
