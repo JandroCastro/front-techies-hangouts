@@ -1,0 +1,18 @@
+#avatar {
+  display: flex;
+}
+
+#avatar img {
+  margin: 0 auto;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  height: 200px;
+  width: 200px;
+}
+
+#name {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+}

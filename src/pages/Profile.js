@@ -10,11 +10,7 @@ export function Profile() {
     <React.Fragment>
       <Header title="YOUR PROFILE" />
       <NavMenu />
-      <div>
-        <AvatarContainer />
-        <span>Aquí el nombre</span>
-        <span>Aquí una descripción pequeña</span>
-      </div>
+      <AvatarContainer />
       <main>
         <div>
           <ProfileInfo />
