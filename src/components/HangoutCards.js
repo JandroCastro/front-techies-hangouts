@@ -5,7 +5,7 @@ export function HangoutCards() {
     <React.Fragment>
       <ul>
         <li>
-          <p>Cards de Hangouts</p>
+          <p>Esto son las cards</p>
         </li>
       </ul>
     </React.Fragment>

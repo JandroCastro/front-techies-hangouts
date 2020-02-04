@@ -1,0 +1,23 @@
+.nav-filter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-filter ul {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: baseline;
+  flex-grow: 2;
+}
+
+.nav-filter ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-filter select {
+  margin-top: 1rem;
+}
