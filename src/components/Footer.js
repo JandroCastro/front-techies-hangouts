@@ -11,12 +11,11 @@ export function Footer() {
         <p>(c)  2020 Hack a Boss</p>
       </div>
       <div>
-        <h2>
+        <h2 className="name">
         <p>Alejandro Castro Alarcón</p>
-        </h2>
-        <h2>
         <p>Jose Manuel Magdalena Perez</p>
         </h2>
+        
       </div>
         <div className="logos">
       <ul>
@@ -46,16 +45,15 @@ export function Footer() {
         </ul>
         </div>
       
-      <ul>
+      <ul className="email">
           <li>
          <p>joseee@hotmail.com</p>
           </li>
-        </ul>
-        <ul>
           <li>
          <p>Alejandro@hotmail.com</p>
           </li>
         </ul>
+        
       
     </footer>
   );
