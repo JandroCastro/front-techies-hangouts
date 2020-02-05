@@ -1,14 +1,14 @@
+@import "./avatar-container.css";
+@import "./createProfile.css";
 @import "./footer.css";
 @import "./forms.css";
 @import "./header.css";
+@import "./home.css";
+@import "./nav-filter.css";
 @import "./navmenu.css";
+@import "./profile.css";
 @import "./theme.css";
 @import "./utils.css";
-@import "./createProfile.css";
-@import "./nav-filter.css";
-@import "./home.css";
-@import "./avatar-container.css";
-@import "./profile.css";
 
 .gutter-horizontal {
   cursor: ew-resize;
