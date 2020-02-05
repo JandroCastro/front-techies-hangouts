@@ -1,0 +1,25 @@
+
+
+.label {
+  font-weight: bold;
+  text-align: left;
+  color: var(--ko);
+
+}
+input{
+   width: 400px;
+}
+.event{
+    display: flex;
+    align-items: flex-start;
+    padding:2rem ;
+}
+.textarea{
+    width: 600px;
+    height: 130px;
+    border: 1px solid black;
+    
+}
+.boton{
+  margin-left: 1.5rem;
+}

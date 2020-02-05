@@ -47,10 +47,10 @@ export function Footer() {
       
       <ul className="email">
           <li>
-         <p>joseee@hotmail.com</p>
+         joseee@hotmail.com
           </li>
           <li>
-         <p>Alejandro@hotmail.com</p>
+         Alejandro@hotmail.com
           </li>
         </ul>
         

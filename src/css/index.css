@@ -1,14 +1,42 @@
 @import "./avatar-container.css";
+@import "./createHangout.css";
 @import "./createProfile.css";
 @import "./footer.css";
 @import "./forms.css";
 @import "./header.css";
 @import "./home.css";
-@import "./nav-filter.css";
 @import "./navmenu.css";
+@import "./nav-filter.css";
 @import "./profile.css";
 @import "./theme.css";
 @import "./utils.css";
+
+html {
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+#root {
+  width: 100%;
+  height: 100%;
+}
+body {
+  font-family: var(--font-primary);
+  background: var(--bright);
+  color: var(--primary);
+  line-height: 1.3em;
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
+}
 
 .gutter-horizontal {
   cursor: ew-resize;
@@ -22,7 +50,6 @@ h5,
 h6 {
   text-transform: uppercase;
   font-family: var(--font-secondary);
-  color: var(--dark);
 }
 
 h1 {
