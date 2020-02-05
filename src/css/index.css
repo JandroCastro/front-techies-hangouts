@@ -10,6 +10,7 @@
 @import "./utils.css";
 @import "./nav-filter.css";
 @import "./profile.css";
+@import "./detailedHangout.css";
 
 html {
   box-sizing: border-box;
