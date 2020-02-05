@@ -1,0 +1,38 @@
+img {
+  padding-top: 0.5rem;
+}
+
+h2 {
+  margin-top: 4rem;
+  color: var(--dark);
+}
+
+button {
+  margin: 1rem;
+}
+
+.infoperfil li {
+  padding: 1rem;
+  color: var(--dark);
+  display: flex;
+  width: auto;
+}
+div#name {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+span {
+  text-align: justify;
+}
+#enlacesRRSS {
+  list-style: none;
+  align-items: flex-start;
+  flex-direction: row;
+  font-size: 20px;
+  display: flex;
+}
+#enlacesRRSS li{
+    margin: 3rem;
+}

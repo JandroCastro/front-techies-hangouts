@@ -11,8 +11,14 @@
   width: 200px;
 }
 
-#name {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-around;
+
+span.span{
+color: black;
+display: flex;
+align-items: center;
+flex-direction: column;
+margin-top: 3rem;
+font-size: 24px;
+
 }
+
