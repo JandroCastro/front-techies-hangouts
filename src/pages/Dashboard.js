@@ -7,6 +7,8 @@ import { Footer } from "../components/Footer";
 
 export function Dashboard() {
   return (
+
+    
     <React.Fragment>
       <Header title="techies hangouts" />
       <NavMenu />
@@ -14,6 +16,17 @@ export function Dashboard() {
         <NavFilter />
         <div id="hangoutCards">
           <HangoutCards />
+          <HangoutCards />
+          <HangoutCards />
+          <HangoutCards />
+          <HangoutCards />
+          <HangoutCards />
+          <HangoutCards />
+          <HangoutCards />
+          <HangoutCards />
+          <HangoutCards />
+
+
         </div>
       </main>
       <Footer />

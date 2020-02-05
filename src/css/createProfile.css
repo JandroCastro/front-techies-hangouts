@@ -1,9 +1,9 @@
-h1{
+.h1 {
     text-align: center;
     margin-bottom: 1rem;
 }
 
-input{
+.event input{
     width: 300px;
  }
 

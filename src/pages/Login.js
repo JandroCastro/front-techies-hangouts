@@ -7,7 +7,7 @@ export function Login() {
 
   return (
     <React.Fragment>
-      <h2>COME TO HANG OUT WITH US</h2>
+      <h2 className="profileTitle">COME TO HANG OUT WITH US</h2>
       <div
         className={`container ${classContainerSide === true &&
           "right-panel-active"}`}
@@ -39,7 +39,7 @@ export function Login() {
         <div className="overlay-container">
           <div className="overlay">
             <div className="overlay-panel overlay-left">
-              <h1>Welcome Back!</h1>
+              <h1 className="login">Welcome Back!</h1>
               <p>
                 To keep connected with us please login with your personal info
               </p>
@@ -52,7 +52,7 @@ export function Login() {
               </button>
             </div>
             <div className="overlay-panel overlay-right">
-              <h1>Hello, Friend!</h1>
+              <h1 className="login">Hello, Friend!</h1>
               <p>Enter your personal details and start journey with us</p>
               <button
                 className="ghost"

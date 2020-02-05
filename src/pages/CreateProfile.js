@@ -4,7 +4,7 @@ import { Footer } from "../components/Footer";
 export function CreateProfile() {
   return (
     <React.Fragment>
-      <h1 style={{marginTop: 12}}>crea tu perfil</h1>
+      <h1 className="h1" style={{marginTop: 12}}>crea tu perfil</h1>
 
      <div className="Profile">
         <form className="event" action="#">
