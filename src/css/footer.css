@@ -5,9 +5,6 @@
   color: var(--bright);
   padding: 1rem;
   margin-top: 40px;
-  
- 
-
 }
 h2.name {
   color: var(--bright);
@@ -24,18 +21,14 @@ div.logos {
 .logos ul {
   display: flex;
   width: auto;
-  
 }
 
-li{
-    padding-top: 1rem;
+li {
+  padding-top: 1rem;
 }
 .logos ul li {
   padding-left: 3.6rem;
-  
-  
 }
-
 ul.email {
   display: flex;
   align-items: flex-end;
