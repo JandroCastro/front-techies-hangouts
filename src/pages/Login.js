@@ -1,9 +1,41 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-// import { useAuth } from '../context/auth-context';
+import { Link, useHistory } from "react-router-dom";
+import { useAuth } from "../context/auth-context";
+import { register as signUp } from "../http/userService";
+import { useForm } from "react-hook-form";
 
 export function Login() {
+  const {
+    handleSubmit,
+    register,
+    errors,
+    watch,
+    formState,
+    setError,
+    setValue,
+    reset
+  } = useForm({
+    mode: "onBlur"
+  });
+
+  const history = useHistory();
+
   const [classContainerSide, setClassContainerSide] = useState(true);
+
+  const { setIsAuthenticated, setCurrentUser } = useAuth();
+
+  const handleLogin = formData => {
+    return signUp(formData)
+      .then(response => {
+        setIsAuthenticated(true);
+        setCurrentUser(response.data);
+        history.push("/");
+      })
+      .catch(error => {
+        setValue("password", "");
+        setError("password", "credentials", "The credentials are invalid");
+      });
+  };
 
   return (
     <React.Fragment>
@@ -14,15 +46,38 @@ export function Login() {
         id="container"
       >
         <div className="form-container sign-up-container">
-          <form action="#">
+          <form onSubmit={handleSubmit(handleLogin)} action="#">
             <h1>Create Account</h1>
 
             <span>or use your email for registration</span>
 
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
+            <input
+              ref={register({
+                required: "The email is mandatory",
+                pattern: {
+                  value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                  message: "The email is not valid"
+                }
+              })}
+              type="email"
+              name="email"
+              placeholder="Email paentro"
+            />
+            <input
+              ref={register({
+                required: "The password is mandatory",
+                minLength: {
+                  value: 6,
+                  message:
+                    "You should enter a password with at least 6 characters"
+                }
+              })}
+              type="password"
+              name="password"
+              placeholder="Password"
+            />
             <input type="password" placeholder="Repeat your password" />
-            <button type="button">Sign Up</button>
+            <button type="submit">Sign Up</button>
           </form>
         </div>
         <div className="form-container sign-in-container">
