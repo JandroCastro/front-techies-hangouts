@@ -6,6 +6,7 @@ export function YourHangouts() {
   return (
     <React.Fragment>
       <Header />
+      <h1 style={{marginTop: 12}}>Tus Eventos</h1>
       <section id="organizadas">
         <h2>Quedadas de las que eres organizador</h2>
         <ul>

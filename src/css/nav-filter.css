@@ -20,4 +20,29 @@
 
 .nav-filter select {
   margin-top: 1rem;
+  background: transparent;
+     border: none;
+     font-size: 14px;
+     height: 30px;
+     padding: 5px;
+     width: 250px;
+     margin:20px auto;        
+     border:1px solid #d9d9d9;
+     height:30px;
+     width: 230px;
+     overflow: hidden;
+     position:relative;
+}
+
+.nav-filter button {
+  border-radius: 20px;
+  border: 1px solid #ff4b2b;
+  background-color: #ff4b2b;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
 }

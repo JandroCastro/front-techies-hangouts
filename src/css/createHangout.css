@@ -6,7 +6,7 @@
   color: var(--ko);
 
 }
-input{
+.event input{
    width: 400px;
 }
 .event{

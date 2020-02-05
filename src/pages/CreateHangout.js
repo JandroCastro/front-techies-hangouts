@@ -7,7 +7,7 @@ export function CreateHangout() {
 
 
         
-      <h1 style={{marginTop: 12}}>Crea tu Evento</h1>
+      <h1 className="h1" style={{marginTop: 12}}>Crea tu Evento</h1>
       <div className="hangout">
         <form className="event" action="#">
           <label className="label">Título</label>

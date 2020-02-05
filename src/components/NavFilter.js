@@ -1,21 +1,17 @@
 import React from "react";
 import { Datepicker } from "./Datepicker";
 
-export function NavFilter() {
+import { Filter } from "./Filtro";
+
+export function NavFilter({ optionCities, optionThematics }) {
   return (
     <nav className="nav-filter">
       <ul>
         <li>
-          <label>Ciudades</label>
-          <select>
-            <option>Lista Ciudades</option>
-          </select>
+          <Filter label={"Ciudades"} data={optionCities} />
         </li>
         <li>
-          <label>Temáticas</label>
-          <select>
-            <option>Lista temáticas</option>
-          </select>
+          <Filter label={"Temáticas"} data={optionThematics} />
         </li>
         <li>
           <label>Fecha</label>
