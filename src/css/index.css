@@ -10,9 +10,12 @@
 @import "./navmenu.css";
 @import "./nav-filter.css";
 @import "./profile.css";
-@import "./ratings.css";
+@import "./detailedHangout.css";
+@import "./hangout-cards.css";
+@import "./small-cards.css";
 @import "./theme.css";
 @import "./utils.css";
+@import "./YourHangouts.css";
 
 html {
   box-sizing: border-box;
