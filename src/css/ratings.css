@@ -1,0 +1,19 @@
+#principalDeQuedada {
+  margin-bottom: 3rem;
+}
+
+#listado-de-asistentes ul {
+  display: flex;
+  justify-content: center;
+}
+
+.asistente ul {
+  display: flex;
+  padding-left: 2rem;
+  padding-top: 3rem;
+}
+
+.asistente ul li {
+  flex-basis: 33%;
+  align-self: center;
+}

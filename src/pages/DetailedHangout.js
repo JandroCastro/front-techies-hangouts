@@ -1,12 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { AvatarContainer } from "../components/AvatarContainer";
+import { getOneHangout } from "../http/hangoutsService";
+import {
+  getAcceptedAttendance,
+  getPendingAttendance
+} from "../http/attendanceService";
 
 export function DetailedHangout() {
+  const id = "un numero que no sé de donde cojones se saca, bro";
+
+  const [hangout, setHangout] = useState({});
+  const [confirmedGuest, setConfirmedGuest] = useState([]);
+  const [pendingGuest, setPendingGuest] = useState([]);
+
+  useEffect(() => {
+    getOneHangout(id).then(response => setHangout(response.data));
+  }, [hangout]);
+
+  useEffect(() => {
+    getAcceptedAttendance(id).then(response =>
+      setConfirmedGuest(response.data)
+    );
+  }, [confirmedGuest]);
+
+  useEffect(() => {
+    getPendingAttendance(id).then(response => setPendingGuest(response.data));
+  }, [pendingGuest]);
+
   return (
     <React.Fragment>
-      <Header title="YOUR PROFILE" />
+      <Header title="The hangout" />
       <section id="principalDeQuedada">
         <h1 style={{ marginTop: 12 }}>Cañas y copas afterwork</h1>
         <ul>

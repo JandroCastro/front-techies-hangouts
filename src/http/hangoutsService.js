@@ -25,3 +25,22 @@ export function editOneHangout(id, hangoutData) {
 export function deleteOneHangout(id) {
   return axios.delete(`${process.env.REACT_APP_BACKEND_URL}/hangouts/${id}`);
 }
+/**
+ *
+ * Falta por establecer la url desde el frontend de este endpoint.
+ *
+ * Obtener quedadas en las que apareces como asistente, para listarlas
+ * en yourhangouts. JOIN ATTENDANCE-EVENTS where id_users? and request_status = accepted??????
+ * aunque ahi tambien me aparecen
+ * los eventos de los que eres organizador. Modifico la base de datos o filtro en el frontend?
+ */
+
+export function getHangoutsFiltered(id) {
+  return axios.delete(`${process.env.REACT_APP_BACKEND_URL}/hangouts/${id}`);
+}
+
+export function getOrganizedHangouts(userId) {
+  return axios.get(
+    `${process.env.REACT_APP_BACKEND_URL}/hangouts/organized/${userId}`
+  );
+}

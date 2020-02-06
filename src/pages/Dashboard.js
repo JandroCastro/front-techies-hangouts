@@ -5,24 +5,26 @@ import { NavFilter } from "../components/NavFilter";
 import { HangoutCards } from "../components/HangoutCards";
 import { Footer } from "../components/Footer";
 import { getAllCities, getAllThematics } from "../http/utilitiesService";
+import { getAllHangouts } from "../http/hangoutsService";
 
 export function Dashboard() {
   const [cities, setCities] = useState([]);
   const [thematics, setThematics] = useState([]);
+  const [hangouts, setHangouts] = useState([]);
 
   useEffect(() => {
     getAllCities().then(response => setCities(response.data));
-    console.log(cities);
   }, []);
 
   useEffect(() => {
     getAllThematics().then(response => setThematics(response.data));
-    console.log(thematics);
+  }, []);
+
+  useEffect(() => {
+    getAllHangouts().then(response => setHangouts(response.data));
   }, []);
 
   return (
-
-    
     <React.Fragment>
       <Header title="techies hangouts" />
       <NavMenu />
@@ -39,8 +41,6 @@ export function Dashboard() {
           <HangoutCards />
           <HangoutCards />
           <HangoutCards />
-
-
         </div>
       </main>
       <Footer />

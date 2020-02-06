@@ -1,15 +1,16 @@
 @import "./avatar-container.css";
 @import "./createHangout.css";
 @import "./createProfile.css";
+@import "./detailedHangout.css";
 @import "./footer.css";
 @import "./forms.css";
+@import "./hangout-cards.css";
 @import "./header.css";
 @import "./home.css";
 @import "./navmenu.css";
 @import "./nav-filter.css";
 @import "./profile.css";
-@import "./detailedHangout.css";
-@import "./hangout-cards.css";
+@import "./ratings.css";
 @import "./theme.css";
 @import "./utils.css";
 
@@ -34,7 +35,7 @@ body {
   font-family: var(--font-primary);
   background: var(--bright);
   color: var(--primary);
-  
+
   overflow: scroll;
   width: 100%;
   height: 100%;
