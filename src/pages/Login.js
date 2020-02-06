@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../context/auth-context";
 import { register as signUp } from "../http/userService";
@@ -71,6 +71,11 @@ export function Login() {
                   message:
                     "You should enter a password with at least 6 characters"
                 }
+
+
+
+
+                
               })}
               type="password"
               name="password"
