@@ -12,8 +12,12 @@
     "react-dom": "^16.12.0",
     "react-hook-form": "^4.8.2",
     "react-router-dom": "^5.1.2",
+<<<<<<< HEAD
+    "react-scripts": "^3.3.0"
+=======
     "react-scripts": "3.3.0",
     "react-spring": "^8.0.27"
+>>>>>>> d15ac3bbb3ff3e3276f0fc1257b23839dd364072
   },
   "scripts": {
     "start": "react-scripts start",
