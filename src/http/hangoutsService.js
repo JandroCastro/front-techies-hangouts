@@ -25,3 +25,10 @@ export function editOneHangout(id, hangoutData) {
 export function deleteOneHangout(id) {
   return axios.delete(`${process.env.REACT_APP_BACKEND_URL}/hangouts/${id}`);
 }
+/**
+ *
+ * Falta por establecer la url desde el frontend de este endpoint
+ */
+export function getHangoutsFiltered(id) {
+  return axios.delete(`${process.env.REACT_APP_BACKEND_URL}/hangouts/${id}`);
+}
