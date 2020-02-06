@@ -2,23 +2,29 @@
   display: flex;
 }
 
-#avatar img {
+#avatar img,
+.miniAvatar {
   margin: 0 auto;
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
-  height: 200px;
-  width: 200px;
 }
 
-
-span.span{
-color: black;
-display: flex;
-align-items: center;
-flex-direction: column;
-margin-top: 3rem;
-font-size: 24px;
-
+#avatar img {
+  height: 250px;
+  width: 250px;
 }
 
+.miniAvatar {
+  height: 100px;
+  width: 100px;
+}
+
+span.span {
+  color: black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 3rem;
+  font-size: 24px;
+}

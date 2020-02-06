@@ -10,6 +10,8 @@ import { Profile } from "./pages/Profile";
 import { DetailedHangout } from "./pages/DetailedHangout";
 import { CreateProfile } from "./pages/CreateProfile";
 import { YourHangouts } from "./pages/YourHangouts";
+import { Ratings } from "./pages/Ratings";
+import { Notifications } from "./pages/Notifications";
 
 function App() {
   return (
@@ -40,6 +42,12 @@ function App() {
             </Route>
             <Route path="/myhangouts">
               <YourHangouts />
+            </Route>
+            <Route path="/ratings">
+              <Ratings />
+            </Route>
+            <Route path="/notifications">
+              <Notifications />
             </Route>
           </Switch>
         </AuthProvider>

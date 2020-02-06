@@ -8,8 +8,6 @@ import {
   getPendingAttendance
 } from "../http/attendanceService";
 
-
-
 export function DetailedHangout() {
   const id = "un numero que no sé de donde cojones se saca, bro";
 
@@ -33,7 +31,7 @@ export function DetailedHangout() {
 
   return (
     <React.Fragment>
-      <Header title="YOUR PROFILE" />
+      <Header title="The hangout" />
       <section id="principalDeQuedada">
         <h1 style={{ marginTop: 12 }}>Cañas y copas afterwork</h1>
         <ul>

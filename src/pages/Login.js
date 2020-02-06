@@ -29,7 +29,7 @@ export function Login() {
       .then(response => {
         setIsAuthenticated(true);
         setCurrentUser(response.data);
-        history.push("/");
+        history.push("/home");
       })
       .catch(error => {
         setValue("password", "");
