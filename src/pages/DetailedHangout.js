@@ -1,11 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Footer } from "../components/Footer";
+import { getOneHangout } from "../http/hangoutsService";
+import {
+  getAcceptedAttendance,
+  getPendingAttendance
+} from "../http/attendanceService";
 
 export function DetailedHangout() {
+  const id = "un numero que no sé de donde cojones se saca, bro";
+
+  const [hangout, setHangout] = useState({});
+  const [confirmedGuest, setConfirmedGuest] = useState([]);
+  const [pendingGuest, setPendingGuest] = useState([]);
+
+  useEffect(() => {
+    getOneHangout(id).then(response => setHangout(response.data));
+  }, [hangout]);
+
+  useEffect(() => {
+    getAcceptedAttendance(id).then(response =>
+      setConfirmedGuest(response.data)
+    );
+  }, [confirmedGuest]);
+
+  useEffect(() => {
+    getPendingAttendance(id).then(response => setPendingGuest(response.data));
+  }, [pendingGuest]);
+
   return (
     <React.Fragment>
       <section id="principalDeQuedada">
-        <h1 style={{marginTop: 12}}>Nombre de la quedada</h1>
+        <h1 style={{ marginTop: 12 }}>Nombre de la quedada</h1>
         <ul>
           <li>Foto de la quedada</li>
           <li>Detalles del organizador</li>

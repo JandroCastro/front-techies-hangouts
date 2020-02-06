@@ -27,8 +27,14 @@ export function deleteOneHangout(id) {
 }
 /**
  *
- * Falta por establecer la url desde el frontend de este endpoint
+ * Falta por establecer la url desde el frontend de este endpoint,
+ * y otro endpoint en la que el id del usuario sea X, para que
+ * se puedan obtener las quedadas de las que eres organizador.
+ *
+ * Obtener quedadas en las que apareces como asistente, para listarlas
+ * en yourhangouts
  */
+
 export function getHangoutsFiltered(id) {
   return axios.delete(`${process.env.REACT_APP_BACKEND_URL}/hangouts/${id}`);
 }
