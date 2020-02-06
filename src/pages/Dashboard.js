@@ -14,15 +14,15 @@ export function Dashboard() {
 
   useEffect(() => {
     getAllCities().then(response => setCities(response.data));
-  }, [cities]);
+  }, []);
 
   useEffect(() => {
     getAllThematics().then(response => setThematics(response.data));
-  }, [thematics]);
+  }, []);
 
   useEffect(() => {
     getAllHangouts().then(response => setHangouts(response.data));
-  }, [hangouts]);
+  }, []);
 
   return (
     <React.Fragment>
