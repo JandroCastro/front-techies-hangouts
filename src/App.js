@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { AuthProvider } from "./context/auth-context";
 //import { PrivateRoute } from "./components/PrivateRoute";
 import { Login } from "./pages/Login";
-import { Dashboard } from "./pages/Dashboard";
+import { Principal } from "./pages/Principal";
 import { Home } from "./pages/Home";
 import { CreateHangout } from "./pages/CreateHangout";
 import { Profile } from "./pages/Profile";
@@ -25,8 +25,8 @@ function App() {
             <Route path="/login">
               <Login />
             </Route>
-            <Route path="/home">
-              <Dashboard />
+            <Route path="/principal">
+              <Principal />
             </Route>
             <Route path="/create/hangout">
               <CreateHangout />

@@ -7,7 +7,7 @@ import { Footer } from "../components/Footer";
 import { getAllCities, getAllThematics } from "../http/utilitiesService";
 import { getAllHangouts } from "../http/hangoutsService";
 
-export function Dashboard() {
+export function Principal() {
   const [cities, setCities] = useState([]);
   const [thematics, setThematics] = useState([]);
   const [hangouts, setHangouts] = useState([]);

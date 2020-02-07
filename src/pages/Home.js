@@ -1,10 +1,8 @@
 import React from "react";
 import { Footer } from "../components/Footer";
 import { HangoutCards } from "../components/HangoutCards";
-import { useHistory } from "react-router-dom";
 
 export function Home() {
-  const history = useHistory();
   return (
     <React.Fragment>
       <div className="principal">
@@ -15,12 +13,7 @@ export function Home() {
             <h1>Forma parte de nuestra comunidad</h1>
           </div>
           <div>
-            <button
-              onClick={(window.location.href = "/login")}
-              className="boton"
-            >
-              enter
-            </button>
+            <button className="boton">enter</button>
           </div>
         </section>
         <section className="medium">

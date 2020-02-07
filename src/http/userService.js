@@ -22,10 +22,6 @@ axios.interceptors.request.use(
 
 axios.interceptors.response.use(
   function(response) {
-    // Si la respuesta trae un token entonces lo almaceno
-    // Mi aplicación supone que mi backend envia un objeto con { token, user } siempre
-    // que el usuario se identifica (Login, Registro)
-    // En otra aplicación podría ser diferente
     if (response.data.token) {
       localStorage.setItem("currentUser", JSON.stringify(response.data));
       token = response.data.token;
@@ -54,8 +50,5 @@ export function deleteUser(userData, id) {
 }
 
 export function login(userData) {
-  // Parametro 2 - BODY de la request
-  // En vuestro caso teneis que enviar el BODY en lugar de este 3 parametro con
-  // la propiedad auth
   return axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth`, userData);
 }

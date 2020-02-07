@@ -5,7 +5,7 @@ export function NavMenu() {
     <nav className="navMenu">
       <ul>
         <li>
-          <a href="home">
+          <a href="/principal">
             <label>
               Dashboard
               <img
