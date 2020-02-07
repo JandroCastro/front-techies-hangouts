@@ -16,9 +16,9 @@ export function CreateProfile() {
 
   return (
     <React.Fragment>
-      <h1 className="h1">crea tu perfil</h1>
-      <div className="profile">
-        <form className="crearperfil" action="#">
+      <h1>crea tu perfil</h1>
+      <div>
+        <form className="hangout" action="#">
           <label className="label">Nombre y apellidos</label>
           <input type="text" placeholder=" Introduce Nombre y Apellidos" />
           <label className="label">Edad</label>
@@ -29,14 +29,14 @@ export function CreateProfile() {
           <input type="text" placeholder="Introduce tu puesto" />
           <label className="label">Descripción</label>
           <textarea
-            className="textarea"
+            id="textarea"
             type="text"
             placeholder="introduce una breve descripción sobre ti"
           />
-        </form>
         <button className="boton" type="button">
           CREAR
         </button>
+        </form>
       </div>
 
       <Footer />

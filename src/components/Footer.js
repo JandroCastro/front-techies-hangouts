@@ -18,7 +18,7 @@ export function Footer() {
         </h2>
       </div>
       <div className="logos">
-        <ul>
+        <ul id="ulfooter">
           <li>
             <a href="https://www.linkedin.com/">
               <img src={logoLinkedin} alt="logo linkedin" />
