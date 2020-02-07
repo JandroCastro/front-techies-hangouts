@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../context/auth-context";
 import { register as signUp } from "../http/userService";
@@ -38,7 +38,7 @@ export function Login() {
   };
 
   return (
-    <React.Fragment>
+    <main id="login-page">
       <h2 className="profileTitle">COME TO HANG OUT WITH US</h2>
       <div
         className={`container ${classContainerSide === true &&
@@ -71,11 +71,6 @@ export function Login() {
                   message:
                     "You should enter a password with at least 6 characters"
                 }
-
-
-
-
-                
               })}
               type="password"
               name="password"
@@ -125,6 +120,6 @@ export function Login() {
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </main>
   );
 }

@@ -34,9 +34,10 @@ export function deleteOneHangout(id) {
  * aunque ahi tambien me aparecen
  * los eventos de los que eres organizador. Modifico la base de datos o filtro en el frontend?
  */
-
-export function getHangoutsFiltered(id) {
-  return axios.delete(`${process.env.REACT_APP_BACKEND_URL}/hangouts/${id}`);
+export function getHangoutsFiltered(cityId, thematicId) {
+  return axios.get(
+    `${process.env.REACT_APP_BACKEND_URL}/hangouts/filter?city_id${cityId}&thematic_id=${thematicId}`
+  );
 }
 
 export function getOrganizedHangouts(userId) {

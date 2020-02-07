@@ -8,9 +8,7 @@ import {
   getPendingAttendance
 } from "../http/attendanceService";
 
-export function DetailedHangout() {
-  const id = "un numero que no sé de donde cojones se saca, bro";
-
+export function DetailedHangout(id) {
   const [hangout, setHangout] = useState({});
   const [confirmedGuest, setConfirmedGuest] = useState([]);
   const [pendingGuest, setPendingGuest] = useState([]);

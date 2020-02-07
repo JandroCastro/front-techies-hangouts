@@ -16,11 +16,11 @@ export function CreateProfile() {
 
   return (
     <React.Fragment>
-      <h1 className="h1" style={{marginTop: 12}}>crea tu perfil</h1>
-     <div className="profile">
+      <h1 className="h1">crea tu perfil</h1>
+      <div className="profile">
         <form className="crearperfil" action="#">
-        <label className="label">Nombre y apellidos</label>
-          <input  type="text" placeholder=" Introduce Nombre y Apellidos"/>
+          <label className="label">Nombre y apellidos</label>
+          <input type="text" placeholder=" Introduce Nombre y Apellidos" />
           <label className="label">Edad</label>
           <input type="text" placeholder=" Introcude tu Edad" />
           <label className="label">Categoría Profesional</label>
@@ -40,6 +40,6 @@ export function CreateProfile() {
       </div>
 
       <Footer />
-      </React.Fragment>
+    </React.Fragment>
   );
 }

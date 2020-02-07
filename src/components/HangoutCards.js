@@ -7,8 +7,7 @@ const calc = (x, y) => [
   (x - window.innerWidth / 2) / 10,
   1.1
 ];
-const trans = (x, y, s) =>
-  `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
+const trans = (x, y, s) => `scale(${s})`;
 
 export function HangoutCards() {
   const [props, set] = useSpring(() => ({

@@ -21,7 +21,7 @@ export function Profile() {
   }, [avatar]);
 
   return (
-    <React.Fragment>
+    <main id="profile">
       <Header title="YOUR PROFILE" />
       <NavMenu />
       <AvatarContainer />
@@ -34,6 +34,6 @@ export function Profile() {
         </div>
       </main>
       <Footer />
-    </React.Fragment>
+    </main>
   );
 }

@@ -14,13 +14,7 @@ export function Principal() {
 
   useEffect(() => {
     getAllCities().then(response => setCities(response.data));
-  }, []);
-
-  useEffect(() => {
     getAllThematics().then(response => setThematics(response.data));
-  }, []);
-
-  useEffect(() => {
     getAllHangouts().then(response => setHangouts(response.data));
   }, []);
 
@@ -31,6 +25,7 @@ export function Principal() {
       <main>
         <NavFilter optionCities={cities} optionThematics={thematics} />
         <div id="hangoutCards">
+          {/* {hangouts.map(hangout => <HangoutCards hangout={hangout}) />)} */}
           <HangoutCards />
           <HangoutCards />
           <HangoutCards />
