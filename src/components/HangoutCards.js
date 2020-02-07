@@ -9,7 +9,7 @@ const calc = (x, y) => [
 ];
 const trans = (x, y, s) => `scale(${s})`;
 
-export function HangoutCards() {
+export function HangoutCards(prop) {
   const [props, set] = useSpring(() => ({
     xys: [0, 0, 1],
     config: { mass: 2.5, tension: 100, friction: 50 }
