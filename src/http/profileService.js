@@ -4,8 +4,11 @@ export function getProfile(id) {
   return axios.get(`${process.env.REACT_APP_BACKEND_URL}/profiles/${id}`);
 }
 
-export function updateProfile(id) {
-  return axios.put(`${process.env.REACT_APP_BACKEND_URL}/profiles/${id}`);
+export function updateProfile(id, profileData) {
+  return axios.put(
+    `${process.env.REACT_APP_BACKEND_URL}/profiles/${id}`,
+    profileData
+  );
 }
 
 /**

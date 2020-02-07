@@ -1,15 +1,20 @@
+.yourHangouts h1 {
+  text-align: center;
+  margin: 1rem;
+  border-bottom: blue 1px solid;
+  font-size: 40px;
+
+}
 .yourHangouts {
   display: flex;
   flex-direction: column;
 }
 
-.yourHangouts h1 {
-  text-align: center;
-  margin-bottom: 3rem;
-}
 
 .yourHangouts section h2 {
   text-align: center;
+  color: var(--dark);
+  
 }
 
 .yourHangouts ul {

@@ -29,7 +29,7 @@
   margin: 15px 0;
 }
 
-#login-page ,button{
+ main #login-page ,button{
   border-radius: 20px;
   border: 1px solid #ff4b2b;
   background-color: #ff4b2b;
@@ -41,6 +41,8 @@
   text-transform: uppercase;
   transition: transform 80ms ease-in;
   margin-top: 3rem;
+  height: 40px;
+  margin-right: 1rem;
 }
 
 
@@ -68,11 +70,12 @@
   text-align: center;
 }
 
-#login-page input, .label {
+#login-page input {
   border: none;
   padding: 12px 15px;
   margin: 8px 0;
-  text-transform: uppercase;
+  background-color: rgb(232, 240, 254) !important
+  
 }
 
 #login-page .container {
@@ -89,7 +92,8 @@
 
 .hangout input{
   border: var(--dark)2px solid;
-  height:30px;
+  height:40px;
+ 
 }
 
 #login-page .form-container {
@@ -121,6 +125,7 @@
   opacity: 1;
   z-index: 5;
   animation: show 0.6s;
+  
 }
 
 @keyframes show {
@@ -203,3 +208,4 @@
 #login-page .container.right-panel-active .overlay-right {
   transform: translateX(20%);
 }
+

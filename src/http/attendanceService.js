@@ -29,3 +29,7 @@ export function getPendingAttendance(hangoutId) {
     `${process.env.REACT_APP_BACKEND_URL}/attendance/pending/${hangoutId}`
   );
 }
+
+export function getAllUserAttendance(userId) {
+  return axios.get(`${process.env.REACT_APP_BACKEND_URL}/attendance/${userId}`);
+}
