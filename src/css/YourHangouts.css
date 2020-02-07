@@ -1,19 +1,24 @@
 h1 {
   text-align: center;
 }
-main {
+.yourHangouts {
   display: flex;
   flex-direction: column;
 }
 
-ul {
+.yourHangouts section h2 {
+  text-align: center;
+}
+
+.yourHangouts ul {
   display: flex;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  overflow-x: hidden;
   padding: 3rem;
   margin: 1rem;
 }
-li {
+.yourHangouts li {
   padding: 0;
 }
 
