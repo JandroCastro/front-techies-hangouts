@@ -10,6 +10,7 @@
   flex-direction: column;
 }
 
+
 .yourHangouts section h2 {
   text-align: center;
   color: var(--dark);
@@ -17,6 +18,7 @@
 }
 
 .yourHangouts ul {
+  height: 40vh;
   display: flex;
   flex-wrap: wrap;
   overflow-y: scroll;

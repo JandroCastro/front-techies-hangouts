@@ -5,20 +5,20 @@ import { AvatarContainer } from "../components/AvatarContainer";
 import { ProfileInfo } from "../components/ProfileInfo";
 import { Footer } from "../components/Footer";
 import { getProfile, getAvatar } from "../http/profileService";
+import { getUserRatings } from "../http/ratingsService";
 
 export function Profile() {
-  const id = "un numero que no sé de donde cojones se saca, bro";
+  const { userId } = JSON.parse(localStorage.getItem("currentUser"));
 
   const [profile, setProfile] = useState({});
   const [avatar, setAvatar] = useState("");
+  const [ratings, setRating] = useState([]);
 
   useEffect(() => {
-    getProfile(id).then(response => setProfile(response.data));
-  }, [profile]);
-
-  useEffect(() => {
-    getAvatar(id).then(response => setAvatar(response.data));
-  }, [avatar]);
+    getProfile(userId).then(response => setProfile(response.data));
+    getAvatar(userId).then(response => setAvatar(response.data));
+    getUserRatings(userId).then(response => setRating(response.data));
+  }, []);
 
   return (
     <main id="profile">
