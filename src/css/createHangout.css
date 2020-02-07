@@ -15,20 +15,11 @@ padding: 1rem;
   padding: 2rem;
   flex-basis: 100%;
 }
-.textarea {
+#textarea {
   width: 600px;
   height: 130px;
-  border: 1px solid black;
+  border: 2px solid black;
   margin-top: 1rem;
-}
-.boton {
-  margin: auto;
-  
-}
-label.labeldescripcion {
-  margin-top: 3rem;
-  font-weight: bold;
-  color: var(--ko);
 }
 
 .hangoutcreate {

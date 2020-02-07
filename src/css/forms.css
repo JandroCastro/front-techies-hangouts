@@ -29,7 +29,7 @@
   margin: 15px 0;
 }
 
-#login-page button {
+#login-page ,button{
   border-radius: 20px;
   border: 1px solid #ff4b2b;
   background-color: #ff4b2b;
@@ -40,7 +40,9 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
+  margin-top: 3rem;
 }
+
 
 #login-page button:active {
   transform: scale(0.95);
@@ -55,7 +57,7 @@
   border-color: #ffffff;
 }
 
-#login-page form {
+#login-page form, .hangout {
   background-color: #ffffff;
   display: flex;
   align-items: center;
@@ -66,11 +68,11 @@
   text-align: center;
 }
 
-#login-page input {
-  background-color: #eee;
+#login-page input, .label {
   border: none;
   padding: 12px 15px;
   margin: 8px 0;
+  text-transform: uppercase;
 }
 
 #login-page .container {
@@ -83,6 +85,11 @@
   width: 768px;
   max-width: 100%;
   min-height: 480px;
+}
+
+.hangout input{
+  border: var(--dark)2px solid;
+  height:30px;
 }
 
 #login-page .form-container {

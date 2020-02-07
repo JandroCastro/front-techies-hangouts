@@ -18,10 +18,7 @@ div.logos {
   display: inline-block;
 }
 
-.logos ul {
-  display: flex;
-  width: auto;
-}
+
 
 li {
   padding-top: 1rem;
@@ -35,5 +32,5 @@ ul.email {
   flex-direction: column;
   margin-right: 2rem;
   font-size: 20px;
-  margin: 60px;
+ 
 }
