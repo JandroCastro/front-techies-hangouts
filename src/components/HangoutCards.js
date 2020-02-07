@@ -12,7 +12,7 @@ const trans = (x, y, s) => `scale(${s})`;
 export function HangoutCards() {
   const [props, set] = useSpring(() => ({
     xys: [0, 0, 1],
-    config: { mass: 2.5, tension: 100, friction: 50 }
+    config: { mass: 5, tension: 250, friction: 30 }
   }));
   return (
     <animated.div

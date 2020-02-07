@@ -6,8 +6,8 @@ export function YourHangouts() {
   return (
     <React.Fragment>
       <Header title="YOUR PROFILE" />
-      <h1 style={{ marginTop: 12 }}>Tus Eventos</h1>
       <main className="yourHangouts">
+        <h1 style={{ marginTop: 12 }}>Tus Eventos</h1>
         <section id="organizadas">
           <h2>Quedadas de las que eres organizador</h2>
           <ul>
@@ -42,6 +42,36 @@ export function YourHangouts() {
         <section id="pasadas">
           <h2>Quedadas a las que has asistido</h2>
           <ul>
+            <li>
+              <SmallCards />
+            </li>
+            <li>
+              <SmallCards />
+            </li>
+            <li>
+              <SmallCards />
+            </li>
+            <li>
+              <SmallCards />
+            </li>
+            <li>
+              <SmallCards />
+            </li>
+            <li>
+              <SmallCards />
+            </li>
+            <li>
+              <SmallCards />
+            </li>
+            <li>
+              <SmallCards />
+            </li>
+            <li>
+              <SmallCards />
+            </li>
+            <li>
+              <SmallCards />
+            </li>
             <li>
               <SmallCards />
             </li>
