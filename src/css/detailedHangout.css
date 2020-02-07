@@ -1,66 +1,41 @@
-#principalDeQuedada {
+.detailedHangout {
   display: flex;
   flex-direction: column;
-  height: 66vh;
-}
-
-#principalDeQuedada h1 {
-  margin: 1rem;
-  padding: 1rem;
   text-align: center;
 }
 
+.detailedHangout #portada {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#avatar {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
 #fotoDeQuedada {
   width: 50%;
   background-image: url("../img/shawn-ang-FRuj-ST3wZE-unsplash.jpg");
   background-size: cover;
 }
+#portada li:last-child {
+  width: 100%;
+  padding: 0;
+}
+button#anotarse {
+  width: 50%;
+  margin-bottom: 3rem;
+}
 
-#principalDeQuedada > ul {
+div#detallesAsistentes {
+  margin-top: 3rem;
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
 }
 
-#avatar {
-  display: flex;
-  flex-direction: column;
-}
-
-#anotarse {
-  margin: 2rem 20rem 0 20rem;
-}
-
-#editar {
-  margin: 1.5rem 0 1.5rem 0;
-}
-
-#info {
-  display: flex;
-  flex-direction: row;
-  height: 33vh;
-  padding: 0 4rem 0 4rem;
-}
-
-#datosQuedada {
-  width: 50%;
-  margin: 1rem;
-}
-
-#detallesAsistentes {
-  width: 50%;
-  margin: 1rem;
-}
-
-#pendientes {
-  margin-top: 1rem;
-}
-
-#confirmados li {
-  display: flex;
-  flex-direction: row;
-}
-#pendientes > li {
+#confirmados ul,
+#pendientes ul {
   display: flex;
   flex-direction: row;
 }
