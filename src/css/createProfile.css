@@ -4,27 +4,25 @@
 
 .label {
   font-weight: bold;
-  padding: 1rem;
-  color: blue;
+padding: 1rem;
+  color:blue
 }
-.crearperfil input {
+.hangout input {
   width: 600px;
   align-items: center;
 }
-.crearperfil {
+.hangout {
   padding: 2rem;
   flex-basis: 100%;
 }
-.textarea {
+#textarea {
   width: 600px;
   height: 130px;
-  border: 1px solid black;
+  border: 2px solid black;
   margin-top: 1rem;
 }
-.boton {
-  margin: auto;
-}
-.profile {
+
+.hangoutcreate {
   display: flex;
   flex-wrap: wrap;
 }

@@ -4,8 +4,8 @@ import { Footer } from "../components/Footer";
 export function CreateHangout() {
   return (
     <React.Fragment>
-      <h1 className="h1" style={{marginTop: 12}}>Crea tu Evento</h1>
-      <div className="hangoutcreate">
+      <h1>Crea tu Evento</h1>
+      <div>
         <form className="hangout" action="#">
           <label className="label">Título</label>
           <input type="text" placeholder="introduce un título" />
@@ -15,10 +15,10 @@ export function CreateHangout() {
           <input type="text" placeholder="introduce un local" />
           <label className="label">Máxima Capacidad </label>
           <input type="text" placeholder="introduce un número" />
-          <label className="labeldescripcion">Descripción</label>
-          <textarea className="textarea" type="text" placeholder="introduce una breve descripción sobre el evento" />
+          <label className="label">Descripción</label>
+          <textarea id="textarea"  type="text" placeholder="introduce una breve descripción sobre el evento" />
+        <button id="login-page" type="button">CREAR</button>
         </form>
-        <button className="boton" type="button">CREAR</button>
       </div>
 
       <Footer />
