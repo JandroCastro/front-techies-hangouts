@@ -1,5 +1,9 @@
-h1 {
+.yourHangouts h1 {
   text-align: center;
+  margin: 1rem;
+  border-bottom: blue 1px solid;
+  font-size: 40px;
+
 }
 .yourHangouts {
   display: flex;
@@ -8,6 +12,8 @@ h1 {
 
 .yourHangouts section h2 {
   text-align: center;
+  color: var(--dark);
+  
 }
 
 .yourHangouts ul {

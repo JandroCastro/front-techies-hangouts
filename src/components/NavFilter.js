@@ -18,7 +18,7 @@ export function NavFilter({ optionCities, optionThematics }) {
           <Datepicker />
         </li>
       </ul>
-      <button>Filtrar</button>
+      <button id="login-page">Filtrar</button>
     </nav>
   );
 }
