@@ -1,0 +1,22 @@
+h1 {
+  text-align: center;
+}
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+ul {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 3rem;
+  margin: 1rem;
+}
+li {
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

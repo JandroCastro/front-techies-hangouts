@@ -1,25 +1,37 @@
-
+.h1 {
+  text-align: center;
+}
 
 .label {
   font-weight: bold;
-  text-align: left;
+padding: 1rem;
+  color:blue
+}
+.hangout input {
+  width: 600px;
+  align-items: center;
+}
+.hangout {
+  padding: 2rem;
+  flex-basis: 100%;
+}
+.textarea {
+  width: 600px;
+  height: 130px;
+  border: 1px solid black;
+  margin-top: 1rem;
+}
+.boton {
+  margin: auto;
+  
+}
+label.labeldescripcion {
+  margin-top: 3rem;
+  font-weight: bold;
   color: var(--ko);
+}
 
-}
-.event input{
-   width: 400px;
-}
-.event{
-    display: flex;
-    align-items: flex-start;
-    padding:2rem ;
-}
-.textarea{
-    width: 600px;
-    height: 130px;
-    border: 1px solid black;
-    
-}
-.boton{
-  margin-left: 1.5rem;
+.hangoutcreate {
+  display: flex;
+  flex-wrap: wrap;
 }
