@@ -5,8 +5,8 @@ export function Filter({ data, label }) {
     <React.Fragment>
       <label>{label}</label>
       <select>
-        {data.map(city => {
-          return <option>{city.name}</option>;
+        {data.map(d => {
+          return <option>{d.name}</option>;
         })}
         <option value="value1">----------------------</option>
       </select>

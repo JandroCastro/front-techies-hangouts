@@ -5,6 +5,8 @@ import { AsistenteQuedada } from "../components/AsistenteQuedada";
 import { Footer } from "../components/Footer";
 import { getOneHangout } from "../http/hangoutsService";
 
+
+
 export function Ratings() {
   // const hangoutId = window.location.pathname;
 
