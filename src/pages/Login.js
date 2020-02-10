@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 
 //como comprobar la password si nos viene del back codificada
 
-
 export function Login() {
   const {
     handleSubmit,
@@ -24,31 +23,22 @@ export function Login() {
   const history = useHistory();
 
   const [classContainerSide, setClassContainerSide] = useState(true);
-  const [differentPasswords, setDifferentPasswords] = useState(false);
 
   const { setIsAuthenticated, setCurrentUser } = useAuth();
 
   const handleLogin = formData => {
-    return signUp(formData)
+    console.log(formData.email, formData.password)
+    return signUp(formData.email, formData.password)
       .then(response => {
         setIsAuthenticated(true);
         setCurrentUser(response.data);
-        history.push("/principal");
+        history.push("/create/profile");
       })
       .catch(error => {
         setValue("password", "");
-        setError("password1", "credentials", "The credentials are invalid");
+        setError("password", "credentials", "The credentials are invalid");
       });
   };
-
-  function comparePasswords(password1, password2) {
-    if (password1 !== password2) {
-
-    return  setDifferentPasswords(true);
-    } else {
-      return handleSubmit(handleLogin);
-    }
-  }
 
   return (
     <main id="login-page">
@@ -59,15 +49,13 @@ export function Login() {
         id="container"
       >
         <div className="form-container sign-up-container">
-          <form
-            onSubmit={() =>
-              comparePasswords(
-                document.password1.value,
-                document.password2.value
-              )
-            }
-            action="#"
-          >
+        <form onSubmit={handleSubmit(handleLogin)} noValidate>
+        <div
+            className={`form-control ${
+              errors.email ? 'ko' : formState.touched.email && 'ok'
+            }`}
+          />
+
             <h1>Create Account</h1>
 
             <span>or use your email for registration</span>
@@ -87,6 +75,12 @@ export function Login() {
             {errors.email && (
               <span className="errorMessage">{errors.email.message}</span>
             )}
+             <div
+            className={`form-control ${
+              errors.password ? 'ko' : formState.touched.password && 'ok'
+            }`}
+          />
+
 
             <input
               ref={register({
@@ -98,19 +92,27 @@ export function Login() {
                 }
               })}
               type="password"
-              name="password1"
+              name="password"
               placeholder="Password"
             />
             {errors.password && (
               <span className="errorMessage">{errors.password.message}</span>
             )}
             <input
+              ref={register({
+                validate: value => value === watch("password")
+              })}
               type="password"
-              name="password2"
+              name="confirmPassword"
               placeholder="Repeat your password"
             />
-            {differentPasswords && <span>passwords are not equal</span>}
-            <button type="submit">Sign Up</button>
+            {errors.confirmPassword && (
+              <span className="error-message">
+                The password and the confirmation should match
+              </span>
+            )}
+
+            <button  type="submit">Sign Up</button>
           </form>
         </div>
         <div className="form-container sign-in-container">

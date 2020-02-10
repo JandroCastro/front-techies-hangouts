@@ -26,12 +26,13 @@
 #profile span {
   text-align: justify;
 }
-#profile #enlacesRRSS {
-  list-style: none;
-  align-items: flex-start;
-  flex-direction: row;
-  font-size: 20px;
+div#enlacesRRSS {
+  font-size: 30px;
   display: flex;
+  list-style: none;
+}
+#enlacesRRSS img {
+  height: 60px;
 }
 #profile #enlacesRRSS li {
   margin: 3rem;

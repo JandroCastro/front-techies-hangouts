@@ -30,7 +30,7 @@ export function Profile() {
           <ProfileInfo />
         </div>
         <div>
-          <button>Edit profile</button>
+          <button  onClick={()=> window.location.href="/create/profile" }>Edit profile</button>
         </div>
       </main>
       <Footer />
