@@ -20,7 +20,7 @@ export function Ratings() {
     <React.Fragment>
       <Header />
       <section id="principalDeQuedada">
-        <h1 style={{ marginTop: 12 }}>Cañas ysetAvatar copas afterwork</h1>
+        <h1>Cañas ysetAvatar copas afterwork</h1>
         <ul>
           <li id="fotoDeQuedada"></li>
           <li id="avatar">

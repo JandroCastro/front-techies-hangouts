@@ -21,6 +21,7 @@ export function Login() {
   const history = useHistory();
 
   const [classContainerSide, setClassContainerSide] = useState(true);
+  const [differentPasswords, setDifferentPasswords] = useState(false);
 
   const { setIsAuthenticated, setCurrentUser } = useAuth();
 
@@ -29,13 +30,22 @@ export function Login() {
       .then(response => {
         setIsAuthenticated(true);
         setCurrentUser(response.data);
-        history.push("/home");
+        history.push("/principal");
       })
       .catch(error => {
         setValue("password", "");
-        setError("password", "credentials", "The credentials are invalid");
+        setError("password1", "credentials", "The credentials are invalid");
       });
   };
+
+  function comparePasswords(password1, password2) {
+    if (password1 !== password2) {
+
+    return  setDifferentPasswords(true);
+    } else {
+      return handleSubmit(handleLogin);
+    }
+  }
 
   return (
     <main id="login-page">
@@ -46,7 +56,15 @@ export function Login() {
         id="container"
       >
         <div className="form-container sign-up-container">
-          <form onSubmit={handleSubmit(handleLogin)} action="#">
+          <form
+            onSubmit={() =>
+              comparePasswords(
+                document.password1.value,
+                document.password2.value
+              )
+            }
+            action="#"
+          >
             <h1>Create Account</h1>
 
             <span>or use your email for registration</span>
@@ -63,6 +81,10 @@ export function Login() {
               name="email"
               placeholder="Email paentro"
             />
+            {errors.email && (
+              <span className="errorMessage">{errors.email.message}</span>
+            )}
+
             <input
               ref={register({
                 required: "The password is mandatory",
@@ -73,10 +95,18 @@ export function Login() {
                 }
               })}
               type="password"
-              name="password"
+              name="password1"
               placeholder="Password"
             />
-            <input type="password" placeholder="Repeat your password" />
+            {errors.password && (
+              <span className="errorMessage">{errors.password.message}</span>
+            )}
+            <input
+              type="password"
+              name="password2"
+              placeholder="Repeat your password"
+            />
+            {differentPasswords && <span>passwords are not equal</span>}
             <button type="submit">Sign Up</button>
           </form>
         </div>
