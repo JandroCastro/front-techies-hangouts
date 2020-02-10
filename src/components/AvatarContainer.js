@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getAvatar } from "../http/profileService";
+import { Stars } from "./Stars";
 
 export function AvatarContainer(user) {
   const [avatar, setAvatar] = useState("");
@@ -16,7 +17,9 @@ export function AvatarContainer(user) {
           src="https://static2.abc.es/media/play/2018/08/22/homer-simpson-kO2--620x349@abc.JPG" //avatar h2 user.name
         />
       </div>
-      <span className="span">Estrellitas</span>
+      <span className="span">
+        <Stars />
+      </span>
       <div id="name">
         <h2>El de las bicis</h2>
       </div>
