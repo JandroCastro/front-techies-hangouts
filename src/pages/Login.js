@@ -4,6 +4,9 @@ import { useAuth } from "../context/auth-context";
 import { register as signUp } from "../http/userService";
 import { useForm } from "react-hook-form";
 
+//como comprobar la password si nos viene del back codificada
+
+
 export function Login() {
   const {
     handleSubmit,
