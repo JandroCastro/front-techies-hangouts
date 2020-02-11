@@ -4,6 +4,8 @@ import { useAuth } from "../context/auth-context";
 import { register as signUp } from "../http/userService";
 import { useForm } from "react-hook-form";
 
+//como comprobar la password si nos viene del back codificada
+
 export function Login() {
   const {
     handleSubmit,
@@ -25,11 +27,12 @@ export function Login() {
   const { setIsAuthenticated, setCurrentUser } = useAuth();
 
   const handleLogin = formData => {
-    return signUp(formData)
+    console.log(formData.email, formData.password)
+    return signUp(formData.email, formData.password)
       .then(response => {
         setIsAuthenticated(true);
         setCurrentUser(response.data);
-        history.push("/home");
+        history.push("/create/profile");
       })
       .catch(error => {
         setValue("password", "");
@@ -46,7 +49,13 @@ export function Login() {
         id="container"
       >
         <div className="form-container sign-up-container">
-          <form onSubmit={handleSubmit(handleLogin)} action="#">
+        <form onSubmit={handleSubmit(handleLogin)} noValidate>
+        <div
+            className={`form-control ${
+              errors.email ? 'ko' : formState.touched.email && 'ok'
+            }`}
+          />
+
             <h1>Create Account</h1>
 
             <span>or use your email for registration</span>
@@ -63,6 +72,16 @@ export function Login() {
               name="email"
               placeholder="Email paentro"
             />
+            {errors.email && (
+              <span className="errorMessage">{errors.email.message}</span>
+            )}
+             <div
+            className={`form-control ${
+              errors.password ? 'ko' : formState.touched.password && 'ok'
+            }`}
+          />
+
+
             <input
               ref={register({
                 required: "The password is mandatory",
@@ -76,8 +95,24 @@ export function Login() {
               name="password"
               placeholder="Password"
             />
-            <input type="password" placeholder="Repeat your password" />
-            <button type="submit">Sign Up</button>
+            {errors.password && (
+              <span className="errorMessage">{errors.password.message}</span>
+            )}
+            <input
+              ref={register({
+                validate: value => value === watch("password")
+              })}
+              type="password"
+              name="confirmPassword"
+              placeholder="Repeat your password"
+            />
+            {errors.confirmPassword && (
+              <span className="error-message">
+                The password and the confirmation should match
+              </span>
+            )}
+
+            <button  type="submit">Sign Up</button>
           </form>
         </div>
         <div className="form-container sign-in-container">

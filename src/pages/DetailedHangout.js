@@ -54,7 +54,7 @@ export function DetailedHangout(id) {
               <li>Descripción</li>
               <li>Mapa</li>
               <li>
-                <button id="editar">editar quedada</button>
+                <button onClick={()=> window.location.href="/create/hangout"} id="editar">editar quedada</button>
               </li>
             </ul>
           </div>
