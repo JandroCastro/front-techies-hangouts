@@ -1,6 +1,7 @@
 .nav-filter {
   display: flex;
   justify-content: space-between;
+  
 }
 
 .nav-filter ul {

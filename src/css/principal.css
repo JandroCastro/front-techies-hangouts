@@ -1,0 +1,29 @@
+#principal {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  grid-template-rows: 130px 120px 1fr 430px;
+  grid-template-areas:
+    "header header"
+    "filter filter"
+    "nav main"
+    "footer footer";
+}
+#header {
+  grid-area: header;
+}
+.barra {
+  grid-area: nav;
+}
+
+#hangoutCards {
+  grid-area: main;
+  justify-self: center;
+}
+
+.nav-filter{
+    grid-area: filter;
+}
+
+.footer{
+    grid-area: footer;
+}
