@@ -16,6 +16,8 @@
 @import "./theme.css";
 @import "./utils.css";
 @import "./YourHangouts.css";
+@import "./barraLateral.css";
+@import "./principal.css";
 
 
 html {
@@ -126,4 +128,3 @@ label.MuiRating-label{
   
 }
 
- 

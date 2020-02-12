@@ -27,7 +27,7 @@ export function Login() {
   const { setIsAuthenticated, setCurrentUser } = useAuth();
 
   const handleLogin = formData => {
-    console.log(formData.email, formData.password)
+    console.log(formData.email, formData.password);
     return signUp(formData.email, formData.password)
       .then(response => {
         setIsAuthenticated(true);
@@ -49,55 +49,64 @@ export function Login() {
         id="container"
       >
         <div className="form-container sign-up-container">
-        <form onSubmit={handleSubmit(handleLogin)} noValidate>
-        <div
-            className={`form-control ${
-              errors.email ? 'ko' : formState.touched.email && 'ok'
-            }`}
-          />
-
+          <form
+            onSubmit={handleSubmit(handleLogin)}
+            
+            
+          >
             <h1>Create Account</h1>
-
             <span>or use your email for registration</span>
+            <div
+              className={`form-control ${
+                errors.email ? "ko" : formState.touched.email && "ok"
+              }`}
+            >
+              <input
+                ref={register({
+                  required: "The email is mandatory",
+                  pattern: {
+                    value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                    message: "The email is not valid"
+                  }
+                })}
+                type="email"
+                name="email"
+                placeholder="Email paentro"
+                
+              ></input>
+              {errors.email && (
+                <span className="errorMessage">{errors.email.message}</span>
+              )}
+            </div>
 
-            <input
-              ref={register({
-                required: "The email is mandatory",
-                pattern: {
-                  value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                  message: "The email is not valid"
-                }
-              })}
-              type="email"
-              name="email"
-              placeholder="Email paentro"
-            />
-            {errors.email && (
-              <span className="errorMessage">{errors.email.message}</span>
-            )}
-             <div
+            <div
+              className={`form-control ${
+                errors.password ? "ko" : formState.touched.password && "ok"
+              }`}
+            >
+              <input
+                ref={register({
+                  required: "The password is mandatory",
+                  minLength: {
+                    value: 6,
+                    message:
+                      "You should enter a password with at least 6 characters"
+                  }
+                })}
+                type="password"
+                name="password"
+                placeholder="Password"
+              ></input>
+              {errors.password && (
+                <span className="errorMessage">{errors.password.message}</span>
+              )}
+            </div>
+
+            <div
             className={`form-control ${
-              errors.password ? 'ko' : formState.touched.password && 'ok'
+              errors.confirmPassword ? 'ko' : formState.touched.confirmPassword && 'ok'
             }`}
-          />
-
-
-            <input
-              ref={register({
-                required: "The password is mandatory",
-                minLength: {
-                  value: 6,
-                  message:
-                    "You should enter a password with at least 6 characters"
-                }
-              })}
-              type="password"
-              name="password"
-              placeholder="Password"
-            />
-            {errors.password && (
-              <span className="errorMessage">{errors.password.message}</span>
-            )}
+          >
             <input
               ref={register({
                 validate: value => value === watch("password")
@@ -105,14 +114,15 @@ export function Login() {
               type="password"
               name="confirmPassword"
               placeholder="Repeat your password"
-            />
+              ></input>
             {errors.confirmPassword && (
               <span className="error-message">
                 The password and the confirmation should match
               </span>
             )}
+            </div>
 
-            <button  type="submit">Sign Up</button>
+            <button type="submit">Sign Up</button>
           </form>
         </div>
         <div className="form-container sign-in-container">

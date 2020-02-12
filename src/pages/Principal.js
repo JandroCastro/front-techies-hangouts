@@ -6,6 +6,7 @@ import { HangoutCards } from "../components/HangoutCards";
 import { Footer } from "../components/Footer";
 import { getAllCities, getAllThematics } from "../http/utilitiesService";
 import { getAllHangouts } from "../http/hangoutsService";
+import { NavLateral } from "../components/NavLateral";
 
 export function Principal() {
   const [cities, setCities] = useState([]);
@@ -22,17 +23,18 @@ export function Principal() {
 
   return (
     <React.Fragment>
-      <Header title="techies hangouts" />
-      <NavMenu />
-      <main>
+      <div id="principal">
+        <Header title="techies hangouts" />
         <NavFilter optionCities={cities} optionThematics={thematics} />
-        <div id="hangoutCards">
-          {hangouts.map(hangout => (
-            <HangoutCards prop={hangout} />
-          ))}
-        </div>
-      </main>
-      <Footer />
+        <main id="hangoutCards">
+          <div>
+            {hangouts.map(hangout => (
+              <HangoutCards prop={hangout} />
+            ))}
+          </div>
+        </main>
+        <Footer />
+      </div>
     </React.Fragment>
   );
 }
