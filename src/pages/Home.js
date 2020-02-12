@@ -1,6 +1,5 @@
 import React from "react";
 import { Footer } from "../components/Footer";
-import { HangoutCards } from "../components/HangoutCards";
 
 export function Home() {
   return (
@@ -13,7 +12,9 @@ export function Home() {
             <h1>Forma parte de nuestra comunidad</h1>
           </div>
           <div>
-            <button onClick={()=> window.location.href="/login" }>enter</button>
+            <button onClick={() => (window.location.href = "/login")}>
+              enter
+            </button>
           </div>
         </section>
         <section className="medium">
@@ -38,7 +39,6 @@ export function Home() {
             <li> un algo</li>
             <li>amplía funcimrgi</li>
           </ul>
-          <HangoutCards />
         </section>
       </div>
 

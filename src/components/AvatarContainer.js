@@ -4,6 +4,7 @@ import { Stars } from "./Stars";
 
 export function AvatarContainer(user) {
   const [avatar, setAvatar] = useState("");
+  const value = 2; //media del usuario
 
   useEffect(() => {
     getAvatar(user.id).then(response => setAvatar(response.data));
@@ -18,7 +19,12 @@ export function AvatarContainer(user) {
         />
       </div>
       <span className="span">
-        <Stars />
+        <Stars
+          nameValue="read-only"
+          valor={value}
+          styleprop="readOnly"
+          talla="large"
+        />
       </span>
       <div id="name">
         <h2>El de las bicis</h2>
