@@ -7,127 +7,51 @@ export function NavLateral() {
         <nav className="sidebar-nav">
           <ul>
             <li>
-              <a href="/">
-                <i className="ion-bag"></i> <span>Shop</span>
+              <a href="/create/hangout">
+                <i className="ion-bag"></i> <span>CREAR EVENTO</span>
               </a>
-              <ul className="nav-flyout">
-                <li>
-                  <a href="/">
-                    <i className="ion-android-star-outline"></i>Hates
-                  </a>
-                </li>
-                <li>
-                  <a href="/">
-                    <i className="ion-heart-broken"></i>Beat
-                  </a>
-                </li>
-              </ul>
             </li>
             <li>
-              <a href="/">
+              <a href="/hangout">
                 <i className="ion-ios-settings"></i>{" "}
-                <span className="">Controls</span>
+                <span className="">TUS EVENTOS</span>
               </a>
-              <ul className="nav-flyout">
-                <li>
-                  <a href="/">
-                    <i className="ion-ios-cog-outline"></i>Grinder
-                  </a>
-                </li>
-              </ul>
             </li>
             <li>
-              <a href="/">
+              <a href="/profile">
                 <i className="ion-ios-briefcase-outline"></i>{" "}
-                <span className="">Folio</span>
+                <span className="">PERFIL</span>
               </a>
               <ul className="nav-flyout">
                 <li>
-                  <a href="/">
-                    <i className="ion-ios-navigate-outline"></i>Ghostface
+                  <a href="/notifications">
+                    <i className="ion-ios-navigate-outline"></i>NOTIFICACIONES
                   </a>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="/">
+              <a href="/ratings">
                 <i className="ion-ios-analytics-outline"></i>{" "}
-                <span className="">Graphicals</span>
+                <span className="">PUNTUACIONES</span>
               </a>
-              <ul className="nav-flyout">
-                <li>
-                  <a href="/">
-                    <i className="ion-ios-timer-outline"></i>Lookie Look
-                  </a>
-                </li>
-                <li>
-                  <a href="/">
-                    <i className="ion-ios-game-controller-a-outline"></i>Dork
-                    Mfer
-                  </a>
-                </li>
-              </ul>
             </li>
             <li>
               <a href="/">
                 <i className="ion-ios-paper-outline"></i>{" "}
-                <span className="">Papers</span>
+                <span className="">ENLACES A REDES SOCIALES</span>
               </a>
-              <ul className="nav-flyout">
-                <li>
-                  <a href="/">
-                    <i className="ion-ios-information-outline"></i>Infos
-                  </a>
-                </li>
-                <li>
-                  <a href="/">
-                    <i className="ion-ios-paperplane-outline"></i>Planes
-                  </a>
-                </li>
-                <li>
-                  <a href="/">
-                    <i className="ion-android-star-outline"></i>Shop
-                  </a>
-                </li>
-              </ul>
             </li>
             <li>
               <a href="/">
                 <i className="ion-ios-navigate-outline"></i>{" "}
-                <span className="">Ass Finder</span>
+                <span className="">OPCIONES</span>
               </a>
-              <ul className="nav-flyout">
-                <li>
-                  <a href="/">
-                    <i className="ion-ios-flame-outline"></i>Burn
-                  </a>
-                </li>
-                <li>
-                  <a href="/">
-                    <i className="ion-ios-lightbulb-outline"></i>Bulbs
-                  </a>
-                </li>
-                <li>
-                  <a href="/">
-                    <i className="ion-ios-location-outline"></i>Where You
-                  </a>
-                </li>
-                <li>
-                  <a href="/">
-                    <i className="ion-ios-locked-outline"></i>On Lock
-                  </a>
-                </li>
-                <li>
-                  <a href="/">
-                    <i className="ion-ios-navigate-outline"></i>Ghostface
-                  </a>
-                </li>
-              </ul>
             </li>
             <li>
               <a href="/">
                 <i className="ion-ios-medical-outline"></i>{" "}
-                <span className="">Cocaine</span>
+                <span className="">CONTACTANOS</span>
               </a>
             </li>
           </ul>

@@ -38,7 +38,7 @@ export function Home() {
             <li> un algo</li>
             <li>amplía funcimrgi</li>
           </ul>
-          <HangoutCards />
+          
         </section>
       </div>
 
