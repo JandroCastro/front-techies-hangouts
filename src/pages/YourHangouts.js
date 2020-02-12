@@ -15,7 +15,7 @@ export function YourHangouts() {
 
   return (
     <React.Fragment>
-      <Header title="YOUR PROFILE" />
+      <Header title="TUS EVENTOS" />
       <main className="yourHangouts">
       <h1>Tus Eventos</h1>
 

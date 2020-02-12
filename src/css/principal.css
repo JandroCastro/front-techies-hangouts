@@ -1,7 +1,7 @@
 #principal {
   display: grid;
   grid-template-columns: 20% 1fr;
-  grid-template-rows: 130px 120px 1fr 430px;
+  grid-template-rows: 130px 120px 1fr 490px;
   grid-template-areas:
     "header header"
     "filter filter"
