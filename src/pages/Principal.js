@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Header } from "../components/Header";
-import { NavMenu } from "../components/NavMenu";
 import { NavFilter } from "../components/NavFilter";
 import { HangoutCards } from "../components/HangoutCards";
 import { Footer } from "../components/Footer";
@@ -26,6 +25,7 @@ export function Principal() {
       <div id="principal">
         <Header title="techies hangouts" />
         <NavFilter optionCities={cities} optionThematics={thematics} />
+        <NavLateral />
         <main id="hangoutCards">
           <div>
             {hangouts.map(hangout => (
