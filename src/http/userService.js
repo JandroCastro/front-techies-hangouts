@@ -38,9 +38,11 @@ axios.interceptors.response.use(
   }
 );
 
-export function register(email,password) {
-  return axios.post(`${process.env.REACT_APP_BACKEND_URL}/users`, {email,
-  password});
+export function register(email, password) {
+  return axios.post(`${process.env.REACT_APP_BACKEND_URL}/users`, {
+    email,
+    password
+  });
 }
 
 export function deleteUser(userData, id) {
@@ -52,4 +54,8 @@ export function deleteUser(userData, id) {
 
 export function login(userData) {
   return axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth`, userData);
+}
+
+export function getUser(userData) {
+  return axios.get(`${process.env.REACT_APP_BACKEND_URL}/users`, userData);
 }

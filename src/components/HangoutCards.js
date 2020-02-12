@@ -9,7 +9,8 @@ const calc = (x, y) => [
 ];
 const trans = (x, y, s) => `scale(${s})`;
 
-export function HangoutCards(prop) {
+export function HangoutCards({ prop }) {
+  console.log(prop);
   const imgUrl =
     "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80";
 
@@ -24,11 +25,11 @@ export function HangoutCards(prop) {
       onMouseLeave={() => set({ xys: [0, 0, 1] })}
       style={{
         transform: props.xys.interpolate(trans),
-        backgroundImage: "url(" + imgUrl + ")"
+        backgroundImage: "url(" + prop.photo_url + ")"
       }}
     >
       <div id="hangout-title">
-        <h3>{prop.prop.title}</h3>
+        <h3>{prop.title}</h3>
       </div>
     </animated.div>
   );
