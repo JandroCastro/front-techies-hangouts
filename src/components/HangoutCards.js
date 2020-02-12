@@ -10,6 +10,9 @@ const calc = (x, y) => [
 const trans = (x, y, s) => `scale(${s})`;
 
 export function HangoutCards(prop) {
+  const imgUrl =
+    "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80";
+
   const [props, set] = useSpring(() => ({
     xys: [0, 0, 1],
     config: { mass: 5, tension: 250, friction: 30 }
@@ -19,9 +22,14 @@ export function HangoutCards(prop) {
       className="card"
       onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
       onMouseLeave={() => set({ xys: [0, 0, 1] })}
-      style={{ transform: props.xys.interpolate(trans) }}
-    />
+      style={{
+        transform: props.xys.interpolate(trans),
+        backgroundImage: "url(" + imgUrl + ")"
+      }}
+    >
+      <div id="hangout-title">
+        <h3>{prop.prop.title}</h3>
+      </div>
+    </animated.div>
   );
 }
-
-

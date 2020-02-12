@@ -1,5 +1,6 @@
 import React from "react";
 import { MiniAvatar } from "./MiniAvatar";
+import { Stars } from "./Stars";
 
 export function AsistenteQuedada() {
   return (
@@ -9,7 +10,9 @@ export function AsistenteQuedada() {
           <MiniAvatar />
         </li>
         <li>Nombre del chaval y posicion</li>
-        <li>Estrellas para puntuar</li>
+        <li>
+          <Stars />
+        </li>
       </ul>
     </div>
   );

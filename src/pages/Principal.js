@@ -18,6 +18,8 @@ export function Principal() {
     getAllHangouts().then(response => setHangouts(response.data));
   }, []);
 
+  console.log(hangouts);
+
   return (
     <React.Fragment>
       <Header title="techies hangouts" />
@@ -25,17 +27,9 @@ export function Principal() {
       <main>
         <NavFilter optionCities={cities} optionThematics={thematics} />
         <div id="hangoutCards">
-          {/* {hangouts.map(hangout => <HangoutCards hangout={hangout}) />)} */}
-          <HangoutCards />
-          <HangoutCards />
-          <HangoutCards />
-          <HangoutCards />
-          <HangoutCards />
-          <HangoutCards />
-          <HangoutCards />
-          <HangoutCards />
-          <HangoutCards />
-          <HangoutCards />
+          {hangouts.map(hangout => (
+            <HangoutCards prop={hangout} />
+          ))}
         </div>
       </main>
       <Footer />
