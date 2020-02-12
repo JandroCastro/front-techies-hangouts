@@ -1,0 +1,65 @@
+/* -------------
+Sidebar
+----------------*/
+.barra{
+    width: 13em;
+    margin-left: 2.2rem;
+    
+}
+
+.sidebar-nav {
+  width: 13em;
+  background-color:rgb(3, 17, 143);
+  height: 100%;
+  font-weight: 400;
+  font-size: 1.2em;
+  overflow: auto;
+  
+  z-index: 9;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  
+}
+.sidebar li {
+  margin-left: 0;
+  padding-left: 0;
+  min-width: 13em;
+  display: inline-block;
+  width: 100%;
+}
+.sidebar a {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.75em;
+  padding: 1.05em 1em;
+  position: relative;
+  display: block;
+}
+.sidebar a:hover {
+  color: black;
+  
+}
+
+.sidebar > ul > li > a:after {
+  content: "\f125";
+  font-family: ionicons;
+  font-size: 0.5em;
+  width: 10px;
+  color: #fff;
+  position: absolute;
+  right: 0.75em;
+  top: 45%;
+}
+
+.sidebar .nav-flyout {
+  z-index: 9;
+  left: 2.5em;
+  top: 0;
+  height: 100%;
+}
+.sidebar a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.barra li{
+  border: grey 0.1px solid;
+}

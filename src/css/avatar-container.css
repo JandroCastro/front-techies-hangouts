@@ -13,6 +13,7 @@
 #avatar img {
   height: 250px;
   width: 250px;
+  
 }
 
 .miniAvatar {
@@ -27,4 +28,15 @@ span.span {
   flex-direction: column;
   margin-top: 3rem;
   font-size: 24px;
+}
+
+
+img.miniAvatar{
+  margin-left: 1rem;
+}
+#name h2{
+  text-align: center;
+}
+#listado-de-asistentes{
+  margin-left: 1rem;
 }

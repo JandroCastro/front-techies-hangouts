@@ -3,7 +3,7 @@ import React from "react";
 export function Header({ title }) {
   return (
     <React.Fragment>
-      <header>
+      <header id="header">
         <a href="/principal">
           <img
             alt="Home-figure"

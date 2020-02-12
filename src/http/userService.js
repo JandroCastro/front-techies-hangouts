@@ -38,8 +38,9 @@ axios.interceptors.response.use(
   }
 );
 
-export function register(userData) {
-  return axios.post(`${process.env.REACT_APP_BACKEND_URL}/users`, userData);
+export function register(email,password) {
+  return axios.post(`${process.env.REACT_APP_BACKEND_URL}/users`, {email,
+  password});
 }
 
 export function deleteUser(userData, id) {

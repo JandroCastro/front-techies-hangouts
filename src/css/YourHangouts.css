@@ -33,3 +33,13 @@
 ::-webkit-scrollbar {
   display: none;
 }
+
+img.miniAvatar{
+  margin-left: 1rem;
+}
+#name h2{
+  text-align: center;
+}
+#listado-de-asistentes{
+  margin-left: 1rem;
+}

@@ -9,13 +9,14 @@
   flex-wrap: wrap;
 }
 
-#avatar {
-  width: 50%;
+ li#avatar  {
+  width: 40%;
   display: flex;
   flex-direction: column;
+  
 }
 #fotoDeQuedada {
-  width: 50%;
+  width: 60%;
   background-image: url("../img/shawn-ang-FRuj-ST3wZE-unsplash.jpg");
   background-size: cover;
 }

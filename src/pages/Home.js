@@ -13,7 +13,7 @@ export function Home() {
             <h1>Forma parte de nuestra comunidad</h1>
           </div>
           <div>
-            <button className="boton">enter</button>
+            <button onClick={()=> window.location.href="/login" }>enter</button>
           </div>
         </section>
         <section className="medium">
@@ -38,7 +38,7 @@ export function Home() {
             <li> un algo</li>
             <li>amplía funcimrgi</li>
           </ul>
-          <HangoutCards />
+          
         </section>
       </div>
 

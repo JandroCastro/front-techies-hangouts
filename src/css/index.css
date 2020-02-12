@@ -16,6 +16,9 @@
 @import "./theme.css";
 @import "./utils.css";
 @import "./YourHangouts.css";
+@import "./barraLateral.css";
+@import "./principal.css";
+
 
 html {
   box-sizing: border-box;
@@ -49,6 +52,9 @@ body {
   cursor: ew-resize;
 }
 
+
+
+
 h1,
 h2,
 h3,
@@ -61,10 +67,13 @@ h6 {
 
 h1 {
   font-size: var(--font-xxl);
+  text-align: center;
+  margin-top: 10px;
 }
 
 h2 {
   font-size: var(--font-xl);
+  margin-top: 1rem;
 }
 
 h3 {
@@ -104,9 +113,18 @@ a:active {
 }
 
 ul {
-  list-style-type: none;
+  list-style: none;
 }
 
 ul > li {
   cursor: pointer;
 }
+label.MuiRating-label{
+  margin: 0;
+  font-size: 60px;
+}
+#principalDeQuedada > ul{
+  display:flex ;
+  
+}
+

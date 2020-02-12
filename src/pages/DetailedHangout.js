@@ -7,6 +7,7 @@ import {
   getAcceptedAttendance,
   getPendingAttendance
 } from "../http/attendanceService";
+import { Map } from "../components/Map";
 
 export function DetailedHangout(id) {
   const [hangout, setHangout] = useState({});
@@ -52,9 +53,16 @@ export function DetailedHangout(id) {
               <li>Temática</li>
               <li>Capacidad</li>
               <li>Descripción</li>
-              <li>Mapa</li>
               <li>
-                <button id="editar">editar quedada</button>
+                <Map place="Segovia" />
+              </li>
+              <li>
+                <button
+                  onClick={() => (window.location.href = "/create/hangout")}
+                  id="editar"
+                >
+                  editar quedada
+                </button>
               </li>
             </ul>
           </div>
