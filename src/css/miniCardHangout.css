@@ -1,0 +1,11 @@
+.miniCard{
+    display: flex;
+   justify-content: center;
+    background-color:grey;
+    width: 200px;
+    height: 250px;
+}
+
+  .miniCard img{
+    margin: 0;
+}

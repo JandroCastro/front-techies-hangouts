@@ -3,7 +3,7 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { SmallCards } from "../components/SmallCards";
 import { getAllUserAttendance } from "../http/attendanceService";
-
+import { EventCard } from "../components/EventCard";
 export function YourHangouts() {
   const [hangouts, setHangouts] = useState([]);
 
@@ -16,11 +16,10 @@ export function YourHangouts() {
   return (
     <React.Fragment>
       <Header title="TUS EVENTOS" />
+      <EventCard />
       <main className="yourHangouts">
-      <h1>Tus Eventos</h1>
+        <h1>Tus Eventos</h1>
 
-      
-       
         <section id="organizadas">
           <h2>Quedadas de las que eres organizador</h2>
           <ul>

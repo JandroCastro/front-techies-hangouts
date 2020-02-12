@@ -18,6 +18,8 @@
 @import "./YourHangouts.css";
 @import "./barraLateral.css";
 @import "./principal.css";
+@import "./eventCard.css";
+@import "./miniCardHangout.css";
 
 
 html {
