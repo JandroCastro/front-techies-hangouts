@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Rating } from "@material-ui/lab";
 
 export function Stars({ nameValue, valor, styleprop, talla }) {
-  return <Rating name={nameValue} value={valor} {...styleprop} size={talla} />;
+  const [value, setValue] = useState(0);
+  const [state, setState] = useState("");
+
+  return (
+    <Rating
+      name={nameValue}
+      {...state}
+      value={valor}
+      {...styleprop}
+      size={talla}
+      onChange={(event, newValue) => {
+        setValue(newValue);
+        setState("disabled")
+      }}
+    />
+  );
 }
