@@ -27,14 +27,7 @@ export function FormLogin() {
   const handleSignIn = formData => {
     console.log(formData);
     getUser(formData).then(response => {
-      if (response.status === 200) {
-        return login(formData);
-      }
-      if (response.status === 404 || 400) {
-        console.log("Invalid credentials");
-      } else {
-        console.log("Something wrong was happened");
-      }
+      console.log(response);
     });
   };
 
@@ -51,7 +44,7 @@ export function FormLogin() {
           }
         })}
         type="email"
-        name="Login-email"
+        name="email"
         placeholder="Email paentro"
       />
 
@@ -63,7 +56,7 @@ export function FormLogin() {
           }
         })}
         type="password"
-        name="Login-password"
+        name="password"
         placeholder="Password"
       />
 

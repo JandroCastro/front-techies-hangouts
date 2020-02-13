@@ -30,7 +30,7 @@ export function FormRegister() {
       .then(response => {
         setIsAuthenticated(true);
         setCurrentUser(response.data);
-        history.push("/create/profile");
+        history.push("/principal");
       })
       .catch(error => {
         setValue("password", "");
