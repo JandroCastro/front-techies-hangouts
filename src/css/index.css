@@ -18,12 +18,12 @@
 @import "./YourHangouts.css";
 @import "./barraLateral.css";
 @import "./principal.css";
-
+@import "./ProfileCards.css";
 
 html {
   box-sizing: border-box;
   height: 100vh;
-  font-size:18px ;
+  font-size: 18px;
 }
 
 *,
@@ -51,9 +51,6 @@ body {
 .gutter-horizontal {
   cursor: ew-resize;
 }
-
-
-
 
 h1,
 h2,
@@ -119,12 +116,10 @@ ul {
 ul > li {
   cursor: pointer;
 }
-label.MuiRating-label{
+label.MuiRating-label {
   margin: 0;
   font-size: 60px;
 }
-#principalDeQuedada > ul{
-  display:flex ;
-  
+#principalDeQuedada > ul {
+  display: flex;
 }
-

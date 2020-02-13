@@ -8,6 +8,7 @@ import {
   getPendingAttendance
 } from "../http/attendanceService";
 import { Map } from "../components/Map";
+import { ProfileCards } from "../components/ProfileCards";
 
 export function DetailedHangout(id) {
   const [hangout, setHangout] = useState({});
@@ -51,7 +52,6 @@ export function DetailedHangout(id) {
               <li>Fecha</li>
               <li>Hora</li>
               <li>Temática</li>
-              <li>Capacidad</li>
               <li>Descripción</li>
               <li>
                 <Map place="Segovia" />
@@ -70,17 +70,26 @@ export function DetailedHangout(id) {
             <ul id="confirmados">
               <h3>Confirmados</h3>
               <li>
-                <miniAvatar />
-                Pepe
+                <ProfileCards />
               </li>
-              <li>Juan</li>
-              <li>Manolo</li>
+              <li>
+                <ProfileCards />
+              </li>
+              <li>
+                <ProfileCards />
+              </li>
             </ul>
             <ul id="pendientes">
               <h3>Pendientes</h3>
-              <li>Rosaura</li>
-              <li>Rosalinda</li>
-              <li>RosaMari</li>
+              <li>
+                <ProfileCards />
+              </li>
+              <li>
+                <ProfileCards />
+              </li>
+              <li>
+                <ProfileCards />
+              </li>
             </ul>
           </div>
         </section>
