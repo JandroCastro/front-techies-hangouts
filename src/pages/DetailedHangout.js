@@ -53,9 +53,7 @@ export function DetailedHangout(id) {
               <li>Hora</li>
               <li>Temática</li>
               <li>Descripción</li>
-              <li>
-                <Map place="Segovia" />
-              </li>
+              <li>Mapa</li>
               <li>
                 <button
                   onClick={() => (window.location.href = "/create/hangout")}

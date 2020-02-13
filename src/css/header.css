@@ -1,8 +1,8 @@
 header {
-  background-color: var(--secondary);
+  background-color: var(--bright);
   display: flex;
   align-items: center;
-  color: var(--bright);
+  color: var(--dark);
   justify-content: space-between;
   width: 100%;
 }
@@ -13,7 +13,7 @@ header img {
 }
 
 header a {
-  color: var(--bright);
+  color: var(--dark);
   margin: 1rem;
 }
 header p {
@@ -22,6 +22,10 @@ header p {
 ul label {
   margin-left: 1rem;
   margin-right: 1rem;
+}
+#logo {
+  height: 130px;
+  width: 130px;
 }
 
 #header-profile {

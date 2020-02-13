@@ -18,8 +18,6 @@ export function Principal() {
     getAllHangouts().then(response => setHangouts(response.data));
   }, []);
 
-  console.log(hangouts);
-
   return (
     <React.Fragment>
       <div id="principal">
@@ -29,7 +27,7 @@ export function Principal() {
         <main id="hangoutCards">
           <div>
             {hangouts.map(hangout => (
-              <HangoutCards prop={hangout} />
+              <HangoutCards event={hangout} />
             ))}
           </div>
         </main>

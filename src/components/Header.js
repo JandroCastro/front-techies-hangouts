@@ -1,14 +1,12 @@
 import React from "react";
+import logo from "/home/hab42/project/frontend/src/img/Free_Sample_By_Wix.png";
 
 export function Header({ title }) {
   return (
     <React.Fragment>
       <header id="header">
         <a href="/principal">
-          <img
-            alt="Home-figure"
-            src="https://image.flaticon.com/icons/svg/25/25694.svg"
-          />
+          <img id="logo" alt="Home-figure" src={logo} />
         </a>
         <a href="/principal">
           <h1>{title}</h1>

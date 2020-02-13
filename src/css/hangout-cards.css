@@ -7,8 +7,10 @@
 }
 
 div.card {
-  width: 500px;
-  height: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 900px;
+  height: 500px;
   background: grey;
   border-radius: 5px;
   background-size: cover;
@@ -35,4 +37,26 @@ div.card {
 div.smallCards {
   width: 100px;
   height: 150px;
+}
+
+#hangout-img {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#hangout-info {
+  height: 100%;
+  background-color: var(--bright);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#hangout-info div {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }

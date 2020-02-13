@@ -1,0 +1,12 @@
+.eventCard{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(104, 96, 96, 0.315);
+    color: black;
+    padding: 1rem;
+    display: inline-block;
+    
+}
