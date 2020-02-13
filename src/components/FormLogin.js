@@ -26,9 +26,21 @@ export function FormLogin() {
 
   const handleSignIn = formData => {
     console.log(formData);
-    getUser(formData).then(response => {
-      console.log(response);
-    });
+    return getUser(formData)
+      .then(res => {
+        if (res.status === 200) {
+          return login(formData).then(res => {
+            setIsAuthenticated(true);
+            setCurrentUser(res.data);
+            history.push("/principal");
+          });
+        }
+        console.log("Wrong");
+      })
+      .catch(error => {
+        setValue("password", "");
+        setError("credentials", "credentials", "The credentials are invalid");
+      });
   };
 
   return (
