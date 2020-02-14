@@ -22,15 +22,14 @@ export function Profile() {
 
   return (
     <main id="profile">
-      <Header title="YOUR PROFILE" />
-      <NavMenu />
+      <Header title=" TU PERFIL" /> 
       <AvatarContainer />
       <main>
         <div>
           <ProfileInfo />
         </div>
         <div>
-          <button  onClick={()=> window.location.href="/create/profile" }>Edit profile</button>
+          <button className="ghost"  onClick={()=> window.location.href="/create/profile" }>Edit profile</button>
         </div>
       </main>
       <Footer />

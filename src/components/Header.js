@@ -16,7 +16,7 @@ export function Header({ title }) {
           <li>
             <a href="/profile">Hola chaval</a>
           </li>
-          <li>Logout</li>
+          <li className="logout">Cerrar Sesión</li>
         </ul>
       </header>
     </React.Fragment>

@@ -31,9 +31,9 @@ export function DetailedHangout(id) {
 
   return (
     <React.Fragment>
-      <Header title="The hangout" />
+      <Header title="TU EVENTO" />
       <main className="detailedHangout">
-        <h1 style={{ marginTop: 12 }}>Cañas y copas afterwork</h1>
+        <h1 style={{ marginTop: 16 }}>Cañas y copas afterwork</h1>
         <ul id="portada">
           <li id="fotoDeQuedada"></li>
           <li id="avatar">
@@ -55,7 +55,7 @@ export function DetailedHangout(id) {
               <li>Descripción</li>
               <li>Mapa</li>
               <li>
-                <button
+                <button className="ghost"
                   onClick={() => (window.location.href = "/create/hangout")}
                   id="editar"
                 >
