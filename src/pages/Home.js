@@ -19,7 +19,13 @@ export function Home() {
         </section>
         <section className="medium">
           <ul>
-            <li>si eres recruiter</li>
+            <li>
+              <h3>Recruiter</h3>
+              <p>
+                Conoce realmente posibles candidatos para ese puesto que es tan
+                crítico para cubrir.
+              </p>
+            </li>
             <li>si buscas trabajo</li>
             <li>si quieres afterWork</li>
           </ul>

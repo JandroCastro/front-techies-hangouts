@@ -57,5 +57,5 @@ export function login(userData) {
 }
 
 export function getUser(userData) {
-  return axios.get(`${process.env.REACT_APP_BACKEND_URL}/users`, userData);
+  return axios.post(`${process.env.REACT_APP_BACKEND_URL}/users/get`, userData);
 }

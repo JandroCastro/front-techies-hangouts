@@ -9,16 +9,18 @@ export function YourHangouts() {
   const [todayDate, setDate] = useState("");
 
   const { userId } = JSON.parse(localStorage.getItem("currentUser"));
+  console.log(userId);
 
   useEffect(() => {
+    console.log("Hola");
     getAllUserAttendance(userId).then(response => setHangouts(response.data));
     setDate(new Date().toISOString());
+    console.log(hangouts, todayDate);
   }, []);
 
   return (
     <React.Fragment>
       <Header title="TUS EVENTOS" />
-      <EventCard />
       <main className="yourHangouts">
         <h1>Tus Eventos</h1>
 
