@@ -8,9 +8,9 @@ export function Footer() {
   return (
     <footer className="footer">
       <div>
-        <p >(c) 2020 Hack a Boss</p>
+        <p className="hack" >(c) 2020 Hack a Boss</p>
       </div>
-      <div id="namefooter">
+      <div className="nombres">
         <h2 className="name">
           <p>Alejandro Castro Alarcón</p>
           <p>Jose Manuel Magdalena Perez</p>
@@ -48,8 +48,8 @@ export function Footer() {
       </div>
 
       <ul className="email">
-        <li>joseee@hotmail.com</li>
-        <li>Alejandro@hotmail.com</li>
+        <li>josemagdalenap@gmail.com</li>
+        <li>jandroportonovo@hotmail.com</li>
         <li>sergio@hotmail.com</li>
       </ul>
     </footer>

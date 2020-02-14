@@ -11,7 +11,7 @@ export function Home() {
             <h1>Interactúa</h1>
             <h1>Forma parte de nuestra comunidad</h1>
           </div>
-          <div>
+          <div className="botonHome">
             <button
               className="btn"
               onClick={() => (window.location.href = "/login")}

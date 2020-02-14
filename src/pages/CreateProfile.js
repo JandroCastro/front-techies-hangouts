@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Footer } from "../components/Footer";
 import { getProfile, getAvatar } from "../http/profileService";
+import { Header } from "../components/Header"
 
 export function CreateProfile() {
   const [profile, setProfile] = useState({});
@@ -16,7 +17,7 @@ export function CreateProfile() {
 
   return (
     <React.Fragment>
-      <h1>crea tu perfil</h1>
+     <Header title="CREA TU PERFIL"/>
       <div>
         <form className="hangout" action="#">
           <label className="label">Nombre y apellidos</label>

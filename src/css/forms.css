@@ -91,10 +91,7 @@ main #login-page {
   min-height: 480px;
 }
 
-.hangout input {
-  border: var(--dark) 2px solid;
-  height: 40px;
-}
+
 
 #login-page .form-container {
   position: absolute;

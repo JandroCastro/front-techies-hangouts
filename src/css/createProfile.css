@@ -4,25 +4,19 @@
 
 .label {
   font-weight: bold;
-padding: 1rem;
-  color:blue
+padding: 3rem;
+color: var(--dark)
 }
 .hangout input {
   width: 600px;
   align-items: center;
+  border: none;
+  border-bottom: blue 0.5px solid;
+  
+
 }
-.hangout {
-  padding: 2rem;
-  flex-basis: 100%;
-}
+
 #textarea {
   width: 600px;
   height: 130px;
-  border: 2px solid black;
-  margin-top: 1rem;
-}
-
-.hangoutcreate {
-  display: flex;
-  flex-wrap: wrap;
 }
