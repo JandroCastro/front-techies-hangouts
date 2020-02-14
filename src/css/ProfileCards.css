@@ -1,0 +1,55 @@
+.profilecard {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.cardavatar img {
+  height: 150px;
+  width: 150px;
+}
+
+.cardinfo {
+  margin-left: 2rem;
+  width: 50%;
+}
+
+.cardinfo ul li {
+  text-align: left;
+}
+
+.cardinfo img {
+  width: 40px;
+}
+
+.ratings {
+  width: 100%;
+  text-align: left;
+  margin-left: 1rem;
+}
+.ratings .MuiSvgIcon-fontSizeInherit {
+  font-size: 1.5rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+.buttons #aceptar,
+.buttons #descartar {
+  height: 60px;
+  width: 60px;
+  margin: 0.5rem;
+  padding: 0;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.buttons #aceptar img,
+.buttons #descartar img {
+  height: 60px;
+}

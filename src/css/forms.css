@@ -29,8 +29,7 @@
   margin: 15px 0;
 }
 
-main #login-page,
-button {
+main #login-page {
   border-radius: 20px;
   border: 1px solid #ff4b2b;
   background-color: #ff4b2b;
@@ -209,8 +208,7 @@ button {
   transform: translateX(20%);
 }
 
-
-#login-page input{
+#login-page input {
   border: 3px solid;
 }
 
@@ -225,5 +223,5 @@ button {
 }
 
 .form-control span {
-display: block;
+  display: block;
 }
