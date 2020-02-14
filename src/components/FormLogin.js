@@ -73,7 +73,9 @@ export function FormLogin() {
       />
 
       <Link to="/">Forgot your password?</Link>
-      <button type="submit">Sign In</button>
+      <button className="btn" type="submit">
+        Sign In
+      </button>
     </form>
   );
 }

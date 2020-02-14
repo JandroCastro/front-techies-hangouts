@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { getAvatar } from "../http/profileService";
+import { getAvatar, getProfile } from "../http/profileService";
 import { Stars } from "./Stars";
+import { getUserRatings } from "../http/ratingsService";
 
 export function AvatarContainer(user) {
   const [avatar, setAvatar] = useState("");
-  const value = 2; //media del usuario
+  const [ratings, setRatings] = useState([]);
+  const [profile, setProfile] = useState({});
+
+  const value = 2; //media de los ratings del usuario
 
   useEffect(() => {
     getAvatar(user.id).then(response => setAvatar(response.data));
-  });
+    getUserRatings(user.id).then(response => setRatings(response.data));
+    getProfile(user.id).then(response => setProfile(response.data));
+  }, []);
 
   return (
     <React.Fragment>
@@ -22,7 +28,7 @@ export function AvatarContainer(user) {
         <Stars
           nameValue="read-only"
           valor={value}
-          styleprop="readOnly"
+          styleprop="readOnly" //{profile.name}
           talla="large"
         />
       </span>

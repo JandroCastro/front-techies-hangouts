@@ -33,9 +33,13 @@ export function CreateProfile() {
             type="text"
             placeholder="introduce una breve descripción sobre ti"
           />
-        <button onClick={()=> window.location.href="/profile"} className="boton" type="button">
-          CREAR
-        </button>
+          <button
+            onClick={() => (window.location.href = "/profile")}
+            className="btn"
+            type="button"
+          >
+            CREAR
+          </button>
         </form>
       </div>
 
