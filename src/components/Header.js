@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "/home/hab42/project/frontend/src/img/Free_Sample_By_Wix.png";
+import logo from "../img/Free_Sample_By_Wix.png";
 
 export function Header({ title }) {
   return (
