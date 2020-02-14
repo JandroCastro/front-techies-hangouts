@@ -20,7 +20,7 @@
 @import "./principal.css";
 @import "./eventCard.css";
 @import "./miniCardHangout.css";
-
+@import "./asistente-quedada.css";
 html {
   box-sizing: border-box;
   height: 100vh;

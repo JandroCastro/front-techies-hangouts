@@ -2,12 +2,12 @@ import React from "react";
 import { MiniAvatar } from "./MiniAvatar";
 import { Stars } from "./Stars";
 
-export function AsistenteQuedada() {
+export function AsistenteQuedada(id) {
   return (
     <div className="asistente">
       <ul>
         <li>
-          <MiniAvatar />
+          <MiniAvatar id={id} />
         </li>
         <li>Nombre del chaval y posicion</li>
         <li>
