@@ -12,9 +12,12 @@ export function Header({ title }) {
           <h1>{title}</h1>
         </a>
 
-        <div>
-          <a href="/profile">Hola chaval</a>
-        </div>
+        <ul>
+          <li>
+            <a href="/profile">Hola chaval</a>
+          </li>
+          <li>Logout</li>
+        </ul>
       </header>
     </React.Fragment>
   );

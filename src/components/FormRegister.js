@@ -108,7 +108,9 @@ export function FormRegister() {
         )}
       </div>
 
-      <button type="submit">Sign Up</button>
+      <button className="btn" type="submit">
+        Sign Up
+      </button>
     </form>
   );
 }

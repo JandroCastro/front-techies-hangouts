@@ -19,9 +19,9 @@ header a {
 header p {
   margin: 1rem;
 }
-ul label {
-  margin-left: 1rem;
-  margin-right: 1rem;
+header ul {
+  display: flex;
+  flex-direction: row;
 }
 #logo {
   height: 130px;
