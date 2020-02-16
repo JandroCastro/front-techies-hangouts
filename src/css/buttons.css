@@ -28,7 +28,7 @@
   color: var(--secondary);
   border: 2px solid var(--secondary);
   font-weight: bold;
-  font-size: 40px;
+  
 }
 
 .btn.bright {
