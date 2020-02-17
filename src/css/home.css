@@ -5,14 +5,15 @@
 .up h1 {
   line-height: 40pt;
   display: block;
-  margin: 1rem 3rem 0 3rem;
+  margin: 1rem 3rem 1rem 3rem;
   color: white;
   text-align: left;
+  
 }
 
 .up {
   height: 100vh;
-  background-image: url("../img/shawn-ang-FRuj-ST3wZE-unsplash.jpg");
+  background-image: url(https://www.vivosano.org/wp-content/uploads/2018/01/red_planetaria_2.jpg);
   background-position: 0% 80%;
   background-size: cover;
   display: flex;
@@ -30,13 +31,22 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  
 }
 
 .medium ul li {
   width: 20%;
-  background-color: rgba(128, 128, 128, 0.493);
-  padding: 2rem;
+  background-color:rgba(0, 0, 255, 0.671);
+  padding: 2.5rem;
+  margin: 6rem 0 0;
+  font-weight: bold;
   
+  
+  
+}
+
+.medium ul li p{
+  font-size:22px;
 }
 
 .down {
@@ -44,6 +54,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  border-top: blue 1px solid;
+  margin-top: 6rem;
 }
 
 .down ul {
@@ -51,4 +63,17 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  
+}
+.medium h3{
+  margin-bottom: 1rem;
+}
+
+.down li p{
+  font-size: 24px;
+  text-transform: capitalize;
+  padding: 1rem;
+  font-weight: bold;
+  
 }

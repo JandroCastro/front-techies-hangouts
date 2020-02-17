@@ -7,7 +7,7 @@ export function Home() {
       <div className="principal">
         <section className="up">
           <div className="titulo">
-            <h1>Únete</h1>
+            <h1>CONÉCTATE</h1>
             <h1>Interactúa</h1>
             <h1>Forma parte de nuestra comunidad</h1>
           </div>
@@ -26,7 +26,7 @@ export function Home() {
               <h3>Si eres Recruiter</h3>
               <p>
                 Conoce en persona, en un ambiente distendido, a potenciales
-                candidatos para ese puesto tan crítico para tu empresa.
+                candidatos para ese puesto tan crítico de  tu empresa.
               </p>
             </li>
             <li>
@@ -50,45 +50,35 @@ export function Home() {
         <section className="down">
           <ul>
             <li>
-              <img />
-              <p>Inscribete en Techies Hangouts.</p>
+              <p>Inscríbete en Techies Hangouts.</p>
             </li>
             <li>
-              <img />
-              <p>Apuntate y acude a eventos de la comunidad.</p>
+              <p>Apúntate y acude a eventos de la comunidad.</p>
             </li>
             <li>
-              <img />
               <p>Comparte experiencias y amplía conocimientos.</p>
             </li>
             <li>
-              <img />
               <p>Encuentra el trabajo que estabas esperando.</p>
             </li>
             <li>
-              <img />
               <p>Y por supuesto, tómate algo con tu gente techie.</p>
             </li>
           </ul>
           <ul>
             <li>
-              <img />
               <p>Crea tus propios eventos.</p>
             </li>
             <li>
-              <img />
               <p>Selecciona a los participantes.</p>
             </li>
             <li>
-              <img />
               <p>Encuentra a ese talento que necesita tu proyecto.</p>
             </li>
             <li>
-              <img />
               <p>Valora a los demás miembros de la comunidad.</p>
             </li>
             <li>
-              <img />
               <p>Diviértete.</p>
             </li>
           </ul>

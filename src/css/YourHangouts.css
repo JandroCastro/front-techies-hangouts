@@ -3,6 +3,7 @@
   margin: 1rem;
   border-bottom: blue 1px solid;
   font-size: 40px;
+  margin-top: 3rem;
 
 }
 .yourHangouts {
@@ -42,4 +43,8 @@ img.miniAvatar{
 }
 #listado-de-asistentes{
   margin-left: 1rem;
+}
+.yourHangouts h2{
+  border-bottom: 1px solid black;
+  padding: 1rem;
 }

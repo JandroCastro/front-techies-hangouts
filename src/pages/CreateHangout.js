@@ -13,7 +13,7 @@ export function CreateHangout() {
           <label className="label">Dirección</label>
           <input type="text" placeholder="introduce una dirección" />
           <label className="label">Local</label>
-          <input type="text" placeholder="introduce un número" />
+          <input type="text" placeholder="introduce el nombre de un local" />
           <label className="label">Descripción</label>
           <textarea
             id="textarea"

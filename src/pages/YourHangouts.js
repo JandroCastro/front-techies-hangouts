@@ -22,10 +22,10 @@ export function YourHangouts() {
     <React.Fragment>
       <Header title="TUS EVENTOS" />
       <main className="yourHangouts">
-        <h1>Tus Eventos</h1>
+        
 
         <section id="organizadas">
-          <h2>Quedadas de las que eres organizador</h2>
+          <h2>Eventos de los que eres organizador</h2>
           <ul>
             {hangouts.filter(hangout => (
               <li>
@@ -41,7 +41,7 @@ export function YourHangouts() {
           </ul>
         </section>
         <section id="asistencias">
-          <h2>Quedadas pendientes de asistir</h2>
+          <h2>Eventos pendientes de asistir</h2>
           <ul>
             {hangouts.filter(hangout => (
               <li>
@@ -58,7 +58,7 @@ export function YourHangouts() {
           </ul>
         </section>
         <section id="pasadas">
-          <h2>Quedadas a las que has asistido</h2>
+          <h2>Eventos a los que has asistido</h2>
           <ul>
             {hangouts.filter(hangout => (
               <li>
