@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { getAvatar, getProfile } from "../http/profileService";
 import { Stars } from "./Stars";
 import { getUserRatings } from "../http/ratingsService";
 
-export function AvatarContainer(user) {
-  const [avatar, setAvatar] = useState("");
+export function AvatarContainer(props) {
   const [ratings, setRatings] = useState([]);
-  const [profile, setProfile] = useState({});
-
+  const { user } = props;
+  console.log(user);
+  console.log(props);
+  console.log(Object.keys(props));
   const value = 2; //media de los ratings del usuario
 
   useEffect(() => {
-    getAvatar(user.id).then(response => setAvatar(response.data));
-    getUserRatings(user.id).then(response => setRatings(response.data));
-    getProfile(user.id).then(response => setProfile(response.data));
+    getUserRatings().then(response => setRatings(response.data));
   }, []);
 
   return (
@@ -21,7 +19,7 @@ export function AvatarContainer(user) {
       <div id="avatar">
         <img
           alt="Foto de avatar"
-          src="https://static2.abc.es/media/play/2018/08/22/homer-simpson-kO2--620x349@abc.JPG" //avatar h2 user.name
+          src="https://static2.abc.es/media/play/2018/08/22/homer-simpson-kO2--620x349@abc.JPG" //user.avatar_url h2 user.name
         />
       </div>
       <span className="span">

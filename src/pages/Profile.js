@@ -4,33 +4,36 @@ import { NavMenu } from "../components/NavMenu";
 import { AvatarContainer } from "../components/AvatarContainer";
 import { ProfileInfo } from "../components/ProfileInfo";
 import { Footer } from "../components/Footer";
-import { getProfile, getAvatar } from "../http/profileService";
-import { getUserRatings } from "../http/ratingsService";
+import { getProfile } from "../http/profileService";
+import { useParams } from "react-router-dom";
 
 export function Profile() {
-  const { userId } = JSON.parse(localStorage.getItem("currentUser"));
+  const { id } = useParams();
 
   const [profile, setProfile] = useState({});
-  const [avatar, setAvatar] = useState("");
-  const [ratings, setRating] = useState([]);
+
+  console.log(profile[0]); // quÃ© sale aquÃ­?
 
   useEffect(() => {
-    getProfile(userId).then(response => setProfile(response.data));
-    getAvatar(userId).then(response => setAvatar(response.data));
-    getUserRatings(userId).then(response => setRating(response.data));
+    getProfile(id).then(response => setProfile(response.data));
   }, []);
+
+  const user = Object.assign({}, profile[0]);
+  console.log(user); // quÃ© sale aquÃ­?
 
   return (
     <main id="profile">
       <Header title="YOUR PROFILE" />
       <NavMenu />
-      <AvatarContainer />
+      <AvatarContainer user={user} />
       <main>
         <div>
-          <ProfileInfo />
+          <ProfileInfo id={id} />
         </div>
         <div>
-          <button  onClick={()=> window.location.href="/create/profile" }>Edit profile</button>
+          <button onClick={() => (window.location.href = "/create/profile")}>
+            Edit profile
+          </button>
         </div>
       </main>
       <Footer />
