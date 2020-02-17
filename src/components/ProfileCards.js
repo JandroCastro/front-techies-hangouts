@@ -30,10 +30,10 @@ export function ProfileCards() {
           </ul>
         </section>
         <section className="buttons">
-          <button id="aceptar">
+          <button onClick = {(e)=>console.log(e)}   id="aceptar">
             <img src={aceptado} alt="aceptar asistente" />
           </button>
-          <button id="descartar">
+          <button onClick = {(e)=>console.log(e)} id="descartar">
             <img src={descartado} alt="descartar asistente" />
           </button>
         </section>

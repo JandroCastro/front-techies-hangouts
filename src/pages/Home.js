@@ -37,7 +37,7 @@ export function Home() {
               </p>
             </li>
             <li>
-              <h3>Si quieres afterWork</h3>
+              <h3>Quieres afterWork</h3>
               <p>
                 {" "}
                 Intercambia experiencias y ponte al día de las últimas

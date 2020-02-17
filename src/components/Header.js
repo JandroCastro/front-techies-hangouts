@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../img/Free_Sample_By_Wix.png";
+import cerrarSesion from "../img/salir.jpeg";
 
 export function Header({ title }) {
   return (
@@ -16,7 +17,7 @@ export function Header({ title }) {
           <li>
             <a href="/profile">Hola chaval</a>
           </li>
-          <li className="logout">Cerrar Sesión</li>
+          <li className="logout"><img src={cerrarSesion} alt="salir" /></li>
         </ul>
       </header>
     </React.Fragment>
