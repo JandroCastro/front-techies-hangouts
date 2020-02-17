@@ -50,6 +50,7 @@ export function DetailedHangout() {
 
   const date = hangout.event_date.split("T");
   const hour = hangout.event_hour.substring(0, 5);
+  console.log(hangout.photo_url);
 
   return (
     <React.Fragment>
@@ -57,14 +58,16 @@ export function DetailedHangout() {
       <main className="detailedHangout">
         <h1 style={{ marginTop: 16 }}>{hangout.title}</h1>
         <ul id="portada">
-          <li id="fotoDeQuedada"></li>
+          <li>
+            {<img alt="Imagen de quedada" src={hangout.photo_url}></img> ||
+              "Cargando"}
+          </li>
+
           <li id="avatar">
             <AvatarContainer id={hangout.user_id} />
           </li>
-          <li>
-            <button id="anotarse">Anotarse</button>
-          </li>
         </ul>
+        <button className="btn">Anotarse</button>
 
         <section id="info">
           <div id="datosQuedada">
