@@ -1,35 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Header } from "../components/Header";
 import { NavMenu } from "../components/NavMenu";
 import { AvatarContainer } from "../components/AvatarContainer";
 import { ProfileInfo } from "../components/ProfileInfo";
 import { Footer } from "../components/Footer";
-import { getProfile, getAvatar } from "../http/profileService";
-import { getUserRatings } from "../http/ratingsService";
+
+import { useParams } from "react-router-dom";
 
 export function Profile() {
-  const { userId } = JSON.parse(localStorage.getItem("currentUser"));
-
-  const [profile, setProfile] = useState({});
-  const [avatar, setAvatar] = useState("");
-  const [ratings, setRating] = useState([]);
-
-  useEffect(() => {
-    getProfile(userId).then(response => setProfile(response.data));
-    getAvatar(userId).then(response => setAvatar(response.data));
-    getUserRatings(userId).then(response => setRating(response.data));
-  }, []);
+  const { id } = useParams();
 
   return (
     <main id="profile">
-      <Header title=" TU PERFIL" /> 
-      <AvatarContainer />
+      <Header title="YOUR PROFILE" />
+      <NavMenu />
+      <AvatarContainer id={id} />
       <main>
         <div>
-          <ProfileInfo />
+          <ProfileInfo id={id} />
         </div>
         <div>
-          <button className="ghost"  onClick={()=> window.location.href="/create/profile" }>Edit profile</button>
+          <button
+            className="ghost"
+            onClick={() => (window.location.href = "/create/profile")}
+          >
+            Edit profile
+          </button>
         </div>
       </main>
       <Footer />

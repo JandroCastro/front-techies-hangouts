@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
 import { getThematicName, getCityName } from "../http/utilitiesService";
 import { AsistenteQuedada } from "./AsistenteQuedada";
+import { checkInToHangout } from "../http/attendanceService";
+import { useHistory } from "react-router-dom";
 
 const calc = (x, y) => [
   -(y - window.innerHeight / 2) / 10,
@@ -15,6 +17,9 @@ export function HangoutCards({ event }) {
   const [city, setCity] = useState("");
   const [thematic, setThematic] = useState("");
   const [noVisible, setNoVisible] = useState(true);
+  const [anotado, setAnotado] = useState(false);
+
+  const history = useHistory();
 
   const date = event.event_date.split("T");
   const hour = event.event_hour.substring(0, 5);
@@ -27,6 +32,15 @@ export function HangoutCards({ event }) {
       setThematic(response.data[0].name);
     });
   }, []);
+
+  const handleClick = () => {
+    return checkInToHangout(event.id)
+      .then(() => {
+        setAnotado(true);
+        history.push(`/hangout/${event.id}`);
+      })
+      .catch();
+  };
 
   //console.log(event);
 
@@ -62,6 +76,9 @@ export function HangoutCards({ event }) {
           </h5>
           <h5>{thematic}</h5>
         </div>
+        <button className="btn" onClick={handleClick}>
+          Quiero ir!
+        </button>
         <div id={noVisible && "event-organizator"}>
           <AsistenteQuedada id={event.user_id} />
         </div>

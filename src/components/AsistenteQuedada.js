@@ -3,7 +3,7 @@ import { MiniAvatar } from "./MiniAvatar";
 import { Stars } from "./Stars";
 import { getProfile } from "../http/profileService";
 
-export function AsistenteQuedada(id) {
+export function AsistenteQuedada({ id }) {
   const [profile, setProfile] = useState({});
 
   useEffect(() => {
