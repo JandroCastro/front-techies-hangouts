@@ -1,37 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { Stars } from "./Stars";
 import { getUserRatings } from "../http/ratingsService";
+import { getProfile } from "../http/profileService";
 
-export function AvatarContainer(props) {
+export function AvatarContainer({ id }) {
   const [ratings, setRatings] = useState([]);
-  const { user } = props;
-  console.log(user);
-  console.log(props);
-  console.log(Object.keys(props));
+  const [profile, setProfile] = useState({});
+
   const value = 2; //media de los ratings del usuario
 
   useEffect(() => {
-    getUserRatings().then(response => setRatings(response.data));
+    getUserRatings(id).then(response => setRatings(response.data));
+    getProfile(id).then(response => setProfile(response.data));
   }, []);
+
+  const hasProfile = Object.keys(profile).length > 0;
+  if (!hasProfile) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <React.Fragment>
       <div id="avatar">
-        <img
-          alt="Foto de avatar"
-          src="https://static2.abc.es/media/play/2018/08/22/homer-simpson-kO2--620x349@abc.JPG" //user.avatar_url h2 user.name
-        />
+        <img alt="Foto de avatar" src={profile[0].avatar_url} />
       </div>
       <span className="span">
         <Stars
           nameValue="read-only"
           valor={value}
-          styleprop="readOnly" //{profile.name}
+          styleprop="readOnly"
           talla="large"
         />
       </span>
       <div id="name">
-        <h2>El de las bicis</h2>
+        <h2>{profile[0].name}</h2>
       </div>
     </React.Fragment>
   );
