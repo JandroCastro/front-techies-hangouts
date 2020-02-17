@@ -1,5 +1,6 @@
 #profile img {
-  padding-top: 0.5rem;
+  padding-top: .5rem;
+  
 }
 
 #profile h2 {
@@ -9,6 +10,7 @@
 
 #profile button {
   margin: 1rem;
+  
 }
 
 #profile .infoperfil li {
@@ -36,4 +38,7 @@ div#enlacesRRSS {
 }
 #profile #enlacesRRSS li {
   margin: 3rem;
+}
+div#avatar{
+  margin-right: 2.5rem;
 }

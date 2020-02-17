@@ -11,7 +11,7 @@ export function Home() {
             <h1>Interactúa</h1>
             <h1>Forma parte de nuestra comunidad</h1>
           </div>
-          <div>
+          <div className="botonHome">
             <button
               className="btn"
               onClick={() => (window.location.href = "/login")}
@@ -23,30 +23,74 @@ export function Home() {
         <section className="medium">
           <ul>
             <li>
-              <h3>Recruiter</h3>
+              <h3>Si eres Recruiter</h3>
               <p>
-                Conoce realmente posibles candidatos para ese puesto que es tan
-                crítico para cubrir.
+                Conoce en persona, en un ambiente distendido, a potenciales
+                candidatos para ese puesto tan crítico para tu empresa.
               </p>
             </li>
-            <li>si buscas trabajo</li>
-            <li>si quieres afterWork</li>
+            <li>
+              <h3>Si buscas trabajo</h3>
+              <p>
+                Amplía tu red de contactos laborales y entérate de que empresas
+                podrían estar buscando a alguien como tú.
+              </p>
+            </li>
+            <li>
+              <h3>Si quieres afterWork</h3>
+              <p>
+                {" "}
+                Intercambia experiencias y ponte al día de las últimas
+                tendencias, mientras te tomas algo con otros miembros de la
+                comunidad Techie.
+              </p>
+            </li>
           </ul>
         </section>
         <section className="down">
           <ul>
-            <li>navega</li>
-            <li>conoce gente</li>
-            <li>encuentra tabajo</li>
-            <li>tomate un algo</li>
-            <li>amplía conocimientos</li>
+            <li>
+              <img />
+              <p>Inscribete en Techies Hangouts.</p>
+            </li>
+            <li>
+              <img />
+              <p>Apuntate y acude a eventos de la comunidad.</p>
+            </li>
+            <li>
+              <img />
+              <p>Comparte experiencias y amplía conocimientos.</p>
+            </li>
+            <li>
+              <img />
+              <p>Encuentra el trabajo que estabas esperando.</p>
+            </li>
+            <li>
+              <img />
+              <p>Y por supuesto, tómate algo con tu gente techie.</p>
+            </li>
           </ul>
           <ul>
-            <li>ostia</li>
-            <li>ca ves</li>
-            <li>puto css tabajo</li>
-            <li> un algo</li>
-            <li>amplía funcimrgi</li>
+            <li>
+              <img />
+              <p>Crea tus propios eventos.</p>
+            </li>
+            <li>
+              <img />
+              <p>Selecciona a los participantes.</p>
+            </li>
+            <li>
+              <img />
+              <p>Encuentra a ese talento que necesita tu proyecto.</p>
+            </li>
+            <li>
+              <img />
+              <p>Valora a los demás miembros de la comunidad.</p>
+            </li>
+            <li>
+              <img />
+              <p>Diviértete.</p>
+            </li>
           </ul>
         </section>
       </div>

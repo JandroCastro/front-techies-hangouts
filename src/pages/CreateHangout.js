@@ -1,10 +1,11 @@
 import React from "react";
 import { Footer } from "../components/Footer";
+import { Header } from "../components/Header";
 
 export function CreateHangout() {
   return (
     <React.Fragment>
-      <h1>Crea tu Evento</h1>
+      <Header title="CREA TU EVENTO" />
       <div>
         <form className="hangout" action="#">
           <label className="label">Título</label>
@@ -12,8 +13,6 @@ export function CreateHangout() {
           <label className="label">Dirección</label>
           <input type="text" placeholder="introduce una dirección" />
           <label className="label">Local</label>
-          <input type="text" placeholder="introduce un local" />
-          <label className="label">Máxima Capacidad </label>
           <input type="text" placeholder="introduce un número" />
           <label className="label">Descripción</label>
           <textarea

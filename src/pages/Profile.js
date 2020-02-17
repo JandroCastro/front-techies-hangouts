@@ -31,7 +31,10 @@ export function Profile() {
           <ProfileInfo id={id} />
         </div>
         <div>
-          <button onClick={() => (window.location.href = "/create/profile")}>
+          <button
+            className="ghost"
+            onClick={() => (window.location.href = "/create/profile")}
+          >
             Edit profile
           </button>
         </div>

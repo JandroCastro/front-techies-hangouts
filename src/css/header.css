@@ -5,6 +5,7 @@ header {
   color: var(--dark);
   justify-content: space-between;
   width: 100%;
+  background-color:rgba(0, 0, 255, 0.671);
 }
 
 header img {
@@ -31,4 +32,7 @@ header ul {
 #header-profile {
   display: flex;
   flex-direction: column;
+}
+.logout{
+  margin-right: 1rem;
 }
