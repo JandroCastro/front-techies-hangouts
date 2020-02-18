@@ -4,7 +4,7 @@ import { Header } from "../components/Header";
 import { getAllCities, getAllThematics } from "../http/utilitiesService";
 import { Datepicker } from "../components/Datepicker";
 
-export function CreateHangout() {
+export function EditHangout() {
   const [cities, setCities] = useState([]);
   const [thematics, setThematics] = useState([]);
 
@@ -15,7 +15,7 @@ export function CreateHangout() {
 
   return (
     <React.Fragment>
-      <Header title="CREA TU EVENTO" />
+      <Header title="EDITA TU EVENTO" />
       <div>
         <form className="hangout" action="#">
           <label className="label">Fecha</label>
@@ -44,8 +44,8 @@ export function CreateHangout() {
             type="text"
             placeholder="introduce una breve descripción sobre el evento"
           />
-          <button id="login-page" className="btn" type="submit">
-            CREAR
+          <button id="login-page" className="btn" type="button">
+            EDITAR
           </button>
         </form>
       </div>
