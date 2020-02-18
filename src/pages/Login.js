@@ -1,25 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { useAuth } from "../context/auth-context";
-import { register as signUp, login, getUser } from "../http/userService";
-import { useForm } from "react-hook-form";
+import React, { useState } from "react";
 import { FormRegister } from "../components/FormRegister";
 import { FormLogin } from "../components/FormLogin";
 
 export function Login() {
-  const {
-    handleSubmit,
-    register,
-    errors,
-    watch,
-    formState,
-    setError,
-    setValue,
-    reset
-  } = useForm({
-    mode: "onBlur"
-  });
-
   const [classContainerSide, setClassContainerSide] = useState(true);
 
   return (
