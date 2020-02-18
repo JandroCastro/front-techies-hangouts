@@ -4,19 +4,41 @@
 
 .label {
   font-weight: bold;
-padding: 3rem;
-color: var(--dark)
+  padding: 3rem;
+  color: var(--dark);
+  
 }
 .hangout input {
   width: 600px;
   align-items: center;
   border: none;
   border-bottom: blue 0.5px solid;
+  background-color: rgba(128, 128, 128, 0);
   
-
 }
 
 #textarea {
   width: 600px;
   height: 130px;
+  background-color: rgba(128, 128, 128, 0.027);
 }
+.hangout select {
+  background: transparent;
+  font-size: 18px;
+  padding: 5px;
+ 
+  border: px solid #d9d9d9;
+  height: 30px;
+  width: 600px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 4rem;
+}
+form.hangout {
+  margin-top: 100px !important;
+max-width: 800px;
+margin: 0 auto;
+background-color: rgba(128, 128, 128, 0.233);
+}
+
+ 
