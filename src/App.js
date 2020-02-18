@@ -12,6 +12,7 @@ import { CreateProfile } from "./pages/CreateProfile";
 import { YourHangouts } from "./pages/YourHangouts";
 import { Ratings } from "./pages/Ratings";
 import { Notifications } from "./pages/Notifications";
+import { EditHangout } from "./pages/EditHangout";
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
             </Route>
             <Route path="/profile/:id">
               <Profile />
+            </Route>
+            <Route path="/edit/hangout/:id">
+              <EditHangout />
             </Route>
             <Route path="/hangout/:id">
               <DetailedHangout />
