@@ -8,7 +8,7 @@ export function AsistenteQuedada({ id }) {
 
   useEffect(() => {
     getProfile(id).then(response => setProfile(response.data));
-  });
+  },[]);
 
   return (
     <div className="asistente">
