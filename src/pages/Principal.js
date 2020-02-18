@@ -25,11 +25,13 @@ export function Principal() {
         <NavFilter optionCities={cities} optionThematics={thematics} />
         <NavLateral />
         <main id="hangoutCards">
-          <div>
+          <ul>
             {hangouts.map(hangout => (
-              <HangoutCards event={hangout} />
+              <li>
+                <HangoutCards event={hangout} />
+              </li>
             ))}
-          </div>
+          </ul>
         </main>
         <Footer />
       </div>
