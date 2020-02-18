@@ -6,23 +6,24 @@ import { getProfile } from "../http/profileService";
 export function AvatarContainer({ id }) {
   const [ratings, setRatings] = useState([]);
   const [profile, setProfile] = useState({});
+  console.log(id);
 
   const value = 2; //media de los ratings del usuario
 
   useEffect(() => {
     getUserRatings(id).then(response => setRatings(response.data));
-    getProfile(id).then(response => setProfile(response.data));
+    getProfile(id).then(response => setProfile(response.data[0]));
   }, []);
 
   const hasProfile = Object.keys(profile).length > 0;
   if (!hasProfile) {
     return <div>Loading...</div>;
   }
-
+  console.log("ahora");
   return (
     <React.Fragment>
       <div id="avatar">
-        <img alt="Foto de avatar" src={profile[0].avatar_url} />
+        {<img alt="Foto de avatar" src={profile.avatar_url} /> || "Loading..."}
       </div>
       <span className="span">
         <Stars
@@ -33,7 +34,7 @@ export function AvatarContainer({ id }) {
         />
       </span>
       <div id="name">
-        <h2>{profile[0].name}</h2>
+        <h2>{profile.name}</h2>
       </div>
     </React.Fragment>
   );

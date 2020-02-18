@@ -49,10 +49,10 @@ export function DetailedHangout() {
   if (!hasHangout && !hasAttendance) {
     return <div>Loading...</div>;
   }
+  console.log(hangout);
 
   const date = hangout.event_date.split("T");
   const hour = hangout.event_hour.substring(0, 5);
-  console.log(hangout.photo_url);
 
   const handleClick = () => {
     return checkInToHangout(hangout.id)
@@ -107,43 +107,22 @@ export function DetailedHangout() {
               <h3>Confirmados</h3>
               {confirmedGuest.map(guest => (
                 <li>
-                  <ProfileCards
-                    id={confirmedGuest.id_users}
-                    manageAttendance={false}
-                  />
+                  <ProfileCards id={guest.id_users} manageAttendance={false} />
                 </li>
-              ))}
-              <li>
-                <ProfileCards />
-              </li>
-              <li>
-                <ProfileCards />
-              </li>
-              <li>
-                <ProfileCards />
-              </li>
+              )) || "Cargando"}
             </ul>
             <ul id="pendientes">
               <h3>Pendientes</h3>
               {pendingGuest.map(guest => (
                 <li>
                   <ProfileCards
-                    id={pendingGuest.id_users}
+                    id={guest.id_users}
                     manageAttendance={
                       storedUser.id === hangout.user_id ? true : false
                     }
                   />
                 </li>
-              ))}
-              <li>
-                <ProfileCards />
-              </li>
-              <li>
-                <ProfileCards />
-              </li>
-              <li>
-                <ProfileCards />
-              </li>
+              )) || "Cargando"}
             </ul>
           </div>
         </section>
