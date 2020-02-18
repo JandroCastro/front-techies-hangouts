@@ -43,9 +43,6 @@ function App() {
             <Route path="/myhangouts">
               <YourHangouts />
             </Route>
-            <Route path="/ratings">
-              <Ratings />
-            </Route>
             <Route path="/notifications">
               <Notifications />
             </Route>

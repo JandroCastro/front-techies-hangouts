@@ -1,6 +1,9 @@
 import React from "react";
 
 export function NavLateral() {
+  const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+  const id = storedUser.id;
+
   return (
     <section className="barra">
       <aside className="sidebar">
@@ -12,13 +15,13 @@ export function NavLateral() {
               </a>
             </li>
             <li>
-              <a href="/hangout">
+              <a href="/">
                 <i className="ion-ios-settings"></i>{" "}
                 <span className="">TUS EVENTOS</span>
               </a>
             </li>
             <li>
-              <a href="/profile">
+              <a href={`/profile/${id}`}>
                 <i className="ion-ios-briefcase-outline"></i>{" "}
                 <span className="">PERFIL</span>
               </a>

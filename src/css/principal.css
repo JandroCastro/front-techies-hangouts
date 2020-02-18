@@ -20,10 +20,14 @@
   justify-self: center;
 }
 
-.nav-filter{
-    grid-area: filter;
+#hangoutCards ul li {
+  margin-top: 3rem;
 }
 
-.footer{
-    grid-area: footer;
+.nav-filter {
+  grid-area: filter;
+}
+
+.footer {
+  grid-area: footer;
 }

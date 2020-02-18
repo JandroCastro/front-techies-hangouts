@@ -10,20 +10,20 @@ import { useParams } from "react-router-dom";
 
 export function ProfileCards({ id, manageAttendance }) {
   const [profile, setProfile] = useState({});
-  const hangoutId = useParams(); //así o se lo paso por props?
+  const hangoutId = useParams();
 
   useEffect(() => {
     getProfile(id).then(response => setProfile(response.data[0]));
   }, []);
 
   const handleAccept = () => {
-    return acceptAttendance(hangoutId)
+    return acceptAttendance(hangoutId, id)
       .then()
       .catch();
   };
 
   const handleReject = () => {
-    return rejectAttendance(hangoutId)
+    return rejectAttendance(hangoutId, id)
       .then()
       .catch();
   };

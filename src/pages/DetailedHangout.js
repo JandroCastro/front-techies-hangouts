@@ -6,7 +6,7 @@ import { getOneHangout } from "../http/hangoutsService";
 import {
   getAcceptedAttendance,
   getPendingAttendance,
-  acceptAttendance
+  checkInToHangout
 } from "../http/attendanceService";
 import { Map } from "../components/Map";
 import { ProfileCards } from "../components/ProfileCards";
@@ -32,7 +32,7 @@ export function DetailedHangout() {
       setConfirmedGuest(response.data)
     );
     getPendingAttendance(id).then(response => setPendingGuest(response.data));
-  }, [confirmedGuest, pendingGuest]);
+  }, []);
 
   /*useEffect(() => {
     getCityName(hangout[0].city_id).then(response => {
@@ -44,13 +44,23 @@ export function DetailedHangout() {
   }, []);*/
 
   const hasHangout = Object.keys(hangout).length > 0;
-  if (!hasHangout) {
+  const hasAttendance = pendingGuest.length !== 0;
+
+  if (!hasHangout && !hasAttendance) {
     return <div>Loading...</div>;
   }
 
   const date = hangout.event_date.split("T");
   const hour = hangout.event_hour.substring(0, 5);
   console.log(hangout.photo_url);
+
+  const handleClick = () => {
+    return checkInToHangout(hangout.id)
+      .then(() => {})
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   return (
     <React.Fragment>
@@ -67,7 +77,9 @@ export function DetailedHangout() {
             <AvatarContainer id={hangout.user_id} />
           </li>
         </ul>
-        <button className="btn">Anotarse</button>
+        <button onClick={handleClick} className="btn">
+          Anotarse
+        </button>
 
         <section id="info">
           <div id="datosQuedada">

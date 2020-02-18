@@ -17,7 +17,7 @@ li#avatar {
 }
 
 #portada img {
-  object-fit: cover;
+  object-fit: contain;
   height: 100%;
 }
 
