@@ -57,13 +57,13 @@ export function HangoutCards({ event }) {
         setNoVisible(false);
         setIndex("10");
       }}
-      className="card"
       onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
       onMouseLeave={function() {
         set({ xys: [0, 0, 1] });
         setNoVisible(true);
         setIndex("1");
       }}
+      className="card"
       style={{
         transform: props.xys.interpolate(trans),
         zIndex: { index }

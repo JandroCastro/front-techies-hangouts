@@ -10,10 +10,11 @@ import {
 } from "../http/attendanceService";
 import { Map } from "../components/Map";
 import { ProfileCards } from "../components/ProfileCards";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { getThematicName, getCityName } from "../http/utilitiesService";
 
 export function DetailedHangout() {
+  const history = useHistory();
   const { id } = useParams();
 
   const storedUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -32,24 +33,24 @@ export function DetailedHangout() {
       setConfirmedGuest(response.data)
     );
     getPendingAttendance(id).then(response => setPendingGuest(response.data));
-  }, []);
 
-  /*useEffect(() => {
-    getCityName(hangout[0].city_id).then(response => {
+    getCityName(hangout.city_id).then(response => {
       setCity(response.data[0].name);
     });
-    getThematicName(hangout[0].thematic_id).then(response => {
+    getThematicName(hangout.thematic_id).then(response => {
       setThematic(response.data[0].name);
     });
-  }, []);*/
+  }, []);
 
   const hasHangout = Object.keys(hangout).length > 0;
   const hasAttendance = pendingGuest.length !== 0;
+  const hasInfo = city !== "" && thematic !== "";
 
-  if (!hasHangout && !hasAttendance) {
+  if (!hasHangout && !hasAttendance && !hasInfo) {
     return <div>Loading...</div>;
   }
-  console.log(hangout);
+
+  const editOrCheckIn = storedUser.id === hangout.user_id ? true : false;
 
   const date = hangout.event_date.split("T");
   const hour = hangout.event_hour.substring(0, 5);
@@ -77,9 +78,19 @@ export function DetailedHangout() {
             <AvatarContainer id={hangout.user_id} />
           </li>
         </ul>
-        <button onClick={handleClick} className="btn">
-          Anotarse
-        </button>
+        {(editOrCheckIn && (
+          <button
+            className="ghost"
+            onClick={() => history.push(`/edit/hangout/${id}`)}
+            id="editar"
+          >
+            editar quedada
+          </button>
+        )) || (
+          <button onClick={handleClick} className="btn">
+            Anotarse
+          </button>
+        )}
 
         <section id="info">
           <div id="datosQuedada">
@@ -92,13 +103,19 @@ export function DetailedHangout() {
               <li>{hangout.description}</li>
               <li>Mapa</li>
               <li>
-                <button
-                  className="ghost"
-                  onClick={() => (window.location.href = "/create/hangout")}
-                  id="editar"
-                >
-                  editar quedada
-                </button>
+                {(editOrCheckIn && (
+                  <button
+                    className="ghost"
+                    onClick={() => history.push(`/edit/hangout/${id}`)}
+                    id="editar"
+                  >
+                    editar quedada
+                  </button>
+                )) || (
+                  <button onClick={handleClick} className="btn">
+                    Anotarse
+                  </button>
+                )}
               </li>
             </ul>
           </div>
