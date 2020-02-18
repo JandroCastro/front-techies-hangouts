@@ -97,7 +97,7 @@ function FileUpload() {
       >
         <input ref={fileInput} type="file" multiple onChange={handleChange} />
         <button type="button" onClick={openFileDialog} disabled={uploading}>
-          {uploading ? 'Uploading files ...' : 'Choose Files or Drop'}
+          
         </button>
         <ul className="upload-preview">
           {files.map((file, i) => (
@@ -110,12 +110,11 @@ function FileUpload() {
       </div>
 
       <button
-        className="upload-btn"
+        className=""
         type="button"
         onClick={handleUpload}
         disabled={uploading}
       >
-        Upload
       </button>
     </main>
   );

@@ -30,14 +30,10 @@ export function Principal() {
           <ul>
             {hangouts.map(hangout => (
               <li>
-<<<<<<< HEAD
-              <HangoutCards event={hangout} />
-=======
                 <HangoutCards
                   // onClick={history.push(`/hangout/${hangout.id}`)}
                   event={hangout}
                 />
->>>>>>> 7b37f5eced338871a0573307836d4f7317e27571
               </li>
             ))}
           </ul>

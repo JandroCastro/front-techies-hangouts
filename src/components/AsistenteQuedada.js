@@ -7,10 +7,6 @@ export function AsistenteQuedada({ id }) {
   const [profile, setProfile] = useState({});
 
   useEffect(() => {
-<<<<<<< HEAD
-    getProfile(id).then(response => setProfile(response.data));
-  },[]);
-=======
     getProfile(id).then(response => setProfile(response.data[0]));
   }, []);
 
@@ -18,7 +14,6 @@ export function AsistenteQuedada({ id }) {
   if (!hasProfile) {
     return <div>Loading...</div>;
   }
->>>>>>> 7b37f5eced338871a0573307836d4f7317e27571
 
   return (
     <div className="asistente">
