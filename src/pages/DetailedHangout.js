@@ -11,7 +11,8 @@ import {
 import { Map } from "../components/Map";
 import { ProfileCards } from "../components/ProfileCards";
 import { useParams, useHistory } from "react-router-dom";
-import { getThematicName, getCityName } from "../http/utilitiesService";
+import { ListaTematica } from "../components/ListaTematica";
+import { ListaCiudad } from "../components/ListaCiudad";
 
 export function DetailedHangout() {
   const history = useHistory();
@@ -20,9 +21,6 @@ export function DetailedHangout() {
   const storedUser = JSON.parse(localStorage.getItem("currentUser"));
 
   const [hangout, setHangout] = useState({});
-
-  const [city, setCity] = useState("");
-  const [thematic, setThematic] = useState("");
 
   const [confirmedGuest, setConfirmedGuest] = useState([]);
   const [pendingGuest, setPendingGuest] = useState([]);
@@ -33,26 +31,23 @@ export function DetailedHangout() {
       setConfirmedGuest(response.data)
     );
     getPendingAttendance(id).then(response => setPendingGuest(response.data));
-
-    getCityName(hangout.city_id).then(response => {
-      setCity(response.data[0].name);
-    });
-    getThematicName(hangout.thematic_id).then(response => {
-      setThematic(response.data[0].name);
-    });
   }, []);
 
   const hasHangout = Object.keys(hangout).length > 0;
   const hasAttendance = pendingGuest.length !== 0;
-  const hasInfo = city !== "" && thematic !== "";
 
-  if (!hasHangout && !hasAttendance && !hasInfo) {
+  if (!hasHangout && !hasAttendance) {
     return <div>Loading...</div>;
   }
 
-  const editOrCheckIn = storedUser.id === hangout.user_id ? true : false;
+  const editOrCheckIn = storedUser.userId === hangout.user_id ? true : false;
 
-  const date = hangout.event_date.split("T");
+  const date = hangout.event_date
+    .substring(0, 10)
+    .split("-")
+    .reverse()
+    .join("/");
+
   const hour = hangout.event_hour.substring(0, 5);
 
   const handleClick = () => {
@@ -96,10 +91,10 @@ export function DetailedHangout() {
           <div id="datosQuedada">
             <ul>
               <h3>Detalles</h3>
-              <li>{city || "Cargando"}</li>
+              <ListaCiudad id={hangout.city_id} />
               <li>{date}</li>
               <li>{hour}</li>
-              <li>{thematic || "Cargando"}</li>
+              <ListaTematica id={hangout.thematic_id} />
               <li>{hangout.description}</li>
               <li>Mapa</li>
               <li>
@@ -135,7 +130,7 @@ export function DetailedHangout() {
                   <ProfileCards
                     id={guest.id_users}
                     manageAttendance={
-                      storedUser.id === hangout.user_id ? true : false
+                      storedUser.userId === hangout.user_id ? true : false
                     }
                   />
                 </li>

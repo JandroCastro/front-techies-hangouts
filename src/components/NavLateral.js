@@ -2,7 +2,7 @@ import React from "react";
 
 export function NavLateral() {
   const storedUser = JSON.parse(localStorage.getItem("currentUser"));
-  const id = storedUser.id;
+  const id = storedUser.userId;
 
   return (
     <section className="barra">
