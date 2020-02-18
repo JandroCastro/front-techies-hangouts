@@ -41,14 +41,11 @@ function App() {
             <Route path="/edit/hangout/:id">
               <EditHangout />
             </Route>
-            <Route path="/hangout">
+            <Route path="/hangout/:id">
               <DetailedHangout />
             </Route>
             <Route path="/myhangouts">
               <YourHangouts />
-            </Route>
-            <Route path="/ratings">
-              <Ratings />
             </Route>
             <Route path="/notifications">
               <Notifications />

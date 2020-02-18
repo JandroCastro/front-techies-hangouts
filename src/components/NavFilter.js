@@ -2,8 +2,13 @@ import React from "react";
 import { Datepicker } from "./Datepicker";
 
 import { Filter } from "./Filtro";
+import { getHangoutsFiltered } from "../http/hangoutsService";
 
 export function NavFilter({ optionCities, optionThematics }) {
+  const handleClick = () => {
+    return getHangoutsFiltered();
+  };
+
   return (
     <nav className="nav-filter">
       <ul>
@@ -18,7 +23,7 @@ export function NavFilter({ optionCities, optionThematics }) {
           <Datepicker />
         </li>
       </ul>
-      <button className="btn" id="login-page">
+      <button onClick={handleClick} className="btn" id="login-page">
         Filtrar
       </button>
     </nav>

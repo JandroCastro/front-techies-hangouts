@@ -6,15 +6,17 @@ export function checkInToHangout(hangoutId) {
   );
 }
 
-export function acceptAttendance(hangoutId) {
+export function acceptAttendance(hangoutId, userId) {
   return axios.put(
-    `${process.env.REACT_APP_BACKEND_URL}/attendance/accepted/${hangoutId}`
+    `${process.env.REACT_APP_BACKEND_URL}/attendance/accepted/${hangoutId}`,
+    userId
   );
 }
 
-export function rejectAttendance(hangoutId) {
+export function rejectAttendance(hangoutId, userId) {
   return axios.put(
-    `${process.env.REACT_APP_BACKEND_URL}/attendance/rejected/${hangoutId}`
+    `${process.env.REACT_APP_BACKEND_URL}/attendance/rejected/${hangoutId}`,
+    userId
   );
 }
 
