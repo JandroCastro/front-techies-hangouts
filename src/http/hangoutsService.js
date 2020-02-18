@@ -26,9 +26,9 @@ export function deleteOneHangout(id) {
   return axios.delete(`${process.env.REACT_APP_BACKEND_URL}/hangouts/${id}`);
 }
 
-export function getHangoutsFiltered(cityId, thematicId) {
+export function getHangoutsFiltered({ city, thematic, date }) {
   return axios.get(
-    `${process.env.REACT_APP_BACKEND_URL}/hangouts/filter?city_id${cityId}&thematic_id=${thematicId}`
+    `${process.env.REACT_APP_BACKEND_URL}/hangouts/filter?city_id${city}&thematic_id=${thematic}&event_date=${date}`
   );
 }
 
