@@ -9,8 +9,9 @@ import { acceptAttendance, rejectAttendance } from "../http/attendanceService";
 import { useParams } from "react-router-dom";
 
 export function ProfileCards({ id, manageAttendance }) {
-  const [profile, setProfile] = useState({});
   const hangoutId = useParams();
+
+  const [profile, setProfile] = useState({});
 
   useEffect(() => {
     getProfile(id).then(response => setProfile(response.data[0]));
@@ -50,7 +51,7 @@ export function ProfileCards({ id, manageAttendance }) {
             <li>{profile.age}</li>
             <li>{profile.position}</li>
             <li>
-              <a href="https://www.linkedin.com/">
+              <a href={profile.link_url}>
                 <img src={logoLinkedin} alt="logo linkedin" />
               </a>
             </li>
