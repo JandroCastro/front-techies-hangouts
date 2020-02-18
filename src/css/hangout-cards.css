@@ -9,8 +9,8 @@
 div.card {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  width: 900px;
-  height: 500px;
+  min-width: 900px;
+  min-height: 500px;
   background: grey;
   border-radius: 5px;
   background-size: cover;

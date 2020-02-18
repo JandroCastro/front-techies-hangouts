@@ -18,6 +18,7 @@ export function HangoutCards({ event }) {
   const [thematic, setThematic] = useState("");
   const [noVisible, setNoVisible] = useState(true);
   const [anotado, setAnotado] = useState(false);
+  const [index, setIndex] = useState("1");
 
   const history = useHistory();
 
@@ -39,7 +40,9 @@ export function HangoutCards({ event }) {
         setAnotado(true);
         history.push(`/hangout/${event.id}`);
       })
-      .catch();
+      .catch(() => {
+        history.push(`/hangout/${event.id}`);
+      });
   };
 
   //console.log(event);
@@ -52,15 +55,18 @@ export function HangoutCards({ event }) {
     <animated.div
       onMouseEnter={function() {
         setNoVisible(false);
+        setIndex("10");
       }}
-      className="card"
       onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
       onMouseLeave={function() {
         set({ xys: [0, 0, 1] });
         setNoVisible(true);
+        setIndex("1");
       }}
+      className="card"
       style={{
-        transform: props.xys.interpolate(trans)
+        transform: props.xys.interpolate(trans),
+        zIndex: { index }
       }}
     >
       <div

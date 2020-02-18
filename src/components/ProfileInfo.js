@@ -27,7 +27,6 @@ export function ProfileInfo({ id }) {
       </div>
       <div id="enlacesRRSS">
         <li>
-          {" "}
           <a href="https://www.instagram.com/">
             <img src={logoInstagram} alt="logo insta" />
           </a>

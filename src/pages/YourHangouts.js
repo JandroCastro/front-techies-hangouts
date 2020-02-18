@@ -13,10 +13,17 @@ export function YourHangouts() {
 
   useEffect(() => {
     console.log("Hola");
-    getAllUserAttendance(userId).then(response => setHangouts(response.data));
+    getAllUserAttendance(userId).then(response =>
+      setHangouts(response.data[0])
+    );
     setDate(new Date().toISOString());
     console.log(hangouts, todayDate);
   }, []);
+
+  const hasHangouts = Object.keys(hangouts).length > 0;
+  if (!hasHangouts) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <React.Fragment>
