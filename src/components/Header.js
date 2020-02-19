@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../img/Free_Sample_By_Wix.png";
-import cerrarSesion from "../img/salir.jpeg";
+import cerrarSesion from "../img/cerrar-sesion.svg";
 
 export function Header({ title }) {
   return (
@@ -14,10 +14,13 @@ export function Header({ title }) {
         </a>
 
         <ul>
-          <li>
+          <li className="hola">
             <a href="/profile">Hola chaval</a>
           </li>
-          <li className="logout"><img src={cerrarSesion} alt="salir" /></li>
+
+          <li className="logout">
+            <img onClick={() => (window.location.href = "/login")} src={cerrarSesion} alt="salir" />
+          </li>
         </ul>
       </header>
     </React.Fragment>

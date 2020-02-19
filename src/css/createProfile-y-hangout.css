@@ -56,8 +56,8 @@ background-color: rgba(128, 128, 128, 0.233);
 
   
 }
-img.editavatar{
-  width: 50px;
+.editavatar{
+  width: 100px;
   height: 50px;
   margin: 0;
 
