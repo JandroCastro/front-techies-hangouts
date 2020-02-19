@@ -13,7 +13,7 @@ import { useHistory } from "react-router-dom";
 export function CreateProfile() {
   const storedUser = JSON.parse(localStorage.getItem("currentUser"));
 
-  const userId = storedUser.id;
+  const userId = storedUser.userId;
 
   const history = useHistory();
 
@@ -24,10 +24,13 @@ export function CreateProfile() {
   }, []);
 
   const handleSubmit = formData => {
+    console.log(formData)
     updateProfile(userId, formData)
       .then(history.push(`/profile/${userId}`))
       .catch();
   };
+
+
 
   return (
     <React.Fragment>
@@ -40,6 +43,7 @@ export function CreateProfile() {
               className="avatarProfile"
               alt="Foto de avatar"
               src={profile.avatar_url}
+              
             />
           </li>
           <li>
@@ -68,7 +72,6 @@ export function CreateProfile() {
           </button>
         </form>
       </div>
-
       <Footer />
     </React.Fragment>
   );

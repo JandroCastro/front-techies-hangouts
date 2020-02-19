@@ -86,7 +86,7 @@ function FileUpload() {
   };
 
   return (
-    <main>
+    <main >
       <div
         className={`file-upload-container ${isDrag ? 'drag' : ''} ${
           uploading ? 'uploading' : ''

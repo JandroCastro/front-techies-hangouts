@@ -14,7 +14,7 @@ export function YourHangouts() {
   useEffect(() => {
     console.log("Hola");
     getAllUserAttendance(userId).then(response =>
-      setHangouts(response.data[0])
+      setHangouts(response.data)
     );
     setDate(new Date().toISOString());
     console.log(hangouts, todayDate);

@@ -63,16 +63,16 @@ export function DetailedHangout() {
       <Header title="TU EVENTO" />
       <main className="detailedHangout">
         <h1 style={{ marginTop: 16 }}>{hangout.title}</h1>
-        <ul id="portada">
-          <li>
-            {<img alt="Imagen de quedada" src={hangout.photo_url}></img> ||
-              "Cargando"}
-          </li>
+        <div id="cabeceraDeQuedada">
+          <div>
 
-          <li id="avatar">
-            <AvatarContainer id={hangout.user_id} />
-          </li>
-        </ul>
+          {<img alt="Imagen de quedada" src={hangout.photo_url}></img> ||
+            "Cargando"}
+          </div>
+
+          <AvatarContainer id={hangout.user_id} />
+        </div>
+
         {(editOrCheckIn && (
           <button
             className="ghost"

@@ -21,21 +21,21 @@ export function AvatarContainer({ id }) {
   }
   console.log("ahora");
   return (
-    <React.Fragment>
+    <div id="AvatarContainer">
       <div id="avatar">
         {<img alt="Foto de avatar" src={profile.avatar_url} /> || "Loading..."}
       </div>
-      <span className="span">
+      <div className="avatarcontainer">
         <Stars
           nameValue="read-only"
           valor={value}
           styleprop="readOnly"
           talla="large"
         />
-      </span>
+      </div>
       <div id="name">
         <h2>{profile.name}</h2>
       </div>
-    </React.Fragment>
+    </div>
   );
 }

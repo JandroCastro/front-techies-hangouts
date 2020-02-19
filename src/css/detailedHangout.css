@@ -1,25 +1,18 @@
-li#avatar {
-  width: 40%;
+#cabeceraDeQuedada {
   display: flex;
-  flex-direction: column;
-}
-#portada {
-  display: grid;
-  grid-template-columns: 1fr 30%;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  margin: 0 3rem 0 3rem;
 }
 
-#portada li {
-  align-self: center;
-  justify-self: center;
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
+#cabeceraDeQuedada div {
+  flex-basis: 50%;
 }
 
 #portada img {
   object-fit: contain;
   height: 100%;
-  margin-left: 1rem;
 }
 
 div#detallesAsistentes {
@@ -32,12 +25,10 @@ div#detallesAsistentes {
 #pendientes {
   width: 50%;
 }
-#datosQuedada ul li{
+#datosQuedada ul li {
   text-align: center;
 }
-span.span{
-  margin-right: 14rem;
-}
-#name{
-  margin-right: 13rem;
+.avatarcontainer {
+  padding: 2rem;
+  text-align: center;
 }
