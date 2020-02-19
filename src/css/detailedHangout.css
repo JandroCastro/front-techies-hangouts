@@ -31,3 +31,6 @@ div#detallesAsistentes {
 #pendientes {
   width: 50%;
 }
+#datosQuedada ul li{
+  text-align: center;
+}
