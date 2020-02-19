@@ -5,7 +5,7 @@ li#avatar {
 }
 #portada {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 30%;
 }
 
 #portada li {
@@ -19,6 +19,7 @@ li#avatar {
 #portada img {
   object-fit: contain;
   height: 100%;
+  margin-left: 1rem;
 }
 
 div#detallesAsistentes {
@@ -30,4 +31,13 @@ div#detallesAsistentes {
 #confirmados,
 #pendientes {
   width: 50%;
+}
+#datosQuedada ul li{
+  text-align: center;
+}
+span.span{
+  margin-right: 14rem;
+}
+#name{
+  margin-right: 13rem;
 }
