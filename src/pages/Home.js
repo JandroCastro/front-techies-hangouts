@@ -1,5 +1,15 @@
 import React from "react";
 import { Footer } from "../components/Footer";
+import iconSignin from "../img/signin.svg";
+import iconAttend from "../img/attendEvent.svg";
+import iconShare from "../img/share.svg";
+import iconComputer from "../img/computer.svg";
+import iconDrinks from "../img/drinks.svg";
+import iconEvent from "../img/event.svg";
+import iconAdd from "../img/add.svg";
+import iconFind from "../img/findTalent.svg";
+import iconStar from "../img/star.svg";
+import iconEnjoy from "../img/enjoy.svg";
 
 export function Home() {
   return (
@@ -26,7 +36,7 @@ export function Home() {
               <h3>Si eres Recruiter</h3>
               <p>
                 Conoce en persona, en un ambiente distendido, a potenciales
-                candidatos para ese puesto tan crítico de  tu empresa.
+                candidatos para ese puesto tan crítico de tu empresa.
               </p>
             </li>
             <li>
@@ -50,36 +60,66 @@ export function Home() {
         <section className="down">
           <ul>
             <li>
-              <p>Inscríbete en Techies Hangouts.</p>
+              <p>
+                <img src={iconSignin} />
+                Inscríbete en Techies Hangouts.
+              </p>
             </li>
             <li>
-              <p>Apúntate y acude a eventos de la comunidad.</p>
+              <p>
+                <img src={iconAttend} />
+                Apúntate y acude a eventos de la comunidad.
+              </p>
             </li>
             <li>
-              <p>Comparte experiencias y amplía conocimientos.</p>
+              <p>
+                <img src={iconShare} />
+                Comparte experiencias y amplía conocimientos.
+              </p>
             </li>
             <li>
-              <p>Encuentra el trabajo que estabas esperando.</p>
+              <p>
+                <img src={iconComputer} />
+                Encuentra el trabajo que estabas esperando.
+              </p>
             </li>
             <li>
-              <p>Y por supuesto, tómate algo con tu gente techie.</p>
+              <p>
+                <img src={iconDrinks} />Y por supuesto, tómate algo con tu gente
+                techie.
+              </p>
             </li>
           </ul>
           <ul>
             <li>
-              <p>Crea tus propios eventos.</p>
+              <p>
+                <img src={iconEvent} />
+                Crea tus propios eventos.
+              </p>
             </li>
             <li>
-              <p>Selecciona a los participantes.</p>
+              <p>
+                <img src={iconAdd} />
+                Selecciona a los participantes.
+              </p>
             </li>
             <li>
-              <p>Encuentra a ese talento que necesita tu proyecto.</p>
+              <p>
+                <img src={iconFind} />
+                Encuentra a ese talento que necesita tu proyecto.
+              </p>
             </li>
             <li>
-              <p>Valora a los demás miembros de la comunidad.</p>
+              <p>
+                <img src={iconStar} />
+                Valora a los demás miembros de la comunidad.
+              </p>
             </li>
             <li>
-              <p>Diviértete.</p>
+              <p>
+                <img src={iconEnjoy} />
+                Diviértete.
+              </p>
             </li>
           </ul>
         </section>
