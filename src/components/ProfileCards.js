@@ -52,6 +52,7 @@ export function ProfileCards({ id, manageAttendance }) {
             <li>{profile.position}</li>
             <li>
               <a href={profile.link_url}>
+
                 <img src={logoLinkedin} alt="logo linkedin" />
               </a>
             </li>

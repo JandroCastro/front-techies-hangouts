@@ -13,7 +13,7 @@ import { useHistory } from "react-router-dom";
 export function CreateProfile() {
   const storedUser = JSON.parse(localStorage.getItem("currentUser"));
 
-  const userId = storedUser.userId;
+  const userId = storedUser.id;
 
   const history = useHistory();
 
@@ -50,15 +50,15 @@ export function CreateProfile() {
       <div>
         <form className="hangout" action="#">
           <label className="label">Nombre y apellidos</label>
-          <input type="text" placeholder=" Introduce Nombre y Apellidos" />
+          <input value={profile.name} type="text" placeholder=" Introduce Nombre y Apellidos" />
           <label className="label">Edad</label>
-          <input type="text" placeholder=" Introcude tu Edad" />
+          <input value={profile.age} type="text" placeholder=" Introcude tu Edad" />
           <label className="label">Categoría Profesional</label>
-          <input type="text" placeholder=" Introduce Categoría Profesional" />
-          <label className="label">Puesto/Posición</label>
-          <input type="text" placeholder="Introduce tu puesto" />
+          <input value={profile.category} type="text" placeholder=" Introduce Categoría Profesional" />
+          <label  className="label">Puesto/Posición</label>
+          <input  value={profile.position} type="text" placeholder="Introduce tu puesto" />
           <label className="label">Descripción</label>
-          <textarea
+          <textarea value={profile.aboutMe}
             id="textarea"
             type="text"
             placeholder="introduce una breve descripción sobre ti"
