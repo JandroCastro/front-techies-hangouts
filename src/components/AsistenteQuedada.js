@@ -22,7 +22,7 @@ export function AsistenteQuedada({ id }) {
           <MiniAvatar id={id} />
         </li>
         <li>
-          {profile.name} , {profile.position}
+          {profile.name}, {profile.position}
         </li>
         <li>
           <Stars />

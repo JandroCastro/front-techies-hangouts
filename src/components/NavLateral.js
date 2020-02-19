@@ -10,11 +10,6 @@ export function NavLateral() {
         <nav className="sidebar-nav">
           <ul>
             <li>
-              <a href="/create/hangout">
-                <i className="ion-bag"></i> <span>CREAR EVENTO</span>
-              </a>
-            </li>
-            <li>
               <a href="/">
                 <i className="ion-ios-settings"></i>{" "}
                 <span className="">TUS EVENTOS</span>
@@ -59,6 +54,14 @@ export function NavLateral() {
             </li>
           </ul>
         </nav>
+        <div className="botonCrear">
+          <button
+            className="btn"
+            onClick={() => (window.location.href = "/create/hangout")}
+          >
+            CREAR EVENTO
+          </button>
+        </div>
       </aside>
     </section>
   );

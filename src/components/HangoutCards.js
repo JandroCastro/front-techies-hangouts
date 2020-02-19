@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 const calc = (x, y) => [
   -(y - window.innerHeight / 2) / 10,
   (x - window.innerWidth / 2) / 10,
-  1.1
+  1.02
 ];
 const trans = (x, y, s) => `scale(${s})`;
 
@@ -49,7 +49,7 @@ export function HangoutCards({ event }) {
 
   const [props, set] = useSpring(() => ({
     xys: [0, 0, 1],
-    config: { mass: 5, tension: 250, friction: 30 }
+    config: { mass: 5, tension: 250, friction: 40 }
   }));
   return (
     <animated.div
