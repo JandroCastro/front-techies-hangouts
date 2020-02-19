@@ -8,7 +8,6 @@
   margin: 1rem 3rem 1rem 3rem;
   color: white;
   text-align: left;
-  
 }
 
 .up {
@@ -23,7 +22,6 @@
 
 .medium {
   height: 30vh;
-  
 }
 .medium ul {
   height: 100%;
@@ -31,22 +29,18 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  
 }
 
 .medium ul li {
   width: 20%;
-  background-color:rgba(0, 0, 255, 0.671);
+  background-color: rgba(0, 0, 255, 0.671);
   padding: 2.5rem;
   margin: 6rem 0 0;
   font-weight: bold;
-  
-  
-  
 }
 
-.medium ul li p{
-  font-size:22px;
+.medium ul li p {
+  font-size: 22px;
 }
 
 .down {
@@ -63,17 +57,19 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  
 }
-.medium h3{
+.medium h3 {
   margin-bottom: 1rem;
 }
 
-.down li p{
+.down li p {
   font-size: 24px;
   text-transform: capitalize;
   padding: 1rem;
   font-weight: bold;
-  
+}
+
+.down li p img {
+  height: 36px;
+  padding-right: 1rem;
 }

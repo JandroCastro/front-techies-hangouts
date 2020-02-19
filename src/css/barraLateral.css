@@ -1,24 +1,22 @@
 /* -------------
 Sidebar
 ----------------*/
-.barra{
-    width: 13em;
-    margin-left: 2.2rem;
-    
+.barra {
+  width: 13em;
+  margin-left: 2.2rem;
 }
 
 .sidebar-nav {
   width: 13em;
-  background-color:rgb(3, 17, 143);
+  background-color: rgb(3, 17, 143);
   height: 100%;
   font-weight: 400;
   font-size: 1.2em;
   overflow: auto;
-  
+
   z-index: 9;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
-  
 }
 .sidebar li {
   margin-left: 0;
@@ -27,6 +25,7 @@ Sidebar
   display: inline-block;
   width: 100%;
 }
+
 .sidebar a {
   color: rgba(255, 255, 255, 0.9);
   font-size: 0.75em;
@@ -36,7 +35,6 @@ Sidebar
 }
 .sidebar a:hover {
   color: black;
-  
 }
 
 .sidebar > ul > li > a:after {
@@ -60,6 +58,6 @@ Sidebar
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-.barra li{
+.barra li {
   border: grey 0.1px solid;
 }
