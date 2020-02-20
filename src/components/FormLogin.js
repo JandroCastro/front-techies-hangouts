@@ -45,11 +45,18 @@ export function FormLogin() {
 
   return (
     <form onSubmit={handleSubmit(handleSignIn)} noValidate>
+      <div
+        className={`form-control ${
+          errors.email ? "ko" : formState.touched.email && "ok"
+        }`}
+      >
       <h1>Sign in</h1>
 
       <span>or use your account</span>
+
       <input
         ref={register({
+          required: "The email is mandatory",
           pattern: {
             value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
             message: "The email is not valid"
@@ -59,6 +66,16 @@ export function FormLogin() {
         name="email"
         placeholder="Email paentro"
       />
+      {errors.email && (
+        <span className="errorMessage">{errors.email.message}</span>
+      )}
+      </div>
+      <div
+            className={`form-control ${
+              errors.password ? 'ko' : formState.touched.password && 'ok'
+            }`}
+          >
+
 
       <input
         ref={register({
@@ -71,6 +88,11 @@ export function FormLogin() {
         name="password"
         placeholder="Password"
       />
+       {errors.password && (
+              <span className="errorMessage">{errors.password.message}</span>
+            )}
+          </div>
+
 
       <Link to="/">Forgot your password?</Link>
       <button className="btn" type="submit">
