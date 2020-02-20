@@ -43,7 +43,7 @@ export function CreateProfile() {
             />
           </li>
           <li>
-            <FileUpload />
+            <FileUpload required />
           </li>
         </ul>
       </div>
@@ -54,24 +54,28 @@ export function CreateProfile() {
             value={profile.name}
             type="text"
             placeholder=" Introduce Nombre y Apellidos"
+            required
           />
           <label className="label">Edad</label>
           <input
             value={profile.age}
             type="text"
             placeholder=" Introcude tu Edad"
+            required
           />
           <label className="label">Categoría Profesional</label>
           <input
             value={profile.category}
             type="text"
             placeholder=" Introduce Categoría Profesional"
+            required
           />
           <label className="label">Puesto/Posición</label>
           <input
             value={profile.position}
             type="text"
             placeholder="Introduce tu puesto"
+            required
           />
           <label className="label">Descripción</label>
           <textarea
@@ -79,6 +83,7 @@ export function CreateProfile() {
             id="textarea"
             type="text"
             placeholder="introduce una breve descripción sobre ti"
+            required
           />
           <button onClick={handleSubmit} className="btn" type="submit">
             CREAR

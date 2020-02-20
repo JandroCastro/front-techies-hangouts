@@ -1,21 +1,21 @@
 .AvatarContainer{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
+ 
+}
+#avatar{
+  text-align: center;
 }
 
 
-#avatar {
-  display: block;
-  flex-basis:100%;
-  display: flex;
+.estrellas{
+  align-self: center;
 }
-
 #name h2{
   flex-basis: 100%;
   text-align: center;
-
 }
 
 #avatar img,

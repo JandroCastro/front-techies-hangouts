@@ -20,16 +20,16 @@ export function CreateHangout() {
       <div>
         <form className="hangout" action="#">
           <label className="label">Fecha</label>
-           <Datepicker /><label className="label">Título</label>
+           <Datepicker required /><label className="label">Título</label>
          
           <input type="text" placeholder="introduce un título" required/>
           <label className="label">Dirección</label>
-          <input type="text" placeholder="introduce una dirección" />
+          <input type="text" placeholder="introduce una dirección" required />
           <label className="label"> Nombre del Local</label>
-          <input type="text" placeholder="introduce el nombre de un local" />
+          <input type="text" placeholder="introduce el nombre de un local" required/>
           <select>
             {cities.map(d => {
-              return <option value={d.id}>{d.name}</option>;
+              return <option value={d.id}>{d.name}</option >;
             })}
             <option value="value1">Selecciona una Ciudad</option>
           </select>
@@ -41,13 +41,14 @@ export function CreateHangout() {
           </select>
           <label className="label"> Selecciona una foto para el evento</label>
           <div className="fileupload">
-          <FileUpload/>
+          <FileUpload required/>
           </div>
           <label className="label">Descripción</label>
           <textarea
             id="textarea"
             type="text"
             placeholder="introduce una breve descripción sobre el evento"
+            required
           />
           <button id="login-page" className="btn" type="submit">
             CREAR

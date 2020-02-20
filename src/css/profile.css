@@ -17,12 +17,13 @@
   padding: 1rem;
   color: var(--dark);
   display: flex;
-  width: auto;
+ 
 }
-#profile div#name {
+#profile#name {
   display: flex;
   align-items: center;
   padding: 2rem;
+ 
 }
 
 
