@@ -19,7 +19,14 @@ export function Header({ title }) {
           </li>
 
           <li className="logout">
-            <img onClick={() => (window.location.href = "/login")} src={cerrarSesion} alt="salir" />
+            <img
+              onClick={() => {
+                localStorage.removeItem("currentUser");
+                window.location.href = "/";
+              }}
+              src={cerrarSesion}
+              alt="salir"
+            />
           </li>
         </ul>
       </header>

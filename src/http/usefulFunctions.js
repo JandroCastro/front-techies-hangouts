@@ -59,3 +59,15 @@ export function getHangoutsPendingToConfirm(dataArray) {
     hangout => hangout.event_date > date && hangout.request_status === "pending"
   );
 }
+/**
+ *
+ * @param {*} string =url.search del login, le cortamos el
+ * "?id=" para que nos devuelva el id de la hangout para hacer
+ * la inscripción y pushear al detalle de la quedada
+ *
+ */
+
+export function parseSearchPath(string) {
+  const hangoutId = string.slice(4);
+  return hangoutId;
+}

@@ -15,19 +15,26 @@ const trans = (x, y, s) => `scale(${s})`;
 export function HangoutCards({ event }) {
   const [noVisible, setNoVisible] = useState(true);
 
+  const currentUser = localStorage.getItem("currentUser");
+  console.log(currentUser);
+
   const history = useHistory();
 
   const date = event.event_date.split("T");
   const hour = event.event_hour.substring(0, 5);
 
   const handleClick = () => {
-    return checkInToHangout(event.id)
-      .then(() => {
-        history.push(`/hangout/${event.id}`);
-      })
-      .catch(() => {
-        history.push(`/hangout/${event.id}`);
-      });
+    if (currentUser !== null) {
+      return checkInToHangout(event.id)
+        .then(() => {
+          history.push(`/hangout/${event.id}`);
+        })
+        .catch(() => {
+          history.push(`/hangout/${event.id}`);
+        });
+    } else {
+      history.push(`/login?id=${event.id}`);
+    }
   };
 
   //console.log(event);

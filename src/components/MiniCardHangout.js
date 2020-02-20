@@ -15,7 +15,13 @@ export function MiniCardHangout({ user, voting }) {
           <li>{user.position}</li>
           <li>
             {<StarsOnlyRead talla="small" id={user.user_id} /> ||
-              (voting && <StarsForRating talla="" />)}
+              (voting && (
+                <StarsForRating
+                  hangoutId={user.id}
+                  user_id={user.id_users}
+                  talla=""
+                />
+              ))}
           </li>
         </ul>
       </div>

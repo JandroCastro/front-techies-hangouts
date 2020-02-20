@@ -19,9 +19,9 @@ export function EventCard({ event, votar }) {
         <li>{date}</li>
         <li>{event.title}</li>
         <li>{event.cityName}</li>
-        <li>Asistentes:</li>
       </ul>
       <ul>
+        <h3>Asistentes:</h3>
         {asistentes.map(asistente => (
           <li>
             <MiniCardHangout user={asistente} voting={votar} />

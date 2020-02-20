@@ -1,6 +1,6 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { useAuth } from '../context/auth-context';
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
+import { useAuth } from "../context/auth-context";
 
 // PrivateRoute hace las funciones de Route pero además añade logica de
 // verificación de permisos de acceso a las rutas
@@ -9,9 +9,6 @@ import { useAuth } from '../context/auth-context';
 export function PrivateRoute({ children, /* allowedRoles */ ...others }) {
   // Extraigo del contexto (auth-context) si el usuario esta autenticado
   const { isAuthenticated } = useAuth();
-
-  // Si tuviese roles extraería el role
-  // const { role } = useAuth();
 
   // Si tiene permiso para acceder a la ruta devuelvo la ruta
   // En otro caso redirijo
@@ -24,11 +21,4 @@ export function PrivateRoute({ children, /* allowedRoles */ ...others }) {
       )}
     </React.Fragment>
   );
-
-  // Si gestionase roles podria hacerlo asi
-  // return (
-  //   <Route {...others}>
-  //     {allowedRoles.includes(role) ? children : <Redirect to="/login" />}
-  //   </Route>
-  // );
 }

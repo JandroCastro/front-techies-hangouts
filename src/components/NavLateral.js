@@ -2,7 +2,13 @@ import React from "react";
 
 export function NavLateral() {
   const storedUser = JSON.parse(localStorage.getItem("currentUser"));
-  const id = storedUser.userId;
+
+  let id;
+  if (storedUser === null) {
+    id = undefined;
+  } else {
+    id = storedUser.userId;
+  }
 
   return (
     <section className="barra">
@@ -11,7 +17,7 @@ export function NavLateral() {
           <ul>
             <li>
               <a href="/">
-                <i className="ion-ios-settings"></i>{" "}
+                <i className="ion-ios-settings"></i>
                 <span className="">TUS EVENTOS</span>
               </a>
             </li>

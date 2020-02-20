@@ -15,6 +15,7 @@ import { useParams, useHistory } from "react-router-dom";
 export function DetailedHangout() {
   const history = useHistory();
   const { id } = useParams();
+  console.log(id);
 
   const storedUser = JSON.parse(localStorage.getItem("currentUser"));
 
