@@ -16,13 +16,13 @@ export function AvatarContainer({ id }) {
   }
 
   return (
-    <div id="AvatarContainer">
+    <div className="AvatarContainer">
       <div id="avatar">
         {<img alt="Foto de avatar" src={profile.avatar_url} /> || "Loading..."}
       </div>
-      <span className="span">
+      <div className="estrellas">
         <Stars styleprop="readOnly" talla="large" id={id} />
-      </span>
+        </div>
       <div id="name">
         <h2>{profile.name}</h2>
       </div>
