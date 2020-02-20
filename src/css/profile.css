@@ -4,7 +4,7 @@
 }
 
 #profile h2 {
-  margin-top: 4rem;
+  margin-top: .5rem;
   color: var(--dark);
 }
 
@@ -25,9 +25,7 @@
   padding: 2rem;
 }
 
-#profile span {
-  text-align: justify;
-}
+
 div#enlacesRRSS {
   font-size: 30px;
   display: flex;
@@ -39,6 +37,4 @@ div#enlacesRRSS {
 #profile #enlacesRRSS li {
   margin: 3rem;
 }
-div#avatar{
-  margin-right: 2.5rem;
-}
+

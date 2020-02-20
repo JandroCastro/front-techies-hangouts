@@ -1,6 +1,5 @@
 import React from "react";
 import { Header } from "../components/Header";
-import { NavMenu } from "../components/NavMenu";
 import { AvatarContainer } from "../components/AvatarContainer";
 import { ProfileInfo } from "../components/ProfileInfo";
 import { Footer } from "../components/Footer";
@@ -13,7 +12,7 @@ export function Profile() {
   return (
     <main id="profile">
       <Header title="YOUR PROFILE" />
-      <NavMenu />
+      
       <AvatarContainer id={id} />
       <main>
         <div>
@@ -24,7 +23,7 @@ export function Profile() {
             className="ghost"
             onClick={() => (window.location.href = "/create/profile")}
           >
-            Edit profile
+            Gestionar Perfil
           </button>
         </div>
       </main>

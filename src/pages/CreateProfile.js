@@ -24,10 +24,13 @@ export function CreateProfile() {
   }, []);
 
   const handleSubmit = formData => {
+    console.log(formData)
     updateProfile(userId, formData)
       .then(history.push(`/profile/${userId}`))
       .catch();
   };
+
+
 
   return (
     <React.Fragment>
@@ -40,6 +43,7 @@ export function CreateProfile() {
               className="avatarProfile"
               alt="Foto de avatar"
               src={profile.avatar_url}
+              
             />
           </li>
           <li>
@@ -50,15 +54,15 @@ export function CreateProfile() {
       <div>
         <form className="hangout" action="#">
           <label className="label">Nombre y apellidos</label>
-          <input type="text" placeholder=" Introduce Nombre y Apellidos" />
+          <input value={profile.name} type="text" placeholder=" Introduce Nombre y Apellidos" />
           <label className="label">Edad</label>
-          <input type="text" placeholder=" Introcude tu Edad" />
+          <input value={profile.age} type="text" placeholder=" Introcude tu Edad" />
           <label className="label">Categoría Profesional</label>
-          <input type="text" placeholder=" Introduce Categoría Profesional" />
-          <label className="label">Puesto/Posición</label>
-          <input type="text" placeholder="Introduce tu puesto" />
+          <input value={profile.category} type="text" placeholder=" Introduce Categoría Profesional" />
+          <label  className="label">Puesto/Posición</label>
+          <input  value={profile.position} type="text" placeholder="Introduce tu puesto" />
           <label className="label">Descripción</label>
-          <textarea
+          <textarea value={profile.aboutMe}
             id="textarea"
             type="text"
             placeholder="introduce una breve descripción sobre ti"
@@ -68,7 +72,6 @@ export function CreateProfile() {
           </button>
         </form>
       </div>
-
       <Footer />
     </React.Fragment>
   );

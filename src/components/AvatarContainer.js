@@ -16,7 +16,7 @@ export function AvatarContainer({ id }) {
   }
 
   return (
-    <React.Fragment>
+    <div id="AvatarContainer">
       <div id="avatar">
         {<img alt="Foto de avatar" src={profile.avatar_url} /> || "Loading..."}
       </div>
@@ -26,6 +26,6 @@ export function AvatarContainer({ id }) {
       <div id="name">
         <h2>{profile.name}</h2>
       </div>
-    </React.Fragment>
+    </div>
   );
 }

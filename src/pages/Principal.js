@@ -46,6 +46,13 @@ export function Principal() {
               </li>
             ))}
           </ul>
+          <button
+            className="btn"
+            onClick={() => setHangouts(hangouts.next)}
+            disabled={!hangouts.next}
+          >
+            Mostrar Siguientes
+          </button>
         </main>
         <Footer />
       </div>

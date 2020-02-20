@@ -3,6 +3,7 @@ import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { getAllCities, getAllThematics } from "../http/utilitiesService";
 import { Datepicker } from "../components/Datepicker";
+import FileUpload from "../components/FileUpload";
 
 export function CreateHangout() {
   const [cities, setCities] = useState([]);
@@ -28,16 +29,20 @@ export function CreateHangout() {
           <input type="text" placeholder="introduce el nombre de un local" />
           <select>
             {cities.map(d => {
-              return <option>{d.name}</option>;
+              return <option value={d.id}>{d.name}</option>;
             })}
             <option value="value1">Selecciona una Ciudad</option>
           </select>
           <select>
             {thematics.map(d => {
-              return <option>{d.name}</option>;
+            return <option value={d.id}>{d.name}</option>;
             })}
-            <option value="value1">Selecciona una temática</option>
+            <option  value="value1">Selecciona una temática</option>
           </select>
+          <label className="label"> Selecciona una foto para el evento</label>
+          <div className="fileupload">
+          <FileUpload/>
+          </div>
           <label className="label">Descripción</label>
           <textarea
             id="textarea"

@@ -5,7 +5,8 @@ header {
   color: var(--dark);
   justify-content: space-between;
   width: 100%;
-  background-color:rgba(0, 0, 255, 0.671);
+  border-bottom: 1px grey solid;
+  
 }
 
 header img {
@@ -25,8 +26,9 @@ header ul {
   flex-direction: row;
 }
 #logo {
-  height: 130px;
+  height: 110px;
   width: 130px;
+ 
 }
 
 #header-profile {

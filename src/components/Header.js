@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../img/Free_Sample_By_Wix.png";
+import logo from "../img/logo.jpeg";
 import cerrarSesion from "../img/cerrar-sesion.svg";
 
 export function Header({ title }) {

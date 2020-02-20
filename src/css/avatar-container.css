@@ -1,5 +1,21 @@
-#avatar {
+.AvatarContainer{
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+#avatar {
+  display: block;
+  flex-basis:100%;
+  display: flex;
+}
+
+#name h2{
+  flex-basis: 100%;
+  text-align: center;
+
 }
 
 #avatar img,
@@ -13,7 +29,7 @@
 #avatar img {
   height: 250px;
   width: 250px;
-  
+  margin-top: 3rem;
 }
 
 .miniAvatar {
@@ -21,22 +37,13 @@
   width: 100px;
 }
 
-span.span {
-  color: black;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 3rem;
-  font-size: 24px;
-}
-
-
-img.miniAvatar{
+img.miniAvatar {
   margin-left: 1rem;
 }
-#name h2{
+#name h2 {
   text-align: center;
 }
-#listado-de-asistentes{
+#listado-de-asistentes {
   margin-left: 1rem;
 }
+

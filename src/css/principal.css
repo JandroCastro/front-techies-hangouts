@@ -17,7 +17,11 @@
 
 #hangoutCards {
   grid-area: main;
+  display: flex;
+  flex-direction: column;
   justify-self: center;
+  height: 100vh;
+  overflow-x: scroll;
 }
 
 #hangoutCards ul li {
