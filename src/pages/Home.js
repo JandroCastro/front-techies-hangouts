@@ -106,7 +106,7 @@ export function Home() {
             <li>
               <p>
                 <img src={iconFind} />
-                Encuentra a ese talento que necesita tu proyecto.
+                Encuentra a ese talento que tu proyecto necesita.
               </p>
             </li>
             <li>
