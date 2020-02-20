@@ -1,26 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import { Datepicker } from "./Datepicker";
 
 import { Filter } from "./Filtro";
 import { getHangoutsFiltered } from "../http/hangoutsService";
 
-export function NavFilter({ optionCities, optionThematics }) {
+export function NavFilter({ optionCities, optionThematics, onFilter }) {
+  const [state, setState] = useState({
+    city_id: null,
+    thematic_id: null,
+    event_date: null
+  });
+
+  const parseDate = object => {
+    const date = JSON.stringify(object).substring(1, 11);
+    return date;
+  };
+
   const handleClick = () => {
-    return getHangoutsFiltered();
+    onFilter(state);
   };
 
   return (
     <nav className="nav-filter">
       <ul>
-        <li>
-          <Filter label={"Ciudades"} data={optionCities} />
+        <li key="cityFilter">
+          <Filter
+            handleChange={e => {
+              setState({ ...state, city_id: e.target.value });
+            }}
+            label={"Ciudades"}
+            data={optionCities}
+          />
         </li>
-        <li>
-          <Filter label={"Temáticas"} data={optionThematics} />
+        <li key="thematicFilter">
+          <Filter
+            handleChange={e =>
+              setState({ ...state, thematic_id: e.target.value })
+            }
+            label={"Temáticas"}
+            data={optionThematics}
+          />
         </li>
-        <li>
+        <li key="dateFilter">
           <label>Fecha</label>
-          <Datepicker />
+          <Datepicker
+            handleChange={day => {
+              setState({ ...state, date_event: parseDate(day) });
+            }}
+          />
         </li>
       </ul>
       <button onClick={handleClick} className="btn" id="login-page">

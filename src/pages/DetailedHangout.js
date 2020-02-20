@@ -11,8 +11,6 @@ import {
 import { Map } from "../components/Map";
 import { ProfileCards } from "../components/ProfileCards";
 import { useParams, useHistory } from "react-router-dom";
-import { ListaTematica } from "../components/ListaTematica";
-import { ListaCiudad } from "../components/ListaCiudad";
 
 export function DetailedHangout() {
   const history = useHistory();
@@ -91,10 +89,10 @@ export function DetailedHangout() {
           <div id="datosQuedada">
             <ul>
               <h3>Detalles</h3>
-              <ListaCiudad id={hangout.city_id} />
+              <li>{hangout.cityName}</li>
               <li>{date}</li>
               <li>{hour}</li>
-              <ListaTematica id={hangout.thematic_id} />
+              <li>{hangout.thematicName}</li>
               <li>{hangout.description}</li>
               <li>Mapa</li>
               <li>

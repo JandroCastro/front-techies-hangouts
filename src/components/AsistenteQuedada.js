@@ -1,31 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { MiniAvatar } from "./MiniAvatar";
-import { Stars } from "./Stars";
-import { getProfile } from "../http/profileService";
+import React from "react";
 
-export function AsistenteQuedada({ id }) {
-  const [profile, setProfile] = useState({});
+import { MiniAvatarForPrincipal } from "./MiniAvatarForPrincipal";
+import { StarsOnlyRead } from "./StarsOnlyRead";
 
-  useEffect(() => {
-    getProfile(id).then(response => setProfile(response.data[0]));
-  }, []);
-
-  const hasProfile = Object.keys(profile).length > 0;
-  if (!hasProfile) {
-    return <div>Loading...</div>;
-  }
-
+export function AsistenteQuedada({ event }) {
+  console.log(event);
   return (
     <div className="asistente">
       <ul>
         <li>
-          <MiniAvatar id={id} />
+          <MiniAvatarForPrincipal event={event} />
         </li>
         <li>
-          {profile.name} , {profile.position}
+          {event.userName} , {event.position}
         </li>
         <li>
-          <Stars />
+          <StarsOnlyRead talla="" id={event.user_id} />
         </li>
       </ul>
     </div>

@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-export function Datepicker() {
-  const [date, setDate] = useState(new Date());
+export function Datepicker({ handleChange }) {
+  const date = new Date();
   return (
     <DatePicker
       placeholderText="Click to select a date"
-      dateFormat="yyyy/MM/dd"
+      dateFormat="yyyy-MM-dd"
       selected={date}
-      onChange={dateChanged => setDate(dateChanged)}
+      onChange={handleChange}
     />
   );
 }

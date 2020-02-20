@@ -8,16 +8,12 @@ export function YourHangouts() {
   const [hangouts, setHangouts] = useState([]);
   const [todayDate, setDate] = useState("");
 
-  const { userId } = JSON.parse(localStorage.getItem("currentUser"));
-  console.log(userId);
+  const user = JSON.parse(localStorage.getItem("currentUser"));
+  const userId = user.userId;
 
   useEffect(() => {
-    console.log("Hola");
-    getAllUserAttendance(userId).then(response =>
-      setHangouts(response.data[0])
-    );
-    setDate(new Date().toISOString());
-    console.log(hangouts, todayDate);
+    getAllUserAttendance(userId).then(response => setHangouts(response.data));
+    setDate(new Date().toISOString().substring(0, 10));
   }, []);
 
   const hasHangouts = Object.keys(hangouts).length > 0;
@@ -25,29 +21,29 @@ export function YourHangouts() {
     return <div>Loading...</div>;
   }
 
+  console.log(typeof hangouts, typeof todayDate);
   return (
     <React.Fragment>
       <Header title="TUS EVENTOS" />
       <main className="yourHangouts">
-        
-
         <section id="organizadas">
           <h2>Eventos de los que eres organizador</h2>
           <ul>
-            {hangouts.filter(hangout => (
-              <li>
-                <EventCard
-                  event={
-                    hangout.id_users === hangout.user_id &&
-                    hangout.event_date > todayDate
-                  }
-                  readOnly={true}
-                />
-              </li>
-            ))}
+            {hangouts.map(hangout => {
+              if (
+                hangout.id_users === hangout.user_id &&
+                hangout.event_date > todayDate
+              ) {
+                return (
+                  <li key={hangout.id}>
+                    <EventCard event={hangout} readOnly={true} />
+                  </li>
+                );
+              }
+            })}
           </ul>
         </section>
-        <section id="asistencias">
+        {/* <section id="asistencias">
           <h2>Eventos pendientes de asistir</h2>
           <ul>
             {hangouts.filter(hangout => (
@@ -63,8 +59,8 @@ export function YourHangouts() {
               </li>
             ))}
           </ul>
-        </section>
-        <section id="pasadas">
+        </section> */}
+        {/* <section id="pasadas">
           <h2>Eventos a los que has asistido</h2>
           <ul>
             {hangouts.filter(hangout => (
@@ -80,7 +76,7 @@ export function YourHangouts() {
             ))}
             ;
           </ul>
-        </section>
+        </section> */}
       </main>
       <Footer />
     </React.Fragment>

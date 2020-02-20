@@ -4,7 +4,7 @@ import { NavFilter } from "../components/NavFilter";
 import { HangoutCards } from "../components/HangoutCards";
 import { Footer } from "../components/Footer";
 import { getAllCities, getAllThematics } from "../http/utilitiesService";
-import { getAllHangouts } from "../http/hangoutsService";
+import { getAllHangouts, getHangoutsFiltered } from "../http/hangoutsService";
 import { NavLateral } from "../components/NavLateral";
 import { useHistory } from "react-router-dom";
 
@@ -20,16 +20,25 @@ export function Principal() {
     getAllHangouts().then(response => setHangouts(response.data));
   }, []);
 
+  const handleFilter = filters => {
+    getHangoutsFiltered(filters).then(response => setHangouts(response.data));
+  };
+  console.log(typeof hangouts);
+
   return (
     <React.Fragment>
       <div id="principal">
         <Header title="techies hangouts" />
-        <NavFilter optionCities={cities} optionThematics={thematics} />
+        <NavFilter
+          optionCities={cities}
+          optionThematics={thematics}
+          onFilter={handleFilter}
+        />
         <NavLateral />
         <main id="hangoutCards">
           <ul>
             {hangouts.map(hangout => (
-              <li>
+              <li key={hangout.id}>
                 <HangoutCards
                   // onClick={history.push(`/hangout/${hangout.id}`)}
                   event={hangout}

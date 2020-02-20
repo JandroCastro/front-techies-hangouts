@@ -12,22 +12,20 @@ export function EventCard({ event, readOnly }) {
   }, []);
 
   return (
-    <React.Fragment>
-      <div className="eventCard">
-        <ul>
-          <li>{event.event_date}</li>
-          <li>{event.title}</li>
-          <li>{event.city_id}</li>
-          <li>Asistentes:</li>
-        </ul>
-        <ul>
-          {asistentes.map(asistente => (
-            <li>
-              <MiniCardHangout user={asistente} onlyRead={readOnly} />
-            </li>
-          ))}
-        </ul>
-      </div>
-    </React.Fragment>
+    <div className="eventCard">
+      <ul>
+        <li>{event.event_date}</li>
+        <li>{event.title}</li>
+        <li>{event.city_id}</li>
+        <li>Asistentes:</li>
+      </ul>
+      <ul>
+        {asistentes.map(asistente => (
+          <li>
+            <MiniCardHangout user={asistente} onlyRead={readOnly} />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

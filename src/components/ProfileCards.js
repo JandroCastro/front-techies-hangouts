@@ -6,10 +6,12 @@ import { MiniAvatar } from "../components/MiniAvatar";
 import { Stars } from "../components/Stars";
 import { getProfile } from "../http/profileService";
 import { acceptAttendance, rejectAttendance } from "../http/attendanceService";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import { Link } from "@material-ui/core";
 
 export function ProfileCards({ id, manageAttendance }) {
   const hangoutId = useParams();
+  const history = useHistory();
 
   const [profile, setProfile] = useState({});
 
@@ -41,9 +43,6 @@ export function ProfileCards({ id, manageAttendance }) {
           <div>
             <MiniAvatar id={id} />
           </div>
-          <div className="ratings">
-            <Stars />
-          </div>
         </section>
         <section className="cardinfo">
           <ul>
@@ -57,6 +56,10 @@ export function ProfileCards({ id, manageAttendance }) {
             </li>
           </ul>
         </section>
+
+        <div className="ratings">
+          <Stars size="small" id={id} styleprop="readOnly" />
+        </div>
 
         {manageAttendance && (
           <section className="buttons">

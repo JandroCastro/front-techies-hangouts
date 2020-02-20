@@ -1,12 +1,16 @@
 import React from "react";
 
-export function Filter({ data, label }) {
+export function Filter({ data, label, handleChange }) {
   return (
     <React.Fragment>
       <label>{label}</label>
-      <select>
+      <select onChange={handleChange}>
         {data.map(d => {
-          return <option>{d.name}</option>;
+          return (
+            <option key={d.id} value={d.id}>
+              {d.name}
+            </option>
+          );
         })}
         <option value="value1">----------------------</option>
       </select>
