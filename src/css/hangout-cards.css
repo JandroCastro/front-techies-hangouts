@@ -9,14 +9,15 @@
 div.card {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-width: 900px;
+  overflow: hidden;
+  height: 350px;
   min-width: 500px;
   background: grey;
   border-radius: 5px;
   background-size: cover;
   background-position: center center;
   box-shadow: 0px 20px 60px -10px rgba(0, 0, 0, 0.4);
-  transition: box-shadow 0.5s;
+  transition: transform 80ms ease-in;
   will-change: transform;
   border: 15px solid white;
   margin: 1rem 1rem 1rem 1rem;
@@ -24,6 +25,7 @@ div.card {
 
 .card:hover {
   box-shadow: 0px 15px 45px -8px rgba(0, 0, 0, 0.3);
+  min-height: 580px;
 }
 #hangoutCards {
   display: flex;
@@ -61,10 +63,9 @@ div.smallCards {
   padding-top: 1rem;
 }
 
-div #event-organizator {
-  display: none;
+#event-organizator .asistente li {
+  margin: 0;
 }
-
-div #event-organizator .asistente li {
+#event-organizator .asistente img {
   margin: 0;
 }

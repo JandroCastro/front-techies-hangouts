@@ -67,7 +67,7 @@ export function HangoutCards({ event }) {
         <button className="btn" onClick={handleClick}>
           Quiero ir!
         </button>
-        <div id={noVisible && "event-organizator"}>
+        <div id="event-organizator">
           <AsistenteQuedada event={event} />
         </div>
       </div>
