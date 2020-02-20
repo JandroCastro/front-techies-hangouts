@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { MiniCardHangout } from "../components/MiniCardHangout";
 import { getAcceptedAttendance } from "../http/attendanceService";
 
-export function EventCard({ event, readOnly }) {
+export function EventCard({ event, votar }) {
   const [asistentes, setAsistentes] = useState([]);
 
   useEffect(() => {
@@ -11,18 +11,20 @@ export function EventCard({ event, readOnly }) {
     );
   }, []);
 
+  const date = event.event_date.substring(0, 10);
+
   return (
     <div className="eventCard">
       <ul>
-        <li>{event.event_date}</li>
+        <li>{date}</li>
         <li>{event.title}</li>
-        <li>{event.city_id}</li>
+        <li>{event.cityName}</li>
         <li>Asistentes:</li>
       </ul>
       <ul>
         {asistentes.map(asistente => (
           <li>
-            <MiniCardHangout user={asistente} onlyRead={readOnly} />
+            <MiniCardHangout user={asistente} voting={votar} />
           </li>
         ))}
       </ul>

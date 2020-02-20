@@ -4,7 +4,6 @@ import { MiniAvatarForPrincipal } from "./MiniAvatarForPrincipal";
 import { StarsOnlyRead } from "./StarsOnlyRead";
 
 export function AsistenteQuedada({ event }) {
-  console.log(event);
   return (
     <div className="asistente">
       <ul>

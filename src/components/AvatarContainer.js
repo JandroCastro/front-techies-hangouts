@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Stars } from "./Stars";
 import { getProfile } from "../http/profileService";
+import { StarsOnlyRead } from "./StarsOnlyRead";
 
 export function AvatarContainer({ id }) {
   const [profile, setProfile] = useState({});
@@ -21,7 +22,7 @@ export function AvatarContainer({ id }) {
         {<img alt="Foto de avatar" src={profile.avatar_url} /> || "Loading..."}
       </div>
       <span className="span">
-        <Stars styleprop="readOnly" talla="large" id={id} />
+        <StarsOnlyRead size="large" id={profile.user_id} />
       </span>
       <div id="name">
         <h2>{profile.name}</h2>

@@ -23,7 +23,6 @@ export function Principal() {
   const handleFilter = filters => {
     getHangoutsFiltered(filters).then(response => setHangouts(response.data));
   };
-  console.log(typeof hangouts);
 
   return (
     <React.Fragment>

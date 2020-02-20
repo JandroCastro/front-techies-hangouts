@@ -1,28 +1,22 @@
 import React from "react";
 import { MiniAvatar } from "../components/MiniAvatar";
-import { Stars } from "./Stars";
+import { StarsOnlyRead } from "./StarsOnlyRead";
+import { StarsForRating } from "./StarsForRating";
 
-export function MiniCardHangout({ user, onlyRead }) {
-  const media = 4;
+export function MiniCardHangout({ user, voting }) {
   return (
     <React.Fragment>
       <div className="miniCard">
         <ul>
           <li>
-            <MiniAvatar id={user.id} />
+            <MiniAvatar url={user.avatar_url} />
           </li>
           <li>{user.name}</li>
           <li>{user.position}</li>
-          <Stars
-            talla="small"
-            nameValue={
-              (onlyRead && "read-only") || (!onlyRead && "simple-controlled")
-            }
-            valor={(onlyRead && { media }) || (!onlyRead && 0)}
-            styleprop={
-              (onlyRead && "read-only")
-            }
-          />
+          <li>
+            {<StarsOnlyRead talla="small" id={user.user_id} /> ||
+              (voting && <StarsForRating talla="" />)}
+          </li>
         </ul>
       </div>
     </React.Fragment>

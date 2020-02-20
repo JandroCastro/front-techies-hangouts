@@ -3,45 +3,33 @@ import logoLinkedin from "../img/linkedin.svg";
 import aceptado from "../img/aceptado.png";
 import descartado from "../img/descartado.png";
 import { MiniAvatar } from "../components/MiniAvatar";
-import { Stars } from "../components/Stars";
-import { getProfile } from "../http/profileService";
 import { acceptAttendance, rejectAttendance } from "../http/attendanceService";
 import { useParams, useHistory } from "react-router-dom";
 import { Link } from "@material-ui/core";
+import { StarsOnlyRead } from "./StarsOnlyRead";
 
-export function ProfileCards({ id, manageAttendance }) {
+export function ProfileCards({ profile, manageAttendance }) {
   const hangoutId = useParams();
   const history = useHistory();
 
-  const [profile, setProfile] = useState({});
-
-  useEffect(() => {
-    getProfile(id).then(response => setProfile(response.data[0]));
-  }, []);
-
   const handleAccept = () => {
-    return acceptAttendance(hangoutId, id)
+    return acceptAttendance(hangoutId, profile.user_id)
       .then()
       .catch();
   };
 
   const handleReject = () => {
-    return rejectAttendance(hangoutId, id)
+    return rejectAttendance(hangoutId, profile.user_id)
       .then()
       .catch();
   };
-
-  const hasProfile = Object.keys(profile).length > 0;
-  if (!hasProfile) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <React.Fragment>
       <article className="profilecard">
         <section className="cardavatar">
           <div>
-            <MiniAvatar id={id} />
+            <MiniAvatar url={profile.avatar_url} />
           </div>
         </section>
         <section className="cardinfo">
@@ -51,7 +39,6 @@ export function ProfileCards({ id, manageAttendance }) {
             <li>{profile.position}</li>
             <li>
               <a href={profile.link_url}>
-
                 <img src={logoLinkedin} alt="logo linkedin" />
               </a>
             </li>
@@ -59,7 +46,7 @@ export function ProfileCards({ id, manageAttendance }) {
         </section>
 
         <div className="ratings">
-          <Stars size="small" id={id} styleprop="readOnly" />
+          <StarsOnlyRead size="" id={profile.user_id} />
         </div>
 
         {manageAttendance && (

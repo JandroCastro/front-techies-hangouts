@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Datepicker } from "./Datepicker";
 
 import { Filter } from "./Filtro";
-import { getHangoutsFiltered } from "../http/hangoutsService";
 
 export function NavFilter({ optionCities, optionThematics, onFilter }) {
   const [state, setState] = useState({
@@ -26,7 +25,10 @@ export function NavFilter({ optionCities, optionThematics, onFilter }) {
         <li key="cityFilter">
           <Filter
             handleChange={e => {
-              setState({ ...state, city_id: e.target.value });
+              setState({
+                ...state,
+                city_id: e.target.value === "nada" ? null : e.target.value
+              });
             }}
             label={"Ciudades"}
             data={optionCities}
@@ -35,7 +37,10 @@ export function NavFilter({ optionCities, optionThematics, onFilter }) {
         <li key="thematicFilter">
           <Filter
             handleChange={e =>
-              setState({ ...state, thematic_id: e.target.value })
+              setState({
+                ...state,
+                thematic_id: e.target.value === "nada" ? null : e.target.value
+              })
             }
             label={"Temáticas"}
             data={optionThematics}

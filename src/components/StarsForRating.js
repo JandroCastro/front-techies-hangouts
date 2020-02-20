@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Rating } from "@material-ui/lab";
 
-export function Stars(talla) {
+export function StarsForRating(talla) {
   const [value, setValue] = useState();
 
   return (

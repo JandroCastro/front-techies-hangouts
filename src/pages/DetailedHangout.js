@@ -21,6 +21,7 @@ export function DetailedHangout() {
   const [hangout, setHangout] = useState({});
 
   const [confirmedGuest, setConfirmedGuest] = useState([]);
+
   const [pendingGuest, setPendingGuest] = useState([]);
 
   useEffect(() => {
@@ -63,9 +64,8 @@ export function DetailedHangout() {
         <h1 style={{ marginTop: 16 }}>{hangout.title}</h1>
         <div id="cabeceraDeQuedada">
           <div>
-
-          {<img alt="Imagen de quedada" src={hangout.photo_url}></img> ||
-            "Cargando"}
+            {<img alt="Imagen de quedada" src={hangout.photo_url}></img> ||
+              "Cargando"}
           </div>
 
           <AvatarContainer id={hangout.user_id} />
@@ -117,7 +117,7 @@ export function DetailedHangout() {
               <h3>Confirmados</h3>
               {confirmedGuest.map(guest => (
                 <li>
-                  <ProfileCards id={guest.id_users} manageAttendance={false} />
+                  <ProfileCards profile={guest} manageAttendance={false} />
                 </li>
               )) || "Cargando"}
             </ul>
@@ -126,7 +126,7 @@ export function DetailedHangout() {
               {pendingGuest.map(guest => (
                 <li>
                   <ProfileCards
-                    id={guest.id_users}
+                    profile={guest}
                     manageAttendance={
                       storedUser.userId === hangout.user_id ? true : false
                     }

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
-import  FileUpload  from "../components/FileUpload";
+import FileUpload from "../components/FileUpload";
 import {
   getProfile,
-  getAvatar,
   updateProfile,
   updateAvatar
 } from "../http/profileService";
@@ -24,13 +23,11 @@ export function CreateProfile() {
   }, []);
 
   const handleSubmit = formData => {
-    console.log(formData)
+    console.log(formData);
     updateProfile(userId, formData)
       .then(history.push(`/profile/${userId}`))
       .catch();
   };
-
-
 
   return (
     <React.Fragment>
@@ -43,26 +40,42 @@ export function CreateProfile() {
               className="avatarProfile"
               alt="Foto de avatar"
               src={profile.avatar_url}
-              
             />
           </li>
           <li>
-            <FileUpload/>
+            <FileUpload />
           </li>
         </ul>
       </div>
       <div>
         <form className="hangout" action="#">
           <label className="label">Nombre y apellidos</label>
-          <input value={profile.name} type="text" placeholder=" Introduce Nombre y Apellidos" />
+          <input
+            value={profile.name}
+            type="text"
+            placeholder=" Introduce Nombre y Apellidos"
+          />
           <label className="label">Edad</label>
-          <input value={profile.age} type="text" placeholder=" Introcude tu Edad" />
+          <input
+            value={profile.age}
+            type="text"
+            placeholder=" Introcude tu Edad"
+          />
           <label className="label">Categoría Profesional</label>
-          <input value={profile.category} type="text" placeholder=" Introduce Categoría Profesional" />
-          <label  className="label">Puesto/Posición</label>
-          <input  value={profile.position} type="text" placeholder="Introduce tu puesto" />
+          <input
+            value={profile.category}
+            type="text"
+            placeholder=" Introduce Categoría Profesional"
+          />
+          <label className="label">Puesto/Posición</label>
+          <input
+            value={profile.position}
+            type="text"
+            placeholder="Introduce tu puesto"
+          />
           <label className="label">Descripción</label>
-          <textarea value={profile.aboutMe}
+          <textarea
+            value={profile.aboutMe}
             id="textarea"
             type="text"
             placeholder="introduce una breve descripción sobre ti"
