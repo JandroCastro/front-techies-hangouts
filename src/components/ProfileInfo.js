@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import logoLinkedin from "../img/linkedin.svg";
 import logoFacebook from "../img/facebook.svg";
 import logoTwitter from "../img/twitter.svg";
 import logoInstagram from "../img/instagram.svg";
@@ -18,25 +17,25 @@ export function ProfileInfo({ id }) {
   }
   return (
     <React.Fragment>
-      <div>
-        <ul className="infoperfil">
+      <div className="infoperfil">
+        <ul>
           <label>Cargo que desempeña</label>
           <li>{profile[0].position}</li>
+          <label>Categoría Profesional </label>
+          <li>{profile[0].category}</li>
           <label>Edad</label>
           <li>{profile[0].age}</li>
+          <label>url de tu Linkedin</label>
+          <li>{profile[0].link}</li>
           <label>Descripción</label>
           <li>{profile[0].aboutMe}</li>
         </ul>
       </div>
+        <h2 className="enlaces">enlaces a tus redes sociales</h2>
       <div id="enlacesRRSS">
         <li>
           <a href="https://www.instagram.com/">
             <img src={logoInstagram} alt="logo insta" />
-          </a>
-        </li>
-        <li>
-          <a href={profile[0].link_url}>
-            <img src={logoLinkedin} alt="logo linkedin" />
           </a>
         </li>
         <li>

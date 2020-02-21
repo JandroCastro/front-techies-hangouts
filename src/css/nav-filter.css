@@ -36,5 +36,9 @@
      overflow: hidden;
      position:relative;
 }
-
-
+#fecha{
+margin-bottom: 1.3rem ;
+}
+.nav-filter label{
+  font-weight: bold;
+}
