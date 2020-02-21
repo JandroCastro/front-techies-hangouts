@@ -1,3 +1,5 @@
+//##########      STARS ONLY READ    ################
+
 /**
  *
  * @param {*} array
@@ -10,13 +12,14 @@ export function mediaRatings(array) {
   const numberOfRatings = array.length;
   let counter;
   array.map(data => {
-    counter += data.rating;
+    return (counter += data.rating);
   });
 
   const media = counter / numberOfRatings;
   return media;
 }
 
+//##########           MY HANGOUTS ##############
 /**
  *  @param array de hangouts
  *
@@ -59,6 +62,7 @@ export function getHangoutsPendingToConfirm(dataArray) {
     hangout => hangout.event_date > date && hangout.request_status === "pending"
   );
 }
+
 /**
  *
  * @param {*} string =url.search del login, le cortamos el
@@ -70,4 +74,39 @@ export function getHangoutsPendingToConfirm(dataArray) {
 export function parseSearchPath(string) {
   const hangoutId = string.slice(4);
   return hangoutId;
+}
+
+/**
+ * DETAILED HANGOUT
+ */
+
+/**
+ *
+ * @param {*} attendaceArray
+ *
+ * @return {hangout} filtrado según request_status accepted o pending
+ *
+ * La última es para comprobar si el currentUser.userId está
+ * ya anotado en esa quedada, para que no aparezcan botones de
+ * anotarse o editar sino un aviso de que ya está inscrito.
+ */
+
+export function filterAcceptedRequest(attendaceArray) {
+  return attendaceArray.filter(data => data.request_status === "accepted");
+}
+
+export function filterPendignRequest(attendaceArray) {
+  return attendaceArray.filter(data => data.request_status === "pending");
+}
+
+export function isAlreadyAnnotated(guest_id, attendaceArray) {
+  const isAlready = attendaceArray.find(
+    attendaceArray => attendaceArray.user_id === guest_id
+  );
+  console.log(isAlready);
+  if (isAlready === undefined) {
+    return false;
+  } else {
+    return true;
+  }
 }

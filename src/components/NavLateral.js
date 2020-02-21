@@ -16,7 +16,7 @@ export function NavLateral() {
         <nav className="sidebar-nav">
           <ul>
             <li>
-              <a href="/">
+              <a href="/myhangouts">
                 <i className="ion-ios-settings"></i>
                 <span className="">TUS EVENTOS</span>
               </a>
@@ -35,7 +35,7 @@ export function NavLateral() {
               </ul>
             </li>
             <li>
-              <a href="/ratings">
+              <a href="/myhangouts">
                 <i className="ion-ios-analytics-outline"></i>{" "}
                 <span className="">PUNTUACIONES</span>
               </a>

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useAuth } from "../context/auth-context";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import { register as signUp } from "../http/userService";
 
@@ -18,8 +18,7 @@ export function FormRegister() {
     watch,
     formState,
     setError,
-    setValue,
-    reset
+    setValue
   } = useForm({
     mode: "onBlur"
   });
