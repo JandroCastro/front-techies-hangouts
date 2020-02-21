@@ -17,19 +17,19 @@ import {
 } from "../http/usefulFunctions";
 
 export function DetailedHangout() {
+  const storedUser = JSON.parse(localStorage.getItem("currentUser"));
   const history = useHistory();
   const { id } = useParams();
-
-  const storedUser = JSON.parse(localStorage.getItem("currentUser"));
 
   const [hangout, setHangout] = useState({});
 
   const [attendance, setAttendance] = useState([]);
+  const alreadyCheckedIn = isAlreadyAnnotated(storedUser.userId, attendance);
 
   useEffect(() => {
     getOneHangout(id).then(response => setHangout(response.data[0]));
     getHangoutAttendance(id).then(response => setAttendance(response.data));
-  }, [id]);
+  }, [alreadyCheckedIn]);
 
   const hasHangout = Object.keys(hangout).length > 0;
 
@@ -55,7 +55,6 @@ export function DetailedHangout() {
       });
   };
 
-  const alreadyCheckedIn = isAlreadyAnnotated(storedUser.userId, attendance);
   console.log(alreadyCheckedIn, editOrCheckIn);
 
   return (
