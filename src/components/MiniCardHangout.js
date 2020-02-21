@@ -7,7 +7,7 @@ export function MiniCardHangout({ user, voting }) {
   return (
     <React.Fragment>
       <div className="miniCard">
-        <ul>
+        <ul id="miniCard-info">
           <li>
             <MiniAvatar url={user.avatar_url} />
           </li>

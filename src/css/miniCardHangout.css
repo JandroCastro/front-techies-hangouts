@@ -1,11 +1,15 @@
-.miniCard{
-    display: flex;
-   justify-content: center;
-    background-color:grey;
-    width: 200px;
-    height: 250px;
+.miniCard #miniCard-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 218px;
+  width: 230px;
+  margin: 0;
+  padding: 0;
 }
 
-  .miniCard img{
-    margin: 0;
+.miniCard img {
+  margin: 0;
+  padding: 0;
 }

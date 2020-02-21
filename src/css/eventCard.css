@@ -1,14 +1,13 @@
 .eventCard {
-  background-color: rgba(104, 96, 96, 0.315);
+  /*background-color: rgba(104, 96, 96, 0.315);*/
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
+  width: 80%;
   border-radius: 5px;
   background-size: cover;
   background-position: center center;
   box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.7);
-  will-change: transform;
   border: 1rem solid white;
 }
 .eventCard #hangout-img {
@@ -30,10 +29,15 @@
 }
 
 .eventCard #eventCard-attendants {
+  height: 235px;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  overflow-y: scroll;
   padding: 0.5rem;
   margin: 0.5rem;
-  width: 100%;
-  height: 200px;
+}
+.eventCard #eventCard-attendants li {
+  margin: 0;
+  padding: 0;
 }

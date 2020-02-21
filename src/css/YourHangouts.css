@@ -1,30 +1,22 @@
-.yourHangouts h1 {
-  text-align: center;
-  margin: 1rem;
-  border-bottom: blue 1px solid;
-  font-size: 40px;
-  margin-top: 3rem;
-
-}
 .yourHangouts {
   display: flex;
   flex-direction: column;
 }
 
-
 .yourHangouts section h2 {
   text-align: center;
   color: var(--dark);
-  
+  border-bottom: 1px solid black;
+  padding: 1rem;
 }
 
 .yourHangouts ul {
-  height: 40vh;
+  height: 60vh;
   display: flex;
   flex-wrap: wrap;
   overflow-y: scroll;
   overflow-x: hidden;
-  padding: 3rem;
+  padding: 1rem;
   margin: 1rem;
 }
 .yourHangouts li {
@@ -33,18 +25,4 @@
 
 ::-webkit-scrollbar {
   display: none;
-}
-
-img.miniAvatar{
-  margin-left: 1rem;
-}
-#name h2{
-  text-align: center;
-}
-#listado-de-asistentes{
-  margin-left: 1rem;
-}
-.yourHangouts h2{
-  border-bottom: 1px solid black;
-  padding: 1rem;
 }
