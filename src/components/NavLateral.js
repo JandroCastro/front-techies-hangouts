@@ -1,4 +1,5 @@
 import React from "react";
+import iconSignin from "../img/signin.svg";
 
 export function NavLateral() {
   const storedUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -16,6 +17,7 @@ export function NavLateral() {
         <nav className="sidebar-nav">
           <ul>
             <li>
+            
               <a href="/myhangouts">
                 <i className="ion-ios-settings"></i>
                 <span className="">TUS EVENTOS</span>
