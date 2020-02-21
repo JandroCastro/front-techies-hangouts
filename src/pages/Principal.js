@@ -37,11 +37,11 @@ export function Principal() {
         <main id="hangoutCards">
           <ul>
             {hangouts.map(hangout => (
-              <li key={hangout.id}>
-                <HangoutCards
-                  // onClick={history.push(`/hangout/${hangout.id}`)}
-                  event={hangout}
-                />
+              <li
+                onClick={() => history.push(`/hangout/${hangout.id}`)}
+                key={hangout.id}
+              >
+                <HangoutCards event={hangout} />
               </li>
             ))}
           </ul>

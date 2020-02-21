@@ -24,7 +24,7 @@ export function Home() {
           <div className="botonHome">
             <button
               className="btn"
-              onClick={() => (window.location.href = "/login")}
+              onClick={() => (window.location.href = "/principal")}
             >
               enter
             </button>

@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Stars } from "./Stars";
 import { getProfile } from "../http/profileService";
 import { StarsOnlyRead } from "./StarsOnlyRead";
+import { useHistory } from "react-router-dom";
 
 export function AvatarContainer({ id }) {
   const [profile, setProfile] = useState({});
   console.log(id);
-
+  const history = useHistory();
   useEffect(() => {
     getProfile(id).then(response => setProfile(response.data[0]));
   }, []);
@@ -17,7 +18,10 @@ export function AvatarContainer({ id }) {
   }
 
   return (
-    <div className="AvatarContainer">
+    <div
+      onClick={() => history.push(`/profile/${id}`)}
+      className="AvatarContainer"
+    >
       <div id="avatar">
         {<img alt="Foto de avatar" src={profile.avatar_url} /> || "Loading..."}
       </div>

@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useAuth } from "../context/auth-context";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import { register as signUp } from "../http/userService";
 
 import { useForm } from "react-hook-form";
-
+import { checkInToHangout } from "../http/attendanceService";
+import { parseSearchPath } from "../http/usefulFunctions";
 export function FormRegister() {
+  const url = new URL(window.location.href);
+  const query = url.search;
+
   const {
     handleSubmit,
     register,
@@ -14,8 +18,7 @@ export function FormRegister() {
     watch,
     formState,
     setError,
-    setValue,
-    reset
+    setValue
   } = useForm({
     mode: "onBlur"
   });
@@ -25,17 +28,32 @@ export function FormRegister() {
   const { setIsAuthenticated, setCurrentUser } = useAuth();
 
   const handleSignUp = formData => {
-    console.log(formData.email, formData.password);
-    return signUp(formData.email, formData.password)
-      .then(response => {
-        setIsAuthenticated(true);
-        setCurrentUser(response.data);
-        history.push("/principal");
-      })
-      .catch(error => {
-        setValue("password", "");
-        setError("password", "credentials", "The credentials are invalid");
-      });
+    if (url.search === "") {
+      console.log(formData.email, formData.password);
+      return signUp(formData.email, formData.password)
+        .then(response => {
+          setIsAuthenticated(true);
+          setCurrentUser(response.data);
+          history.push("/principal");
+        })
+        .catch(error => {
+          setValue("password", "");
+          setError("password", "credentials", "The credentials are invalid");
+        });
+    } else {
+      return signUp(formData.email, formData.password)
+        .then(response => {
+          setIsAuthenticated(true);
+          setCurrentUser(response.data);
+          return checkInToHangout(parseSearchPath(query))
+            .then(history.push(`/hangout/${parseSearchPath(query)}`))
+            .catch(err => console.error(err));
+        })
+        .catch(error => {
+          setValue("password", "");
+          setError("password", "credentials", "The credentials are invalid");
+        });
+    }
   };
 
   return (

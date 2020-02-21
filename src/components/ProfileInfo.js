@@ -10,7 +10,7 @@ export function ProfileInfo({ id }) {
 
   useEffect(() => {
     getProfile(id).then(response => setProfile(response.data));
-  }, []);
+  }, [id]);
 
   const hasProfile = Object.keys(profile).length > 0;
   if (!hasProfile) {
@@ -20,8 +20,11 @@ export function ProfileInfo({ id }) {
     <React.Fragment>
       <div>
         <ul className="infoperfil">
+          <label>Cargo que desempeña</label>
           <li>{profile[0].position}</li>
+          <label>Edad</label>
           <li>{profile[0].age}</li>
+          <label>Descripción</label>
           <li>{profile[0].aboutMe}</li>
         </ul>
       </div>

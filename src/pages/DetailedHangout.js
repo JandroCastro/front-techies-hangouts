@@ -4,13 +4,17 @@ import { Footer } from "../components/Footer";
 import { AvatarContainer } from "../components/AvatarContainer";
 import { getOneHangout } from "../http/hangoutsService";
 import {
-  getAcceptedAttendance,
-  getPendingAttendance,
-  checkInToHangout
+  checkInToHangout,
+  getHangoutAttendance
 } from "../http/attendanceService";
 import { Map } from "../components/Map";
 import { ProfileCards } from "../components/ProfileCards";
 import { useParams, useHistory } from "react-router-dom";
+import {
+  filterAcceptedRequest,
+  filterPendignRequest,
+  isAlreadyAnnotated
+} from "../http/usefulFunctions";
 
 export function DetailedHangout() {
   const history = useHistory();
@@ -20,22 +24,16 @@ export function DetailedHangout() {
 
   const [hangout, setHangout] = useState({});
 
-  const [confirmedGuest, setConfirmedGuest] = useState([]);
-
-  const [pendingGuest, setPendingGuest] = useState([]);
+  const [attendance, setAttendance] = useState([]);
 
   useEffect(() => {
     getOneHangout(id).then(response => setHangout(response.data[0]));
-    getAcceptedAttendance(id).then(response =>
-      setConfirmedGuest(response.data)
-    );
-    getPendingAttendance(id).then(response => setPendingGuest(response.data));
-  }, []);
+    getHangoutAttendance(id).then(response => setAttendance(response.data));
+  }, [id]);
 
   const hasHangout = Object.keys(hangout).length > 0;
-  const hasAttendance = pendingGuest.length !== 0;
 
-  if (!hasHangout && !hasAttendance) {
+  if (!hasHangout) {
     return <div>Loading...</div>;
   }
 
@@ -56,6 +54,9 @@ export function DetailedHangout() {
         console.log(err);
       });
   };
+
+  const alreadyCheckedIn = isAlreadyAnnotated(storedUser.userId, attendance);
+  console.log(alreadyCheckedIn, editOrCheckIn);
 
   return (
     <React.Fragment>
@@ -79,11 +80,13 @@ export function DetailedHangout() {
           >
             editar quedada
           </button>
-        )) || (
-          <button onClick={handleClick} className="btn">
-            Anotarse
-          </button>
-        )}
+        )) ||
+          (!editOrCheckIn && (
+            <button onClick={handleClick} className="btn">
+              Anotarse
+            </button>
+          )) ||
+          (alreadyCheckedIn && <span>Ya estás inscrito</span>)}
 
         <section id="info">
           <div id="datosQuedada">
@@ -115,16 +118,22 @@ export function DetailedHangout() {
           <div id="detallesAsistentes">
             <ul id="confirmados">
               <h3>Confirmados</h3>
-              {confirmedGuest.map(guest => (
-                <li>
+              {filterAcceptedRequest(attendance).map(guest => (
+                <li
+                  onClick={() => history.push(`/profile/${guest.user_id}`)}
+                  key={guest.user_id}
+                >
                   <ProfileCards profile={guest} manageAttendance={false} />
                 </li>
               )) || "Cargando"}
             </ul>
             <ul id="pendientes">
               <h3>Pendientes</h3>
-              {pendingGuest.map(guest => (
-                <li>
+              {filterPendignRequest(attendance).map(guest => (
+                <li
+                  onClick={() => history.push(`/profile/${guest.user_id}`)}
+                  key={guest.user_id}
+                >
                   <ProfileCards
                     profile={guest}
                     manageAttendance={
@@ -132,7 +141,7 @@ export function DetailedHangout() {
                     }
                   />
                 </li>
-              )) || "Cargando"}
+              ))}
             </ul>
           </div>
         </section>

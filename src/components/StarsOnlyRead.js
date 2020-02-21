@@ -6,7 +6,6 @@ import { mediaRatings } from "../http/usefulFunctions";
 export function StarsOnlyRead({ id, talla }) {
   const [ratings, setValue] = useState([]);
   const media = mediaRatings(ratings);
-  console.log(media);
 
   useEffect(() => {
     getUserRatings(id)
@@ -19,7 +18,7 @@ export function StarsOnlyRead({ id, talla }) {
   return (
     <Rating
       name="size-large"
-      value={isNaN(media) ? 5 : media}
+      value={isNaN(media) ? 4 : media}
       readOnly
       className="MuiRating-sizeLarge"
       precision={0.5}

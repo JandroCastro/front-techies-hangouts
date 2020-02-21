@@ -5,7 +5,7 @@ export function getUserRatings(id) {
 }
 
 export function createRating(hangoutId, ratingData) {
-  return axios.get(
+  return axios.post(
     `${process.env.REACT_APP_BACKEND_URL}/rating/${hangoutId}`,
     ratingData
   );

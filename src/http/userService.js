@@ -29,7 +29,15 @@ axios.interceptors.response.use(
     return response;
   },
   function(error) {
-    if (error.response.status === 401 && !error.config.url.includes("/auth")) {
+    /**
+     * Tengo que añadir /rating para poder permitir a usuarios anónimos
+     * abrir principal.
+     */
+    if (
+      error.response.status === 401 &&
+      !error.config.url.includes("/auth") &&
+      !error.config.url.includes("/rating")
+    ) {
       localStorage.removeItem("currentUser");
       window.location.href = "/login";
     }

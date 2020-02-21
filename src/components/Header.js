@@ -3,6 +3,8 @@ import logo from "../img/logo.jpeg";
 import cerrarSesion from "../img/cerrar-sesion.svg";
 
 export function Header({ title }) {
+  const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+
   return (
     <React.Fragment>
       <header id="header">
@@ -15,11 +17,18 @@ export function Header({ title }) {
 
         <ul>
           <li className="hola">
-            <a href="/profile">Hola chaval</a>
+            <a href={`/profile/${storedUser.userId}`}>Hola chaval</a>
           </li>
 
           <li className="logout">
-            <img onClick={() => (window.location.href = "/login")} src={cerrarSesion} alt="salir" />
+            <img
+              onClick={() => {
+                localStorage.removeItem("currentUser");
+                window.location.href = "/";
+              }}
+              src={cerrarSesion}
+              alt="salir"
+            />
           </li>
         </ul>
       </header>
