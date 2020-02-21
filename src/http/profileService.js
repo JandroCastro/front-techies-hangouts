@@ -23,3 +23,15 @@ export function updateAvatar(id, avatar) {
     avatar
   );
 }
+
+export function getColleges() {
+  return fetch(
+    `https://services1.arcgis.com/nCKYwcSONQTkPA4K/arcgis/rest/services/Universidades/FeatureServer/0/query?where=1%3D1&outFields=OBJECTID,Texto&returnGeometry=false&outSR=4326&f=json`
+  );
+}
+
+console.log(
+  getColleges()
+    .then(response => response.json())
+    .then(myJson => console.log(myJson))
+);

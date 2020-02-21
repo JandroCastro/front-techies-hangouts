@@ -8,7 +8,7 @@ Sidebar
 
 .sidebar-nav {
   width: 13em;
-  background-color: rgb(3, 17, 143);
+  
   height: 100%;
   font-weight: 400;
   font-size: 1.2em;
@@ -27,11 +27,12 @@ Sidebar
 }
 
 .sidebar a {
-  color: rgba(255, 255, 255, 0.9);
+  color:var(--dark);
   font-size: 0.75em;
   padding: 1.05em 1em;
   position: relative;
   display: block;
+  font-weight: bold;
 }
 .sidebar a:hover {
   color: black;
@@ -58,6 +59,3 @@ Sidebar
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-.barra li {
-  border: grey 0.1px solid;
-}

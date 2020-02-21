@@ -32,3 +32,6 @@ div#detallesAsistentes {
   padding: 2rem;
   text-align: center;
 }
+button#anotarse{
+  margin-left: 3rem;
+}

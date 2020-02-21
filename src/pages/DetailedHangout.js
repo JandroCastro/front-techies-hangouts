@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { AvatarContainer } from "../components/AvatarContainer";
-import { getOneHangout } from "../http/hangoutsService";
+import { getOneHangout, deleteOneHangout } from "../http/hangoutsService";
 import {
   checkInToHangout,
   getHangoutAttendance
@@ -17,19 +17,19 @@ import {
 } from "../http/usefulFunctions";
 
 export function DetailedHangout() {
+  const storedUser = JSON.parse(localStorage.getItem("currentUser"));
   const history = useHistory();
   const { id } = useParams();
-
-  const storedUser = JSON.parse(localStorage.getItem("currentUser"));
 
   const [hangout, setHangout] = useState({});
 
   const [attendance, setAttendance] = useState([]);
+  const alreadyCheckedIn = isAlreadyAnnotated(storedUser.userId, attendance);
 
   useEffect(() => {
     getOneHangout(id).then(response => setHangout(response.data[0]));
     getHangoutAttendance(id).then(response => setAttendance(response.data));
-  }, [id]);
+  }, [alreadyCheckedIn]);
 
   const hasHangout = Object.keys(hangout).length > 0;
 
@@ -55,7 +55,6 @@ export function DetailedHangout() {
       });
   };
 
-  const alreadyCheckedIn = isAlreadyAnnotated(storedUser.userId, attendance);
   console.log(alreadyCheckedIn, editOrCheckIn);
 
   return (
@@ -82,7 +81,7 @@ export function DetailedHangout() {
           </button>
         )) ||
           (!editOrCheckIn && (
-            <button onClick={handleClick} className="btn">
+            <button id="anotarse" onClick={handleClick} className="btn">
               Anotarse
             </button>
           )) ||
@@ -108,7 +107,8 @@ export function DetailedHangout() {
                     editar quedada
                   </button>
                 )) || (
-                  <button onClick={handleClick} className="btn">
+                  <button onClick={handleClick} className="btn"
+                  >
                     Anotarse
                   </button>
                 )}
@@ -143,6 +143,19 @@ export function DetailedHangout() {
                 </li>
               ))}
             </ul>
+            {editOrCheckIn && (
+              <button
+                className="ghost"
+                onClick={() =>
+                  deleteOneHangout(id)
+                    .then(() => history.push("/principal"))
+                    .catch()
+                }
+                id="delete"
+              >
+                Eliminar Quedada
+              </button>
+            )}
           </div>
         </section>
       </main>
