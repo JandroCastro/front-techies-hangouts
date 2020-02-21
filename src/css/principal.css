@@ -13,6 +13,7 @@
 }
 .barra {
   grid-area: nav;
+  margin-left: 3rem;
 }
 
 #hangoutCards {
@@ -22,6 +23,7 @@
   justify-self: center;
   height: 100vh;
   overflow-x: scroll;
+  padding: 0 3rem 0 3rem;
 }
 
 #hangoutCards ul li {

@@ -1,9 +1,16 @@
 .principal {
   color: black;
 }
-
+.titulo {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 250px;
+  margin-left: 3rem;
+}
 .up h1 {
-  line-height: 40pt;
+  line-height: 20pt;
   display: block;
   margin: 1rem 3rem 1rem 3rem;
   color: white;
@@ -33,14 +40,29 @@
 
 .medium ul li {
   width: 20%;
-  background-color: rgba(0, 0, 255, 0.671);
   padding: 2.5rem;
   margin: 6rem 0 0;
   font-weight: bold;
+  height: 350px;
+}
+
+.medium ul div {
+  border: 10px solid lightgray;
+  border-radius: 10px;
+  height: 300px;
+  margin-top: 100px;
 }
 
 .medium ul li p {
   font-size: 22px;
+}
+
+.midpage {
+  width: 90%;
+  border: 10px solid lightgray;
+  border-radius: 10px;
+  margin-top: 100px;
+  margin-left: 5rem;
 }
 
 .down {
@@ -48,8 +70,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  border-top: blue 1px solid;
-  margin-top: 6rem;
+  margin-top: 1rem;
 }
 
 .down ul {

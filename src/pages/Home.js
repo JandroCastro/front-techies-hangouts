@@ -1,5 +1,6 @@
 import React from "react";
 import { Footer } from "../components/Footer";
+import logo from "../img/logo.jpeg";
 import iconSignin from "../img/signin.svg";
 import iconAttend from "../img/attendEvent.svg";
 import iconShare from "../img/share.svg";
@@ -17,6 +18,7 @@ export function Home() {
       <div className="principal">
         <section className="up">
           <div className="titulo">
+            <img src={logo} alt="logo" />
             <h1>CONÉCTATE</h1>
             <h1>Interactúa</h1>
             <h1>Forma parte de nuestra comunidad</h1>
@@ -39,6 +41,7 @@ export function Home() {
                 candidatos para ese puesto tan crítico de tu empresa.
               </p>
             </li>
+            <div></div>
             <li>
               <h3>Si buscas trabajo</h3>
               <p>
@@ -46,10 +49,10 @@ export function Home() {
                 podrían estar buscando a alguien como tú.
               </p>
             </li>
+            <div></div>
             <li>
               <h3>Quieres afterWork</h3>
               <p>
-                {" "}
                 Intercambia experiencias y ponte al día de las últimas
                 tendencias, mientras te tomas algo con otros miembros de la
                 comunidad Techie.
@@ -57,6 +60,7 @@ export function Home() {
             </li>
           </ul>
         </section>
+        <div className="midpage"></div>
         <section className="down">
           <ul>
             <li>

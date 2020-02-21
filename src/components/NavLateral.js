@@ -1,5 +1,11 @@
 import React from "react";
 import iconSignin from "../img/signin.svg";
+import iconStar from "../img/star.svg";
+import iconEvent from "../img/event.svg";
+import iconNotifications from "../img/notifications.svg";
+import iconRrss from "../img/rrss.svg";
+import iconSettings from "../img/settings.svg";
+import iconContact from "../img/contact.svg";
 
 export function NavLateral() {
   const storedUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -17,47 +23,59 @@ export function NavLateral() {
         <nav className="sidebar-nav">
           <ul>
             <li>
-            
               <a href="/myhangouts">
-                <i className="ion-ios-settings"></i>
-                <span className="">TUS EVENTOS</span>
+                <span className="">
+                  <img src={iconEvent} />
+                  TUS EVENTOS
+                </span>
               </a>
             </li>
             <li>
               <a href={`/profile/${id}`}>
-                <i className="ion-ios-briefcase-outline"></i>{" "}
-                <span className="">PERFIL</span>
+                <span className="">
+                  <img src={iconSignin} />
+                  PERFIL
+                </span>
               </a>
-              <ul className="nav-flyout">
-                <li>
-                  <a href="/notifications">
-                    <i className="ion-ios-navigate-outline"></i>NOTIFICACIONES
-                  </a>
-                </li>
-              </ul>
+              <li>
+                <a href="/notifications">
+                  <span className="">
+                    <img src={iconNotifications} />
+                    NOTIFICACIONES
+                  </span>
+                </a>
+              </li>
             </li>
             <li>
               <a href="/myhangouts">
-                <i className="ion-ios-analytics-outline"></i>{" "}
-                <span className="">PUNTUACIONES</span>
+                <span className="">
+                  <img src={iconStar} />
+                  PUNTUACIONES
+                </span>
               </a>
             </li>
             <li>
               <a href="/">
-                <i className="ion-ios-paper-outline"></i>{" "}
-                <span className="">ENLACES A REDES SOCIALES</span>
+                <span className="">
+                  <img src={iconRrss} />
+                  ENLACES A REDES SOCIALES
+                </span>
               </a>
             </li>
             <li>
               <a href="/">
-                <i className="ion-ios-navigate-outline"></i>{" "}
-                <span className="">OPCIONES</span>
+                <span className="">
+                  <img src={iconSettings} />
+                  OPCIONES
+                </span>
               </a>
             </li>
             <li>
               <a href="/">
-                <i className="ion-ios-medical-outline"></i>{" "}
-                <span className="">CONTACTANOS</span>
+                <span className="">
+                  <img src={iconContact} />
+                  CONTACTANOS
+                </span>
               </a>
             </li>
           </ul>

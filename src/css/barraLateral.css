@@ -7,16 +7,10 @@ Sidebar
 }
 
 .sidebar-nav {
-  width: 13em;
-  
+  width: 15em;
   height: 100%;
   font-weight: 400;
   font-size: 1.2em;
-  overflow: auto;
-
-  z-index: 9;
-  overflow: hidden;
-  -webkit-overflow-scrolling: touch;
 }
 .sidebar li {
   margin-left: 0;
@@ -27,35 +21,18 @@ Sidebar
 }
 
 .sidebar a {
-  color:var(--dark);
+  color: var(--dark);
   font-size: 0.75em;
   padding: 1.05em 1em;
-  position: relative;
   display: block;
   font-weight: bold;
 }
 .sidebar a:hover {
-  color: black;
+  color: var(--dark);
+  margin-left: 0.5rem;
 }
 
-.sidebar > ul > li > a:after {
-  content: "\f125";
-  font-family: ionicons;
-  font-size: 0.5em;
-  width: 10px;
-  color: #fff;
-  position: absolute;
-  right: 0.75em;
-  top: 45%;
+.sidebar a img {
+  padding-right: 0.5rem;
+  height: 1.5rem;
 }
-
-.sidebar .nav-flyout {
-  z-index: 9;
-  left: 2.5em;
-  top: 0;
-  height: 100%;
-}
-.sidebar a:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
