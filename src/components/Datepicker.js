@@ -6,7 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 export function Datepicker({ handleChange }) {
   const date = new Date();
   return (
-    <DatePicker
+    <DatePicker id="datepicker"
       placeholderText="Click to select a date"
       dateFormat="yyyy-MM-dd"
       selected={date}
