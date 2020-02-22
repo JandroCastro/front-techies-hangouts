@@ -19,6 +19,10 @@ export function ProfileInfo({ id }) {
     <React.Fragment>
       <div className="infoperfil">
         <ul>
+        <label>Nombre</label>
+          <li>{profile[0].name}</li>
+          <label>Edad</label>
+          <li>{profile[0].age}</li>
           <label>Cargo que desempeña</label>
           <li>{profile[0].position}</li>
           <label>Categoría Profesional </label>
@@ -33,7 +37,7 @@ export function ProfileInfo({ id }) {
       </div>
       <h2 className="enlaces">enlaces a tus redes sociales</h2>
       <div id="enlacesRRSS">
-        handleChange
+        
         <li>
           <a href="https://www.instagram.com/">
             <img src={logoInstagram} alt="logo insta" />
