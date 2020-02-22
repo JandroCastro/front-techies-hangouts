@@ -33,6 +33,7 @@ export function ProfileInfo({ id }) {
       </div>
       <h2 className="enlaces">enlaces a tus redes sociales</h2>
       <div id="enlacesRRSS">
+        handleChange
         <li>
           <a href="https://www.instagram.com/">
             <img src={logoInstagram} alt="logo insta" />
