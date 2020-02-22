@@ -49,7 +49,7 @@ export function NavFilter({ optionCities, optionThematics, onFilter }) {
         <li key="dateFilter">
           <label id="fecha">Fecha</label>
           <Datepicker
-            handleChange={day => {
+            onChange={day => {
               setState({ ...state, date_event: parseDate(day) });
             }}
           />

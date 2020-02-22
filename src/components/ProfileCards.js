@@ -34,7 +34,7 @@ export function ProfileCards({ profile, manageAttendance }) {
         </section>
         <section className="cardinfo">
           <ul>
-            <li>{profile.name}</li>
+            <li>{profile.userName}</li>
             <li>{profile.age}</li>
             <li>{profile.position}</li>
             <li>

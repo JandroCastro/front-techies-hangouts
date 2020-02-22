@@ -24,12 +24,16 @@ export function DetailedHangout() {
   const [hangout, setHangout] = useState({});
 
   const [attendance, setAttendance] = useState([]);
-  const alreadyCheckedIn = isAlreadyAnnotated(storedUser.userId, attendance);
 
   useEffect(() => {
     getOneHangout(id).then(response => setHangout(response.data[0]));
+  }, [id]);
+
+  useEffect(() => {
     getHangoutAttendance(id).then(response => setAttendance(response.data));
-  }, [alreadyCheckedIn]);
+  }, [id]);
+
+  const alreadyCheckedIn = isAlreadyAnnotated(storedUser.userId, attendance);
 
   const hasHangout = Object.keys(hangout).length > 0;
 
@@ -37,7 +41,7 @@ export function DetailedHangout() {
     return <div>Loading...</div>;
   }
 
-  const editOrCheckIn = storedUser.userId === hangout.user_id ? true : false;
+  const isUserAdmin = storedUser.userId === hangout.user_id ? true : false;
 
   const date = hangout.event_date
     .substring(0, 10)
@@ -47,15 +51,18 @@ export function DetailedHangout() {
 
   const hour = hangout.event_hour.substring(0, 5);
 
+  /**
+   * Refrescar la página en el then, esto no funciona
+   */
   const handleClick = () => {
     return checkInToHangout(hangout.id)
-      .then(() => {})
+      .then(() => history.push(`/hangout/${id}`))
       .catch(err => {
         console.log(err);
       });
   };
 
-  console.log(alreadyCheckedIn, editOrCheckIn);
+  console.log(alreadyCheckedIn, isUserAdmin);
 
   return (
     <React.Fragment>
@@ -70,8 +77,7 @@ export function DetailedHangout() {
 
           <AvatarContainer id={hangout.user_id} />
         </div>
-
-        {(editOrCheckIn && (
+        {(isUserAdmin && (
           <button
             className="ghost"
             onClick={() => history.push(`/edit/hangout/${id}`)}
@@ -80,25 +86,31 @@ export function DetailedHangout() {
             editar quedada
           </button>
         )) ||
-          (!editOrCheckIn && (
-            <button id="anotarse" onClick={handleClick} className="btn">
-              Anotarse
-            </button>
-          )) ||
-          (alreadyCheckedIn && <span>Ya estás inscrito</span>)}
-
+          (!isUserAdmin &&
+            ((alreadyCheckedIn && (
+              <span className="btn" id="alertaInscrito">
+                Ya estás inscrito
+              </span>
+            )) ||
+              (!alreadyCheckedIn && (
+                <button className="ghost" onClick={handleClick} id="editar">
+                  Quiero ir!
+                </button>
+              ))))}
         <section id="info">
           <div id="datosQuedada">
             <ul>
               <h3>Detalles</h3>
-              <li>{hangout.cityName}</li>
+              <li>
+                {hangout.cityName} , {hangout.place}
+              </li>
               <li>{date}</li>
               <li>{hour}</li>
               <li>{hangout.thematicName}</li>
               <li>{hangout.description}</li>
               <li>Mapa</li>
               <li>
-                {(editOrCheckIn && (
+                {(isUserAdmin && (
                   <button
                     className="ghost"
                     onClick={() => history.push(`/edit/hangout/${id}`)}
@@ -106,12 +118,22 @@ export function DetailedHangout() {
                   >
                     editar quedada
                   </button>
-                )) || (
-                  <button onClick={handleClick} className="btn"
-                  >
-                    Anotarse
-                  </button>
-                )}
+                )) ||
+                  (!isUserAdmin &&
+                    ((alreadyCheckedIn && (
+                      <span className="btn" id="alertaInscrito">
+                        Ya estás inscrito
+                      </span>
+                    )) ||
+                      (!alreadyCheckedIn && (
+                        <button
+                          className="ghost"
+                          onClick={handleClick}
+                          id="editar"
+                        >
+                          Quiero ir!
+                        </button>
+                      ))))}
               </li>
             </ul>
           </div>
@@ -143,7 +165,7 @@ export function DetailedHangout() {
                 </li>
               ))}
             </ul>
-            {editOrCheckIn && (
+            {isUserAdmin && (
               <button
                 className="ghost"
                 onClick={() =>

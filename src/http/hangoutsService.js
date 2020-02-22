@@ -15,7 +15,7 @@ export function createHangout(hangoutData) {
   );
 }
 
-export function editOneHangout(id, hangoutData) {
+export function editOneHangout({ id }, hangoutData) {
   return axios.put(
     `${process.env.REACT_APP_BACKEND_URL}/hangouts/${id}`,
     hangoutData

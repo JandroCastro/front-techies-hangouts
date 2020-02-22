@@ -26,12 +26,12 @@ export function ProfileInfo({ id }) {
           <label>Edad</label>
           <li>{profile[0].age}</li>
           <label>url de tu Linkedin</label>
-          <li>{profile[0].link}</li>
+          <li>{profile[0].link_url}</li>
           <label>Descripción</label>
           <li>{profile[0].aboutMe}</li>
         </ul>
       </div>
-        <h2 className="enlaces">enlaces a tus redes sociales</h2>
+      <h2 className="enlaces">enlaces a tus redes sociales</h2>
       <div id="enlacesRRSS">
         <li>
           <a href="https://www.instagram.com/">

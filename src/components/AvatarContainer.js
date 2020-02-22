@@ -6,7 +6,6 @@ import { useHistory } from "react-router-dom";
 
 export function AvatarContainer({ id }) {
   const [profile, setProfile] = useState({});
-  console.log(id);
   const history = useHistory();
   useEffect(() => {
     getProfile(id).then(response => setProfile(response.data[0]));
