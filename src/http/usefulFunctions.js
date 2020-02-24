@@ -104,11 +104,18 @@ export function filterPendignRequest(attendaceArray) {
   return attendaceArray.filter(data => data.request_status === "pending");
 }
 
+/**
+ *
+ * @param {*} guest_id  es el id guardado en storage
+ * @param {*} attendaceArray
+ * attendanceArray.guest_id, cambié el nombre para no liarme en los join en el back,
+ * aquí queda extraño
+ */
 export function isAlreadyAnnotated(guest_id, attendaceArray) {
-  const isAlready = attendaceArray.find(
-    attendaceArray => attendaceArray.user_id === guest_id
-  );
-  console.log(isAlready);
+  const isAlready = attendaceArray.find(function(attendaceArray) {
+    return attendaceArray.guest_id === guest_id;
+  });
+
   if (isAlready === undefined) {
     return false;
   } else {

@@ -31,11 +31,20 @@ export function getPendingAttendance(hangoutId) {
     `${process.env.REACT_APP_BACKEND_URL}/attendance/pending/${hangoutId}`
   );
 }
-
+/**
+ *
+ * @param {*} userId
+ * Devuelve todos los eventos a los que se ha anotado el usuario, exceptuando las rechazadas
+ */
 export function getAllUserAttendance(userId) {
   return axios.get(`${process.env.REACT_APP_BACKEND_URL}/attendance/${userId}`);
 }
 
+/**
+ *
+ * @param {*} hangoutId
+ * @return Todas las peticiones de asistir a este evento
+ */
 export function getHangoutAttendance(hangoutId) {
   return axios.get(
     `${process.env.REACT_APP_BACKEND_URL}/attendance/hangout/${hangoutId}`

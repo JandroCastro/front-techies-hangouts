@@ -29,7 +29,7 @@ export function EventCard({ event, votar }) {
         </ul>
       </section>
       <ul id="eventCard-attendants">
-        <p>Asistentes:</p>
+        <h5>Asistentes:</h5>
         {asistentes.map(asistente => (
           <li>
             <MiniCardHangout user={asistente} voting={votar} />

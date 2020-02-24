@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { useSpring, animated } from "react-spring";
 import { AsistenteQuedada } from "./AsistenteQuedada";
-import { checkInToHangout } from "../http/attendanceService";
+import {
+  checkInToHangout,
+  getHangoutAttendance
+} from "../http/attendanceService";
 import { useHistory } from "react-router-dom";
+import { isAlreadyAnnotated } from "../http/usefulFunctions";
+import { LogicButton } from "./LogicButton";
 
 const calc = (x, y) => [
   -(y - window.innerHeight / 2) / 10,
@@ -13,30 +18,14 @@ const calc = (x, y) => [
 const trans = (x, y, s) => `scale(${s})`;
 
 export function HangoutCards({ event }) {
-  const [noVisible, setNoVisible] = useState(true);
-
-  const currentUser = localStorage.getItem("currentUser");
-
   const history = useHistory();
+
+  const [noVisible, setNoVisible] = useState(true);
 
   const date = event.event_date.split("T");
   const hour = event.event_hour.substring(0, 5);
 
-  const handleClick = () => {
-    if (currentUser !== null) {
-      return checkInToHangout(event.id)
-        .then(() => {
-          history.push(`/hangout/${event.id}`);
-        })
-        .catch(() => {
-          history.push(`/hangout/${event.id}`);
-        });
-    } else {
-      history.push(`/login?id=${event.id}`);
-    }
-  };
-
-  //console.log(event);
+  console.log(event);
 
   const [props, set] = useSpring(() => ({
     xys: [0, 0, 1],
@@ -71,9 +60,7 @@ export function HangoutCards({ event }) {
           </h5>
           <h5>{event.thematicName}</h5>
         </div>
-        <button className="btn" onClick={handleClick}>
-          Quiero ir!
-        </button>
+        <LogicButton hangoutId={event.id} organizatorId={event.user_id} />
         <div id="event-organizator">
           <AsistenteQuedada event={event} />
         </div>

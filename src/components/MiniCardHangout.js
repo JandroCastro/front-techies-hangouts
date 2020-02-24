@@ -16,7 +16,7 @@ export function MiniCardHangout({ user, voting }) {
         <li>
           <MiniAvatar url={user.avatar_url} />
         </li>
-        <li>{user.name}</li>
+        <li>{user.userName}</li>
         <li>{user.position}</li>
         <li>
           {<StarsOnlyRead talla="small" id={user.user_id} /> ||
