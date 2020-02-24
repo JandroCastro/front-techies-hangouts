@@ -21,6 +21,7 @@
 }
 .yourHangouts li {
   padding: 0;
+  margin-top: 2rem;
 }
 
 ::-webkit-scrollbar {

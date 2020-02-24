@@ -17,7 +17,7 @@ export function CreateProfile() {
   const date = new Date().toISOString().substring(0, 10);
 
   const history = useHistory();
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, errors } = useForm({
     mode: "onBlur"
   });
 
@@ -52,6 +52,10 @@ export function CreateProfile() {
       .then(history.push(`/profile/${userId}`))
       .catch();
   };
+
+  const handleAvatar = file => {
+    updateAvatar(userId, file).then();
+  };
   const hasProfile = Object.keys(profile).length > 0;
 
   if (!hasProfile) {
@@ -71,7 +75,9 @@ export function CreateProfile() {
             <FileUpload required />
           </li>
           <li>
-            <button className="btn">Actualiza avatar</button>
+            <button onClick={handleAvatar} className="btn">
+              Actualiza avatar
+            </button>
           </li>
         </ul>
       </div>
@@ -131,7 +137,11 @@ export function CreateProfile() {
           <label className="label">Categoría Profesional</label>
           <input
             ref={register({
-              required: "The field is mandatory"
+              required: "The field is mandatory",
+              minLength: {
+                value: 6,
+                message: "You should enter a text with at least 6 characters"
+              }
             })}
             name="category"
             value={profile.category}
@@ -145,10 +155,17 @@ export function CreateProfile() {
               })
             }
           />
+          {errors.category && (
+            <span className="errorMessage">{errors.category.message}</span>
+          )}
           <label className="label">Puesto/Posición</label>
           <input
             ref={register({
-              required: "The field is mandatory"
+              required: "The field is mandatory",
+              minLength: {
+                value: 6,
+                message: "You should enter a text with at least 6 characters"
+              }
             })}
             name="position"
             value={profile.position}
@@ -162,6 +179,9 @@ export function CreateProfile() {
               })
             }
           />
+          {errors.position && (
+            <span className="errorMessage">{errors.position.message}</span>
+          )}
           <label className="label">Acceso a tu Linkedin</label>
           <input
             ref={register({

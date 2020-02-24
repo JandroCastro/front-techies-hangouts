@@ -5,6 +5,13 @@ import cerrarSesion from "../img/cerrar-sesion.svg";
 export function Header({ title }) {
   const storedUser = JSON.parse(localStorage.getItem("currentUser"));
 
+  let href = "";
+  if (storedUser === null) {
+    href = "/principal";
+  } else {
+    href = `/profile/{${storedUser.userId})`;
+  }
+
   return (
     <React.Fragment>
       <header id="header">
@@ -17,7 +24,7 @@ export function Header({ title }) {
 
         <ul>
           <li className="hola">
-            <a href={`/profile/${storedUser.userId}`}>Hola chaval</a>
+            <a href={href}>Hola chaval</a>
           </li>
 
           <li className="logout">

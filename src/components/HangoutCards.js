@@ -16,7 +16,6 @@ export function HangoutCards({ event }) {
   const [noVisible, setNoVisible] = useState(true);
 
   const currentUser = localStorage.getItem("currentUser");
-  console.log(currentUser);
 
   const history = useHistory();
 
@@ -61,6 +60,7 @@ export function HangoutCards({ event }) {
       <div
         id="hangout-img"
         style={{ backgroundImage: "url(" + event.photo_url + ")" }}
+        onClick={() => history.push(`/hangout/${event.id}`)}
       ></div>
       <div id="hangout-info">
         <h3>{event.title}</h3>

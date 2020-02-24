@@ -1,5 +1,7 @@
 //##########      STARS ONLY READ    ################
 
+const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+
 /**
  *
  * @param {*} array
@@ -34,7 +36,10 @@ export function mediaRatings(array) {
 export function getHangoutsWhereUserIsOrganizator(dataArray) {
   const date = new Date().toISOString().substring(0, 10);
   return dataArray.filter(
-    hangout => hangout.id_users === hangout.user_id && hangout.event_date > date
+    hangout =>
+      storedUser.userId === hangout.user_id &&
+      hangout.event_date > date &&
+      hangout.request_status === "accepted"
   );
 }
 
