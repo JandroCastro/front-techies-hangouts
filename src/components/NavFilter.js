@@ -1,22 +1,27 @@
 import React, { useState } from "react";
-import { Datepicker } from "./Datepicker";
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { Filter } from "./Filtro";
+import { parseDatepicker } from "../http/usefulFunctions";
 
 export function NavFilter({ optionCities, optionThematics, onFilter }) {
+  const [startDate, setStartDate] = useState(new Date());
   const [state, setState] = useState({
     city_id: null,
     thematic_id: null,
     event_date: null
   });
 
-  const parseDate = object => {
-    const date = JSON.stringify(object).substring(1, 11);
-    return date;
-  };
-
   const handleClick = () => {
     onFilter(state);
+  };
+
+  const handleDateChange = day => {
+    setStartDate(day);
+    setState({
+      ...state,
+      event_date: parseDatepicker(day)
+    });
   };
 
   return (
@@ -48,10 +53,12 @@ export function NavFilter({ optionCities, optionThematics, onFilter }) {
         </li>
         <li key="dateFilter">
           <label id="fecha">Fecha</label>
-          <Datepicker
-            onChange={day => {
-              setState({ ...state, date_event: parseDate(day) });
-            }}
+          <DatePicker
+            id="datepicker"
+            placeholderText="Click to select a date"
+            dateFormat="yyyy-MM-dd"
+            selected={startDate}
+            onChange={handleDateChange}
           />
         </li>
       </ul>
