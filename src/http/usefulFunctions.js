@@ -122,3 +122,9 @@ export function isAlreadyAnnotated(guest_id, attendaceArray) {
     return true;
   }
 }
+
+//######################### DATEPICKER #############################
+export function parseDatepicker(object) {
+  const date = JSON.stringify(object).substring(1, 11);
+  return date;
+}
