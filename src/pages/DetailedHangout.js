@@ -53,8 +53,13 @@ export function DetailedHangout() {
         <h1 style={{ marginTop: 16 }}>{hangout.title}</h1>
         <div id="cabeceraDeQuedada">
           <div>
-            {<img alt="Imagen de quedada" src={hangout.photo_url}></img> ||
-              "Cargando"}
+            {(
+              <img
+                id="hangout-img"
+                alt="Imagen de quedada"
+                src={hangout.photo_url}
+              ></img>
+            ) || "Cargando"}
           </div>
 
           <AvatarContainer id={hangout.user_id} />
