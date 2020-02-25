@@ -18,17 +18,24 @@ export function LogicButton({ hangoutId, organizatorId }) {
     );
   }, []);
 
-  const alreadyCheckedIn = isAlreadyAnnotated(storedUser.userId, attendance);
+  const alreadyCheckedIn =
+    false || isAlreadyAnnotated(storedUser.userId, attendance);
   const isUserAdmin = storedUser.userId === organizatorId ? true : false;
 
   /**
-   * Refrescar la página en el then, esto no funciona
+   * Refrescar la página en el then, esto no funciona,
+   * PRUEBO A VOLVER A LLAMAR A LA FUNCION AL BACK
+   *
+   *
+   * window.location.reload?
    */
   const handleClick = () => {
     if (storedUser !== null) {
       return checkInToHangout(hangoutId)
         .then(() => {
-          history.push(`/hangout/${hangoutId}`);
+          getHangoutAttendance(hangoutId)
+            .then(response => setAttendance(response.data))
+            .catch(err => console.error(err));
         })
         .catch(() => {
           history.push(`/hangout/${hangoutId}`);
@@ -37,6 +44,13 @@ export function LogicButton({ hangoutId, organizatorId }) {
       history.push(`/login?id=${hangoutId}`);
     }
   };
+  if (storedUser === null) {
+    return (
+      <button className="ghost" onClick={handleClick} id="editar">
+        Quiero ir!
+      </button>
+    );
+  }
 
   return (
     <React.Fragment>
