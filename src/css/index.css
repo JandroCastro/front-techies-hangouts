@@ -109,11 +109,6 @@ a:hover {
   opacity: 0.7;
 }
 
-a:active {
-  opacity: 1;
-  border-bottom: 2px solid var(--secondary);
-}
-
 ul {
   list-style: none;
 }
