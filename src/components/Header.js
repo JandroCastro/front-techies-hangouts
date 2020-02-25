@@ -1,15 +1,30 @@
 import React from "react";
 import logo from "../img/logo.jpeg";
 import cerrarSesion from "../img/cerrar-sesion.svg";
+import { useHistory } from "react-router-dom";
 
 export function Header({ title }) {
   const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+  console.log(storedUser);
+  const history = useHistory();
 
-  let href = "";
-  if (storedUser === null) {
-    href = "/principal";
-  } else {
-    href = `/profile/{${storedUser.userId})`;
+  function handleClick() {
+    if (storedUser === null) {
+      return history.push("/login");
+    } else {
+      console.log(storedUser.userId);
+      return history.push(`/profile/${storedUser.userId}`);
+    }
+  }
+
+  {
+    /*const usuario = () => {
+    if (storedUser === null) {
+      return "Amigo";
+    } else {
+      return storedUser.email;
+    }
+  };*/
   }
 
   return (
@@ -23,8 +38,8 @@ export function Header({ title }) {
         </a>
 
         <ul>
-          <li className="hola">
-            <a href={href}>Hola chaval</a>
+          <li onClick={handleClick} className="hola">
+            Hola amigo!
           </li>
 
           <li className="logout">
