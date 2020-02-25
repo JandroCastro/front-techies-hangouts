@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { getAllCities, getAllThematics } from "../http/utilitiesService";
-import { Datepicker } from "../components/Datepicker";
+
 import FileUpload from "../components/FileUpload";
 import { useHistory } from "react-router-dom";
 import { createHangout } from "../http/hangoutsService";

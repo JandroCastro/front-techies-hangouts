@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { getAllCities, getAllThematics } from "../http/utilitiesService";
-import { Datepicker } from "../components/Datepicker";
 import FileUpload from "../components/FileUpload";
 import { useParams, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
