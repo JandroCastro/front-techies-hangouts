@@ -28,6 +28,7 @@ export function CreateProfile() {
     category: null,
     position: null,
     aboutMe: null,
+    university_id:null,
     link_url: null,
     updated_at: null
   });
@@ -131,8 +132,11 @@ export function CreateProfile() {
               })
             }
           />
-          <label>Escoge tu universidad</label>
-          <select name="universidad">
+          <label className="label">Escoge tu universidad</label>
+          <select ref={register({
+              required: "The field is mandatory"
+            })}
+           name="university_id">
             {colleges.map(uni => {
               return (
                 <option
@@ -140,6 +144,7 @@ export function CreateProfile() {
                   value={uni.attributes.Texto}
                 >
                   {uni.attributes.Texto}
+                  
                 </option>
               );
             })}

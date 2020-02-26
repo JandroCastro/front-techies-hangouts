@@ -27,8 +27,8 @@ export function ProfileInfo({ id }) {
           <li>{profile.position}</li>
           <label>Categoría Profesional </label>
           <li>{profile.category}</li>
-          <label>Edad</label>
-          <li>{profile.age}</li>
+          <label>Universidad</label>
+          <li>{profile.university_id}</li>
           <label>url de tu Linkedin</label>
           <li>{profile.link_url}</li>
           <label>Descripción</label>
