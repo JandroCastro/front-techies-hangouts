@@ -1,51 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useRef } from "react";
+import { updateAvatar } from "../http/profileService";
 
-function FileUpload() {
+export function FileUpload({ onUploadLogo }) {
   const [files, setFiles] = useState([]);
   const [uploading, setUploading] = useState(false);
-  const [previews, setPreviews] = useState([]);
-  const [isDrag, setDrag] = useState(false);
   const fileInput = useRef();
 
-  useEffect(() => {
-    async function getPreviews() {
-      const promises = files.map(getPreview);
-      setPreviews(await Promise.all(promises));
-    }
-
-    getPreviews();
-  }, [files]);
-
-  const handleDrop = e => {
-    e.preventDefault();
-
-    const draggedFiles = [];
-
-    if (e.dataTransfer.items) {
-      Array.from(e.dataTransfer.items).forEach(item => {
-        if (item.kind === 'file') {
-          let file = item.getAsFile();
-          console.log(file);
-          draggedFiles.push(file);
-        }
-      });
-    } else {
-      Array.from(e.dataTransfer.files).forEach(file => {
-        console.log(file);
-        draggedFiles.push(file);
-      });
-    }
-
-    setFiles([...draggedFiles, ...files]);
-    setDrag(false);
-  };
-
   const handleChange = e => {
-    setFiles([...Array.from(e.target.files), ...files]);
+    setFiles([...Array.from(e.target.files)]);
   };
 
-  const handleUpload = () => {
+  const handleUpload = async () => {
     if (!files) {
       return;
     }
@@ -53,32 +18,19 @@ function FileUpload() {
     const data = new FormData();
 
     files.forEach(file => {
-      data.append('files', file);
+      data.append("logo", file);
     });
 
     setUploading(true);
 
-    axios
-      .post('http://localhost:8000/api/upload', data)
-      .then(response => {
-        console.log(response);
-        setFiles([]);
-        setUploading(false);
-      })
-      .catch(error => {
-        setUploading(false);
-        console.log(error);
-      });
-  };
-
-  const handleDragOver = e => {
-    e.preventDefault();
-    setDrag(true);
-  };
-
-  const handleDragLeave = e => {
-    e.preventDefault();
-    setDrag(false);
+    try {
+      const { headers } = await updateAvatar(data);
+      onUploadLogo(headers.location);
+      setFiles([]);
+      setUploading(false);
+    } catch (error) {
+      setUploading(false);
+    }
   };
 
   const openFileDialog = () => {
@@ -86,54 +38,25 @@ function FileUpload() {
   };
 
   return (
-    <main >
-      <div
-        className={`file-upload-container ${isDrag ? 'drag' : ''} ${
-          uploading ? 'uploading' : ''
-        }`}
-        onDrop={handleDrop}
-        onDragOver={handleDragOver}
-        onDragLeave={handleDragLeave}
-      >
-        <input ref={fileInput} type="file" multiple onChange={handleChange} />
-        <button type="button" onClick={openFileDialog} disabled={uploading}>
-          
-        </button>
-        <ul className="upload-preview">
-          {files.map((file, i) => (
-            <li key={file.name}>
-              <img src={previews[i]} alt={file.name} />
-              <span>{file.name}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
+    <div>
+      <input ref={fileInput} type="file" accept="png" onChange={handleChange} />
       <button
-        className=""
+        className="upload"
+        type="button"
+        onClick={openFileDialog}
+        disabled={uploading}
+      >
+        {uploading ? "Uploading files..." : "Choose File"}
+      </button>
+      <button
+        className="upload"
         type="button"
         onClick={handleUpload}
         disabled={uploading}
       >
+        Upload
       </button>
-    </main>
+    </div>
   );
 }
-
-function getPreview(file) {
-  return new Promise(resolve => {
-    if (file && file.type.includes('image')) {
-      let reader = new FileReader();
-
-      reader.onloadend = function() {
-        resolve(reader.result);
-      };
-
-      reader.readAsDataURL(file);
-    } else {
-      resolve('http://via.placeholder.com/50x50');
-    }
-  });
-}
-
-export default FileUpload;
+export default FileUpload

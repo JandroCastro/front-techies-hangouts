@@ -35,6 +35,12 @@ export function CreateProfile() {
   const [avatar, setAvatar] = useState("");
   const [colleges, setColleges] = useState([]);
 
+  const onChangeAvatar = () => {
+    updateAvatar(profile.user_id, avatar).then(response =>
+      setAvatar(response.data[0]).catch(err => console.error(err))
+    );
+  };
+
   useEffect(() => {
     getProfile(userId)
       .then(response => {
@@ -68,7 +74,7 @@ export function CreateProfile() {
             <img className="avatarProfile" alt="Foto de avatar" src={avatar} />
           </li>
           <li>
-            <FileUpload required />
+            <FileUpload onUploadLogo={onChangeAvatar} required />
           </li>
           <li>
             <button className="btn">Actualiza avatar</button>
