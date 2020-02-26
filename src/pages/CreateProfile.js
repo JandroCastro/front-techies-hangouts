@@ -35,10 +35,13 @@ export function CreateProfile() {
   const [avatar, setAvatar] = useState("");
   const [colleges, setColleges] = useState([]);
 
-  const onChangeAvatar = () => {
-    updateAvatar(profile.user_id, avatar).then(response =>
-      setAvatar(response.data[0]).catch(err => console.error(err))
-    );
+  const onChangeAvatar = formData => {
+    updateAvatar({ id: profile.user_id, avatar: formData }).then(function(
+      response
+    ) {
+      setAvatar(response.headers.Location);
+      window.location.reload();
+    });
   };
 
   useEffect(() => {
@@ -60,6 +63,7 @@ export function CreateProfile() {
   };
 
   const handleAvatar = file => {
+    console.log(file);
     updateAvatar(userId, file).then();
   };
   const hasProfile = Object.keys(profile).length > 0;
@@ -78,10 +82,10 @@ export function CreateProfile() {
             <img className="avatarProfile" alt="Foto de avatar" src={avatar} />
           </li>
           <li>
-            <FileUpload onUploadLogo={onChangeAvatar} required />
+            <FileUpload onAvatarSelected={onChangeAvatar} required />
           </li>
           <li>
-            <button onClick={handleAvatar} className="btn">
+            <button onSubmit={handleAvatar} type="submit" className="btn">
               Actualiza avatar
             </button>
           </li>

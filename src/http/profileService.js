@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 export function getProfile(id) {
   return axios.get(`${process.env.REACT_APP_BACKEND_URL}/profiles/${id}`);
 }
@@ -18,7 +17,7 @@ export function getAvatar(id) {
   );
 }
 
-export function updateAvatar(id, avatar) {
+export function updateAvatar({ id, avatar }) {
   return axios.put(
     `${process.env.REACT_APP_BACKEND_URL}/profiles/avatar/${id}`,
     avatar

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { updateAvatar } from "../http/profileService";
 
-export function FileUpload({ onUploadLogo }) {
+export function FileUpload({ onAvatarSelected }) {
   const [files, setFiles] = useState([]);
   const [uploading, setUploading] = useState(false);
   const fileInput = useRef();
@@ -11,6 +11,7 @@ export function FileUpload({ onUploadLogo }) {
   };
 
   const handleUpload = async () => {
+    console.log({ files });
     if (!files) {
       return;
     }
@@ -18,17 +19,18 @@ export function FileUpload({ onUploadLogo }) {
     const data = new FormData();
 
     files.forEach(file => {
-      data.append("logo", file);
+      data.append("file", file);
     });
-
     setUploading(true);
 
     try {
-      const { headers } = await updateAvatar(data);
-      onUploadLogo(headers.location);
-      setFiles([]);
-      setUploading(false);
+      onAvatarSelected(data);
+      console.log("Upload success");
     } catch (error) {
+      console.log({ error });
+      console.log("Upload fail");
+    } finally {
+      setFiles([]);
       setUploading(false);
     }
   };
@@ -39,9 +41,14 @@ export function FileUpload({ onUploadLogo }) {
 
   return (
     <div>
-      <input ref={fileInput} type="file" accept="png" onChange={handleChange} />
+      <input
+        ref={fileInput}
+        type="file"
+        accept="jpeg"
+        onChange={handleChange}
+      />
       <button
-        className="upload"
+        className="btn"
         type="button"
         onClick={openFileDialog}
         disabled={uploading}
@@ -49,7 +56,7 @@ export function FileUpload({ onUploadLogo }) {
         {uploading ? "Uploading files..." : "Choose File"}
       </button>
       <button
-        className="upload"
+        className="btn"
         type="button"
         onClick={handleUpload}
         disabled={uploading}
@@ -59,4 +66,4 @@ export function FileUpload({ onUploadLogo }) {
     </div>
   );
 }
-export default FileUpload
+export default FileUpload;

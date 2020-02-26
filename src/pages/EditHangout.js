@@ -169,7 +169,7 @@ export function EditHangout() {
             }
           >
             {thematics.map(d => {
-              return <option>{d.name}</option>;
+              return <option value={d.id}>{d.name}</option>;
             })}
             <option value="value1">Selecciona una temática</option>
           </select>
