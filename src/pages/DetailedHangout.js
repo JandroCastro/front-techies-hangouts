@@ -3,18 +3,15 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { AvatarContainer } from "../components/AvatarContainer";
 import { getOneHangout, deleteOneHangout } from "../http/hangoutsService";
-import {
-  checkInToHangout,
-  getHangoutAttendance
-} from "../http/attendanceService";
+import { getHangoutAttendance } from "../http/attendanceService";
 import { Map } from "../components/Map";
 import { ProfileCards } from "../components/ProfileCards";
 import { useParams, useHistory } from "react-router-dom";
 import {
   filterAcceptedRequest,
-  filterPendignRequest,
-  isAlreadyAnnotated
+  filterPendignRequest
 } from "../http/usefulFunctions";
+import { LogicButton } from "../components/LogicButton";
 
 export function DetailedHangout() {
   const storedUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -33,15 +30,13 @@ export function DetailedHangout() {
     getHangoutAttendance(id).then(response => setAttendance(response.data));
   }, [id]);
 
-  const alreadyCheckedIn = isAlreadyAnnotated(storedUser.userId, attendance);
+  const isUserAdmin = storedUser.userId === hangout.user_id ? true : false;
 
   const hasHangout = Object.keys(hangout).length > 0;
 
   if (!hasHangout) {
     return <div>Loading...</div>;
   }
-
-  const isUserAdmin = storedUser.userId === hangout.user_id ? true : false;
 
   const date = hangout.event_date
     .substring(0, 10)
@@ -51,19 +46,6 @@ export function DetailedHangout() {
 
   const hour = hangout.event_hour.substring(0, 5);
 
-  /**
-   * Refrescar la página en el then, esto no funciona
-   */
-  const handleClick = () => {
-    return checkInToHangout(hangout.id)
-      .then(() => history.push(`/hangout/${id}`))
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
-  console.log(alreadyCheckedIn, isUserAdmin);
-
   return (
     <React.Fragment>
       <Header title="TU EVENTO" />
@@ -71,32 +53,18 @@ export function DetailedHangout() {
         <h1 style={{ marginTop: 16 }}>{hangout.title}</h1>
         <div id="cabeceraDeQuedada">
           <div>
-            {<img alt="Imagen de quedada" src={hangout.photo_url}></img> ||
-              "Cargando"}
+            {(
+              <img
+                id="hangout-img"
+                alt="Imagen de quedada"
+                src={hangout.photo_url}
+              ></img>
+            ) || "Cargando"}
           </div>
 
           <AvatarContainer id={hangout.user_id} />
         </div>
-        {(isUserAdmin && (
-          <button
-            className="ghost"
-            onClick={() => history.push(`/edit/hangout/${id}`)}
-            id="editar"
-          >
-            editar quedada
-          </button>
-        )) ||
-          (!isUserAdmin &&
-            ((alreadyCheckedIn && (
-              <span className="btn" id="alertaInscrito">
-                Ya estás inscrito
-              </span>
-            )) ||
-              (!alreadyCheckedIn && (
-                <button className="ghost" onClick={handleClick} id="editar">
-                  Quiero ir!
-                </button>
-              ))))}
+        <LogicButton hangoutId={hangout.id} organizatorId={hangout.user_id} />
         <section id="info">
           <div id="datosQuedada">
             <ul>
@@ -110,30 +78,10 @@ export function DetailedHangout() {
               <li>{hangout.description}</li>
               <li>Mapa</li>
               <li>
-                {(isUserAdmin && (
-                  <button
-                    className="ghost"
-                    onClick={() => history.push(`/edit/hangout/${id}`)}
-                    id="editar"
-                  >
-                    editar quedada
-                  </button>
-                )) ||
-                  (!isUserAdmin &&
-                    ((alreadyCheckedIn && (
-                      <span className="btn" id="alertaInscrito">
-                        Ya estás inscrito
-                      </span>
-                    )) ||
-                      (!alreadyCheckedIn && (
-                        <button
-                          className="ghost"
-                          onClick={handleClick}
-                          id="editar"
-                        >
-                          Quiero ir!
-                        </button>
-                      ))))}
+                <LogicButton
+                  hangoutId={hangout.id}
+                  organizatorId={hangout.user_id}
+                />
               </li>
             </ul>
           </div>

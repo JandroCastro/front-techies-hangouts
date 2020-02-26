@@ -8,7 +8,7 @@ export function ProfileInfo({ id }) {
   const [profile, setProfile] = useState({});
 
   useEffect(() => {
-    getProfile(id).then(response => setProfile(response.data));
+    getProfile(id).then(response => setProfile(response.data[0]));
   }, [id]);
 
   const hasProfile = Object.keys(profile).length > 0;
@@ -19,25 +19,24 @@ export function ProfileInfo({ id }) {
     <React.Fragment>
       <div className="infoperfil">
         <ul>
-        <label>Nombre</label>
-          <li>{profile[0].name}</li>
+          <label>Nombre</label>
+          <li>{profile.name}</li>
           <label>Edad</label>
-          <li>{profile[0].age}</li>
+          <li>{profile.age}</li>
           <label>Cargo que desempeña</label>
-          <li>{profile[0].position}</li>
+          <li>{profile.position}</li>
           <label>Categoría Profesional </label>
-          <li>{profile[0].category}</li>
+          <li>{profile.category}</li>
           <label>Edad</label>
-          <li>{profile[0].age}</li>
+          <li>{profile.age}</li>
           <label>url de tu Linkedin</label>
-          <li>{profile[0].link_url}</li>
+          <li>{profile.link_url}</li>
           <label>Descripción</label>
-          <li>{profile[0].aboutMe}</li>
+          <li>{profile.aboutMe}</li>
         </ul>
       </div>
       <h2 className="enlaces">enlaces a tus redes sociales</h2>
       <div id="enlacesRRSS">
-        
         <li>
           <a href="https://www.instagram.com/">
             <img src={logoInstagram} alt="logo insta" />

@@ -2,8 +2,14 @@ import React, { useState } from "react";
 
 import { useSpring, animated } from "react-spring";
 import { AsistenteQuedada } from "./AsistenteQuedada";
-import { checkInToHangout } from "../http/attendanceService";
+
 import { useHistory } from "react-router-dom";
+
+import { LogicButton } from "./LogicButton";
+import {
+  checkInToHangout,
+  getHangoutAttendance
+} from "../http/attendanceService";
 
 const calc = (x, y) => [
   -(y - window.innerHeight / 2) / 10,
@@ -13,21 +19,27 @@ const calc = (x, y) => [
 const trans = (x, y, s) => `scale(${s})`;
 
 export function HangoutCards({ event }) {
-  const [noVisible, setNoVisible] = useState(true);
-
-  const currentUser = localStorage.getItem("currentUser");
-  console.log(currentUser);
+  const storedUser = JSON.parse(localStorage.getItem("currentUser"));
 
   const history = useHistory();
+
+  const [noVisible, setNoVisible] = useState(true);
 
   const date = event.event_date.split("T");
   const hour = event.event_hour.substring(0, 5);
 
+  const [props, set] = useSpring(() => ({
+    xys: [0, 0, 1],
+    config: { mass: 5, tension: 250, friction: 40 }
+  }));
+
   const handleClick = () => {
-    if (currentUser !== null) {
+    if (storedUser !== null) {
       return checkInToHangout(event.id)
         .then(() => {
-          history.push(`/hangout/${event.id}`);
+          getHangoutAttendance(event.id)
+            .then(history.push(`/hangout/${event.id}`))
+            .catch(err => console.error(err));
         })
         .catch(() => {
           history.push(`/hangout/${event.id}`);
@@ -36,13 +48,6 @@ export function HangoutCards({ event }) {
       history.push(`/login?id=${event.id}`);
     }
   };
-
-  //console.log(event);
-
-  const [props, set] = useSpring(() => ({
-    xys: [0, 0, 1],
-    config: { mass: 5, tension: 250, friction: 40 }
-  }));
   return (
     <animated.div
       onMouseEnter={function() {
@@ -61,6 +66,7 @@ export function HangoutCards({ event }) {
       <div
         id="hangout-img"
         style={{ backgroundImage: "url(" + event.photo_url + ")" }}
+        onClick={() => history.push(`/hangout/${event.id}`)}
       ></div>
       <div id="hangout-info">
         <h3>{event.title}</h3>
@@ -71,9 +77,11 @@ export function HangoutCards({ event }) {
           </h5>
           <h5>{event.thematicName}</h5>
         </div>
-        <button className="btn" onClick={handleClick}>
+        {/* <LogicButton hangoutId={event.id} organizatorId={event.user_id} />*/}
+        <button className="ghost" onClick={handleClick} id="editar">
           Quiero ir!
         </button>
+
         <div id="event-organizator">
           <AsistenteQuedada event={event} />
         </div>

@@ -6,13 +6,11 @@ import { Footer } from "../components/Footer";
 import { getAllCities, getAllThematics } from "../http/utilitiesService";
 import { getAllHangouts, getHangoutsFiltered } from "../http/hangoutsService";
 import { NavLateral } from "../components/NavLateral";
-import { useHistory } from "react-router-dom";
 
 export function Principal() {
   const [cities, setCities] = useState([]);
   const [thematics, setThematics] = useState([]);
   const [hangouts, setHangouts] = useState([]);
-  const history = useHistory();
 
   useEffect(() => {
     getAllCities().then(response => setCities(response.data));
@@ -37,10 +35,7 @@ export function Principal() {
         <main id="hangoutCards">
           <ul>
             {hangouts.map(hangout => (
-              <li
-                onClick={() => history.push(`/hangout/${hangout.id}`)}
-                key={hangout.id}
-              >
+              <li key={hangout.id}>
                 <HangoutCards event={hangout} />
               </li>
             ))}

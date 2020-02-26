@@ -1,5 +1,7 @@
 //##########      STARS ONLY READ    ################
 
+const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+
 /**
  *
  * @param {*} array
@@ -34,7 +36,10 @@ export function mediaRatings(array) {
 export function getHangoutsWhereUserIsOrganizator(dataArray) {
   const date = new Date().toISOString().substring(0, 10);
   return dataArray.filter(
-    hangout => hangout.id_users === hangout.user_id && hangout.event_date > date
+    hangout =>
+      storedUser.userId === hangout.user_id &&
+      hangout.event_date > date &&
+      hangout.request_status === "accepted"
   );
 }
 
@@ -99,14 +104,27 @@ export function filterPendignRequest(attendaceArray) {
   return attendaceArray.filter(data => data.request_status === "pending");
 }
 
+/**
+ *
+ * @param {*} guest_id  es el id guardado en storage
+ * @param {*} attendaceArray
+ * attendanceArray.guest_id, cambié el nombre para no liarme en los join en el back,
+ * aquí queda extraño
+ */
 export function isAlreadyAnnotated(guest_id, attendaceArray) {
-  const isAlready = attendaceArray.find(
-    attendaceArray => attendaceArray.user_id === guest_id
-  );
-  console.log(isAlready);
+  const isAlready = attendaceArray.find(function(attendaceArray) {
+    return attendaceArray.guest_id === guest_id;
+  });
+
   if (isAlready === undefined) {
     return false;
   } else {
     return true;
   }
+}
+
+//######################### DATEPICKER #############################
+export function parseDatepicker(object) {
+  const date = JSON.stringify(object).substring(1, 11);
+  return date;
 }

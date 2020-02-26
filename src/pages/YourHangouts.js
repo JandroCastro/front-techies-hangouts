@@ -24,15 +24,21 @@ export function YourHangouts() {
   if (!hasHangouts) {
     return <div>Loading...</div>;
   }
+  const organizadas = getHangoutsWhereUserIsOrganizator(hangouts);
+  const aceptadas = getHangoutsPendientesdeAsistencia(hangouts);
+  const pendientesDeRecibirAceptacion = getHangoutsPendingToConfirm(hangouts);
+  const asistidas = getHangoutsAssisted(hangouts);
 
   return (
     <React.Fragment>
       <Header title="TUS EVENTOS" />
       <main className="yourHangouts">
         <section id="organizadas">
-          <h2>Eventos de los que eres organizador</h2>
+          <h2>
+            Eventos de los que eres organizador {"(" + organizadas.length + ")"}
+          </h2>
           <ul>
-            {getHangoutsWhereUserIsOrganizator(hangouts).map(hangout => {
+            {organizadas.map(hangout => {
               return (
                 <li>
                   <EventCard event={hangout} votar={false} />
@@ -42,9 +48,9 @@ export function YourHangouts() {
           </ul>
         </section>
         <section id="asistencias">
-          <h2>Eventos pendientes de asistir</h2>
+          <h2>Eventos pendientes de asistir {"(" + aceptadas.length + ")"}</h2>
           <ul>
-            {getHangoutsPendientesdeAsistencia(hangouts).map(hangout => {
+            {aceptadas.map(hangout => {
               return (
                 <li>
                   <EventCard event={hangout} votar={false} />
@@ -54,9 +60,12 @@ export function YourHangouts() {
           </ul>
         </section>
         <section id="anotadas">
-          <h2>Eventos a falta de confirmación</h2>
+          <h2>
+            Eventos a falta de confirmación{" "}
+            {"(" + pendientesDeRecibirAceptacion.length + ")"}
+          </h2>
           <ul>
-            {getHangoutsPendingToConfirm(hangouts).map(hangout => {
+            {pendientesDeRecibirAceptacion.map(hangout => {
               return (
                 <li>
                   <EventCard event={hangout} votar={false} />
@@ -66,9 +75,9 @@ export function YourHangouts() {
           </ul>
         </section>
         <section id="pasadas">
-          <h2>Eventos a los que has asistido</h2>
+          <h2>Eventos a los que has asistido {"(" + asistidas.length + ")"}</h2>
           <ul>
-            {getHangoutsAssisted(hangouts).map(hangout => {
+            {asistidas.map(hangout => {
               return (
                 <li>
                   <EventCard event={hangout} votar={true} />

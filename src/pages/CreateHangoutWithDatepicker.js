@@ -2,19 +2,20 @@ import React, { useState, useEffect } from "react";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { getAllCities, getAllThematics } from "../http/utilitiesService";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import FileUpload from "../components/FileUpload";
-import { useParams, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { createHangout } from "../http/hangoutsService";
 import { useForm } from "react-hook-form";
-import { editOneHangout, getOneHangout } from "../http/hangoutsService";
+import { parseDatepicker } from "../http/usefulFunctions";
 
-export function EditHangout() {
+export function CreateHangout() {
   const { handleSubmit, register } = useForm({
     mode: "onBlur"
   });
-
-  const hangout_id = useParams();
-
   const history = useHistory();
+
   const [cities, setCities] = useState([]);
   const [thematics, setThematics] = useState([]);
   const [hangout, setHangout] = useState({
@@ -23,88 +24,68 @@ export function EditHangout() {
     photo_url: null,
     address: null,
     place: null,
-    event_date: null,
-    event_hour: null,
+    date: null,
+    hour: null,
     thematic_id: null,
     city_id: null,
     max_capacity: 30
   });
 
+  const [startDate, setStartDate] = useState(new Date());
+
   useEffect(() => {
     getAllCities().then(response => setCities(response.data));
     getAllThematics().then(response => setThematics(response.data));
-    getOneHangout(hangout_id.id)
-      .then(response => setHangout(response.data[0]))
-      .catch();
   }, []);
 
-  const hasHangout = Object.keys(hangout).length > 0;
-
-  if (!hasHangout) {
-    return <div>Loading...</div>;
-  }
-  const parseDate = object => {
-    const date = JSON.stringify(object).substring(1, 11);
-    return date;
-  };
-
-  const putHangout = hangout => {
+  const publishHangout = hangout => {
     console.log(hangout);
-    return editOneHangout(hangout_id, hangout)
-      .then(history.push(`/hangout/${hangout_id.id}`))
+    return createHangout(hangout)
+      .then(res => {
+        console.log(res.data);
+        history.push("/principal");
+      })
       .catch(error => {
         console.log(error);
       });
   };
+  console.log(hangout);
 
   return (
     <React.Fragment>
-      <Header title="EDITA TU EVENTO" />
+      <Header title="CREA TU EVENTO" />
       <div>
         <form
-          onSubmit={handleSubmit(putHangout)}
+          onSubmit={handleSubmit(publishHangout)}
           className="hangout"
           action="#"
         >
           <label className="label">Fecha</label>
-          {/*<Datepicker
-            selected={parseDate(hangout.event_date)}
+          <DatePicker
+            selected={startDate || hangout.event_date.toISOString()}
             ref={register({
               required: "The field is mandatory"
             })}
-            name="event_date"
             onChange={day => {
-              setHangout({ ...hangout, event_date: parseDate(day) });
+              setStartDate(day);
+              setHangout({ ...hangout, date: parseDatepicker(day) });
             }}
-          /> */}
-          <input
-            ref={register({
-              required: "The field is mandatory"
-            })}
-            name="event_date"
-            type="text"
-            placeholder="Formato YY-mm-dd "
-            value={parseDate(hangout.event_date)}
-            onChange={e =>
-              setHangout({ ...hangout, event_date: e.target.value })
-            }
           />
 
           <label className="label">Hora</label>
           <input
+            pattern="^([01]?[0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9])?$"
             ref={register({
               required: "The field is mandatory"
             })}
-            name="event_hour"
+            name="hour"
+            onChange={e => setHangout({ ...hangout, hour: e.target.value })}
             type="text"
-            placeholder="HH:MM:SS "
-            value={hangout.event_hour}
-            onChange={e =>
-              setHangout({ ...hangout, event_hour: e.target.value })
-            }
+            placeholder="H:MM:SS "
+            required
           />
-          <label className="label">Título</label>
 
+          <label className="label">Título</label>
           <input
             ref={register({
               required: "The field is mandatory"
@@ -112,19 +93,19 @@ export function EditHangout() {
             name="title"
             type="text"
             placeholder="introduce un título"
-            value={hangout.title}
             onChange={e => setHangout({ ...hangout, title: e.target.value })}
+            required
           />
           <label className="label">Dirección</label>
           <input
             ref={register({
               required: "The field is mandatory"
             })}
+            onChange={e => setHangout({ ...hangout, address: e.target.value })}
             name="address"
             type="text"
             placeholder="introduce una dirección"
-            value={hangout.address}
-            onChange={e => setHangout({ ...hangout, address: e.target.value })}
+            required
           />
           <label className="label"> Nombre del Local</label>
           <input
@@ -134,42 +115,44 @@ export function EditHangout() {
             name="place"
             type="text"
             placeholder="introduce el nombre de un local"
-            value={hangout.place}
             onChange={e => setHangout({ ...hangout, place: e.target.value })}
+            required
           />
+          <label className="label"> Selecciona una ciudad</label>
+
           <select
             ref={register({
               required: "The field is mandatory"
             })}
-            name="city_id"
-            value={hangout.city_id}
             onChange={e =>
               setHangout({
                 ...hangout,
                 city_id: e.target.value === "value1" ? null : e.target.value
               })
             }
+            name="city_id"
           >
             {cities.map(d => {
               return <option value={d.id}>{d.name}</option>;
             })}
             <option value="value1">Selecciona una Ciudad</option>
           </select>
+          <label className="label"> De qué se va a hablar? </label>
+
           <select
             ref={register({
               required: "The field is mandatory"
             })}
-            name="thematic_id"
-            value={hangout.thematic_id}
             onChange={e =>
               setHangout({
                 ...hangout,
                 thematic_id: e.target.value === "value1" ? null : e.target.value
               })
             }
+            name="thematic_id"
           >
             {thematics.map(d => {
-              return <option>{d.name}</option>;
+              return <option value={d.id}>{d.name}</option>;
             })}
             <option value="value1">Selecciona una temática</option>
           </select>
@@ -180,10 +163,6 @@ export function EditHangout() {
                 required: "The field is mandatory"
               })}
               name="photo_url"
-              value={hangout.photo_url}
-              onChange={e =>
-                setHangout({ ...hangout, photo_url: e.target.value })
-              }
             />
           </div>
           <label className="label">Descripción</label>
@@ -191,17 +170,17 @@ export function EditHangout() {
             ref={register({
               required: "The field is mandatory"
             })}
-            name="description"
-            value={hangout.description}
-            id="textarea"
-            type="text"
-            placeholder="introduce una breve descripción sobre el evento"
             onChange={e =>
               setHangout({ ...hangout, description: e.target.value })
             }
+            name="description"
+            id="textarea"
+            type="textarea"
+            placeholder="introduce una breve descripción sobre el evento"
+            required
           />
           <button id="login-page" className="btn" type="submit">
-            EDITAR
+            CREAR
           </button>
         </form>
       </div>

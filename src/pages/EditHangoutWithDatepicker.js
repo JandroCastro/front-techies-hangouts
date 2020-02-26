@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { getAllCities, getAllThematics } from "../http/utilitiesService";
 import FileUpload from "../components/FileUpload";
 import { useParams, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { editOneHangout, getOneHangout } from "../http/hangoutsService";
+import { parseDatepicker } from "../http/usefulFunctions";
 
 export function EditHangout() {
   const { handleSubmit, register } = useForm({
@@ -29,6 +32,7 @@ export function EditHangout() {
     city_id: null,
     max_capacity: 30
   });
+  const [startDate, setStartDate] = useState(new Date());
 
   useEffect(() => {
     getAllCities().then(response => setCities(response.data));
@@ -43,10 +47,8 @@ export function EditHangout() {
   if (!hasHangout) {
     return <div>Loading...</div>;
   }
-  const parseDate = object => {
-    const date = JSON.stringify(object).substring(1, 11);
-    return date;
-  };
+
+  console.log(hangout);
 
   const putHangout = hangout => {
     console.log(hangout);
@@ -67,27 +69,16 @@ export function EditHangout() {
           action="#"
         >
           <label className="label">Fecha</label>
-          {/*<Datepicker
-            selected={parseDate(hangout.event_date)}
+          <DatePicker
+            selected={startDate || hangout.event_date.toISOString()}
             ref={register({
               required: "The field is mandatory"
             })}
             name="event_date"
             onChange={day => {
-              setHangout({ ...hangout, event_date: parseDate(day) });
+              setStartDate(day);
+              setHangout({ ...hangout, event_date: parseDatepicker(day) });
             }}
-          /> */}
-          <input
-            ref={register({
-              required: "The field is mandatory"
-            })}
-            name="event_date"
-            type="text"
-            placeholder="Formato YY-mm-dd "
-            value={parseDate(hangout.event_date)}
-            onChange={e =>
-              setHangout({ ...hangout, event_date: e.target.value })
-            }
           />
 
           <label className="label">Hora</label>

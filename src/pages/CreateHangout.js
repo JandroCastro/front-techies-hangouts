@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { getAllCities, getAllThematics } from "../http/utilitiesService";
-import { Datepicker } from "../components/Datepicker";
+
 import FileUpload from "../components/FileUpload";
 import { useHistory } from "react-router-dom";
 import { createHangout } from "../http/hangoutsService";
@@ -51,19 +51,20 @@ export function CreateHangout() {
           action="#"
         >
           <label className="label">Fecha</label>
-          <input type="text" pattern=
-          "^\d{4}([\-/.])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])$"
+          <input
+            type="text"
+            pattern="^\d{4}([\-/.])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])$"
             ref={register({
               required: "The field is mandatory"
-              
             })}
             name="date"
             handleChange={day => setDate(parseDate(day))}
+            placeholder="Introduce la fecha del evento en formato: YY-MM-dd"
           />
 
           <label className="label">Hora</label>
-          <input pattern=
-         "^([01]?[0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9])?$"
+          <input
+            pattern="^([01]?[0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9])?$"
             ref={register({
               required: "The field is mandatory"
             })}
