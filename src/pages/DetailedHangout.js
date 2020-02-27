@@ -66,6 +66,18 @@ export function DetailedHangout() {
           <AvatarContainer id={hangout.user_id} />
         </div>
         <LogicButton hangoutId={hangout.id} organizatorId={hangout.user_id} />
+        <a
+          className="fa fa-twitter "
+          href="https://twitter.com/intent/tweet?text=Techies%20Hangouts%20Mola!!%20by%20@JandroCastroAl%20"
+          data-size="large"
+          url={<link rel="canonical" href={`/hangouts/${id}`} />}
+          hashtags={"developer,tech"}
+        />
+        <a
+          href={`http://www.linkedin.com/shareArticle?mini=true&url=${process.env.REACT_APP_FRONTEND_URL}hangouts/${id}/&title=VENTE_CON_NOSOTROS!&summary=breve_descripcion&source=TECHIES_HANGOUTS`}
+          class="fa fa-linkedin"
+        ></a>
+
         <section id="info">
           <div id="datosQuedada">
             <h3>Detalles</h3>
@@ -133,3 +145,5 @@ export function DetailedHangout() {
     </React.Fragment>
   );
 }
+
+//https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview
