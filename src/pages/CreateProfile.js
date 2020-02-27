@@ -28,6 +28,7 @@ export function CreateProfile() {
     category: null,
     position: null,
     aboutMe: null,
+    university_id: null,
     link_url: null,
     updated_at: null,
     university_id: null
