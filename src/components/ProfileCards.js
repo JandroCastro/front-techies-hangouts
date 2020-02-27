@@ -13,40 +13,42 @@ export function ProfileCards({ profile, manageAttendance }) {
   const history = useHistory();
 
   const handleAccept = () => {
-    return acceptAttendance(hangoutId, profile.user_id)
-      .then()
+    return acceptAttendance(hangoutId.id, profile.guest_id)
+      .then(window.location.reload())
       .catch();
   };
 
   const handleReject = () => {
-    return rejectAttendance(hangoutId, profile.user_id)
-      .then()
+    return rejectAttendance(hangoutId.id, profile.guest_id)
+      .then(window.location.reload())
       .catch();
   };
-
+  console.log(profile.guest_id);
   return (
     <React.Fragment>
       <article className="profilecard">
-        <section className="cardavatar">
-          <div>
-            <MiniAvatar url={profile.avatar_url} />
-          </div>
-        </section>
-        <section className="cardinfo">
-          <ul>
-            <li>{profile.userName}</li>
-            <li>{profile.age}</li>
-            <li>{profile.position}</li>
-            <li>
-              <a href={profile.link_url}>
-                <img src={logoLinkedin} alt="logo linkedin" />
-              </a>
-            </li>
-          </ul>
-        </section>
+        <div onClick={() => history.push(`/profile/${profile.guest_id}`)}>
+          <section className="cardavatar">
+            <div>
+              <MiniAvatar url={profile.avatar_url} />
+            </div>
+          </section>
+          <section className="cardinfo">
+            <ul>
+              <li>{profile.userName}</li>
+              <li>{profile.age}</li>
+              <li>{profile.position}</li>
+              <li>
+                <a href={profile.link_url}>
+                  <img src={logoLinkedin} alt="logo linkedin" />
+                </a>
+              </li>
+            </ul>
+          </section>
+        </div>
 
         <div className="ratings">
-          <StarsOnlyRead size="" id={profile.user_id} />
+          <StarsOnlyRead size="" id={profile.guest_id} />
         </div>
 
         {manageAttendance && (

@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 
 export function Header({ title }) {
   const storedUser = JSON.parse(localStorage.getItem("currentUser"));
-  console.log(storedUser);
+
   const history = useHistory();
 
   function handleClick() {

@@ -29,7 +29,8 @@ export function CreateProfile() {
     position: null,
     aboutMe: null,
     link_url: null,
-    updated_at: null
+    updated_at: null,
+    university_id: null
   });
 
   const [avatar, setAvatar] = useState("");
@@ -62,10 +63,6 @@ export function CreateProfile() {
       .catch();
   };
 
-  const handleAvatar = file => {
-    console.log(file);
-    updateAvatar(userId, file).then();
-  };
   const hasProfile = Object.keys(profile).length > 0;
 
   if (!hasProfile) {
@@ -83,11 +80,6 @@ export function CreateProfile() {
           </li>
           <li>
             <FileUpload onAvatarSelected={onChangeAvatar} required />
-          </li>
-          <li>
-            <button onSubmit={handleAvatar} type="submit" className="btn">
-              Actualiza avatar
-            </button>
           </li>
         </ul>
       </div>
@@ -109,8 +101,7 @@ export function CreateProfile() {
             onChange={e =>
               setProfile({
                 ...profile,
-                name: e.target.value,
-                updated_at: date
+                name: e.target.value
               })
             }
           />
@@ -126,13 +117,20 @@ export function CreateProfile() {
             onChange={e =>
               setProfile({
                 ...profile,
-                age: e.target.value,
-                updated_at: date
+                age: e.target.value
               })
             }
           />
           <label>Escoge tu universidad</label>
-          <select name="universidad">
+          <select
+            name="universidad"
+            onChange={e =>
+              setProfile({
+                ...profile,
+                university_id: e.target.value
+              })
+            }
+          >
             {colleges.map(uni => {
               return (
                 <option
@@ -160,8 +158,7 @@ export function CreateProfile() {
             onChange={e =>
               setProfile({
                 ...profile,
-                category: e.target.value,
-                updated_at: date
+                category: e.target.value
               })
             }
           />
@@ -184,8 +181,7 @@ export function CreateProfile() {
             onChange={e =>
               setProfile({
                 ...profile,
-                position: e.target.value,
-                updated_at: date
+                position: e.target.value
               })
             }
           />
@@ -206,8 +202,7 @@ export function CreateProfile() {
             onChange={e =>
               setProfile({
                 ...profile,
-                link_url: e.target.value,
-                updated_at: date
+                link_url: e.target.value
               })
             }
           />
@@ -224,8 +219,7 @@ export function CreateProfile() {
             onChange={e =>
               setProfile({
                 ...profile,
-                about: e.target.value,
-                updated_at: date
+                aboutMe: e.target.value
               })
             }
           />

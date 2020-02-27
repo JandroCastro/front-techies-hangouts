@@ -8,28 +8,31 @@ export function EventCard({ event, votar }) {
   const history = useHistory();
 
   useEffect(() => {
-    getAcceptedAttendance(event.id).then(response =>
-      setAsistentes(response.data)
-    );
+    getAcceptedAttendance(event.id)
+      .then(response => setAsistentes(response.data))
+      .catch(error => console.log(error));
   }, []);
 
   const date = event.event_date.substring(0, 10);
 
   return (
     <div className="eventCard">
-      <section /*onClick={history.push(`/hangout/${event.id}`)}*/>
-        <div
-          id="hangout-img"
-          style={{ backgroundImage: "url(" + event.photo_url + ")" }}
-        ></div>
-        <ul id="eventCard-info">
-          <li>{date}</li>
-          <li>{event.title}</li>
-          <li>{event.cityName}</li>
-        </ul>
-      </section>
+      <div
+        onClick={() => history.push(`/hangout/${event.id}`)}
+        id="hangout-img"
+        style={{ backgroundImage: "url(" + event.photo_url + ")" }}
+      ></div>
+      <ul
+        onClick={() => history.push(`/hangout/${event.id}`)}
+        id="eventCard-info"
+      >
+        <li>{date}</li>
+        <li>{event.title}</li>
+        <li>{event.cityName}</li>
+      </ul>
+
+      <h5>Asistentes:</h5>
       <ul id="eventCard-attendants">
-        <h5>Asistentes:</h5>
         {asistentes.map(asistente => (
           <li>
             <MiniCardHangout user={asistente} voting={votar} />

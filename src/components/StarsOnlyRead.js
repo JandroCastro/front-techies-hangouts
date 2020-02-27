@@ -7,6 +7,8 @@ export function StarsOnlyRead({ id, talla }) {
   const [ratings, setValue] = useState([]);
   const media = mediaRatings(ratings);
 
+  //const aleatorio = Math.round(Math.random() * 5);
+
   useEffect(() => {
     getUserRatings(id)
       .then(response => setValue(response.data))
@@ -17,11 +19,11 @@ export function StarsOnlyRead({ id, talla }) {
 
   return (
     <Rating
-      name="size-large"
-      value={isNaN(media) ? 4 : media}
-      readOnly
-      className="MuiRating-sizeLarge"
+      name="read-only"
+      value={isNaN(media) ? 5 : media}
+      readOnly={true}
       precision={0.5}
+      {...talla}
     />
   );
 }

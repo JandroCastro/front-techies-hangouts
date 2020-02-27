@@ -13,12 +13,12 @@ export function StarsForRating(talla, hangoutId, user_id) {
       id_rated: user_id,
       rating: newValue
     };
-    return createRating(hangoutId, ratingData)
+    createRating(hangoutId, ratingData)
       .then(response => {
         setProps("disabled");
         setWarning(true);
       })
-      .catch();
+      .catch(setWarning(true));
   }
 
   return (

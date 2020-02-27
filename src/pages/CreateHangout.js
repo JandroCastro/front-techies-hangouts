@@ -128,7 +128,8 @@ export function CreateHangout() {
           </select>
           <label className="label"> Selecciona una foto para el evento</label>
           <div className="fileupload">
-            <FileUpload
+            <input
+              required
               ref={register({
                 required: "The field is mandatory"
               })}
