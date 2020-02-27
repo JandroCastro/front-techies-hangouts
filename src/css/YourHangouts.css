@@ -11,7 +11,6 @@
 }
 
 .yourHangouts ul {
-  height: 60vh;
   display: flex;
   flex-wrap: wrap;
   overflow-y: scroll;
