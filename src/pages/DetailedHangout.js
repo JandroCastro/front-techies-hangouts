@@ -5,6 +5,7 @@ import { AvatarContainer } from "../components/AvatarContainer";
 import { getOneHangout, deleteOneHangout } from "../http/hangoutsService";
 import { getHangoutAttendance } from "../http/attendanceService";
 import { Map } from "../components/Map";
+
 import { ProfileCards } from "../components/ProfileCards";
 import { useParams, useHistory } from "react-router-dom";
 import {
@@ -67,8 +68,8 @@ export function DetailedHangout() {
         <LogicButton hangoutId={hangout.id} organizatorId={hangout.user_id} />
         <section id="info">
           <div id="datosQuedada">
+            <h3>Detalles</h3>
             <ul>
-              <h3>Detalles</h3>
               <li>
                 {hangout.cityName} , {hangout.place}
               </li>
@@ -76,7 +77,9 @@ export function DetailedHangout() {
               <li>{hour}</li>
               <li>{hangout.thematicName}</li>
               <li>{hangout.description}</li>
-              <li>Mapa</li>
+              <li>
+                <Map place={`${hangout.cityName} , ${hangout.place}`} />
+              </li>
               <li>
                 <LogicButton
                   hangoutId={hangout.id}
@@ -86,8 +89,8 @@ export function DetailedHangout() {
             </ul>
           </div>
           <div id="detallesAsistentes">
+            <h3>Confirmados</h3>
             <ul id="confirmados">
-              <h3>Confirmados</h3>
               {filterAcceptedRequest(attendance).map(guest => (
                 <li
                   onClick={() => history.push(`/profile/${guest.user_id}`)}
@@ -97,13 +100,10 @@ export function DetailedHangout() {
                 </li>
               )) || "Cargando"}
             </ul>
+            <h3>Pendientes</h3>
             <ul id="pendientes">
-              <h3>Pendientes</h3>
               {filterPendignRequest(attendance).map(guest => (
-                <li
-                  onClick={() => history.push(`/profile/${guest.user_id}`)}
-                  key={guest.user_id}
-                >
+                <li id="profileCards" key={guest.user_id}>
                   <ProfileCards
                     profile={guest}
                     manageAttendance={
@@ -113,20 +113,20 @@ export function DetailedHangout() {
                 </li>
               ))}
             </ul>
-            {isUserAdmin && (
-              <button
-                className="ghost"
-                onClick={() =>
-                  deleteOneHangout(id)
-                    .then(() => history.push("/principal"))
-                    .catch()
-                }
-                id="delete"
-              >
-                Eliminar Quedada
-              </button>
-            )}
           </div>
+          {isUserAdmin && (
+            <button
+              className="ghost"
+              onClick={() =>
+                deleteOneHangout(id)
+                  .then(() => history.push("/principal"))
+                  .catch()
+              }
+              id="delete"
+            >
+              Eliminar Quedada
+            </button>
+          )}
         </section>
       </main>
       <Footer />
