@@ -1,9 +1,12 @@
 import React from "react";
 import { MiniAvatar } from "../components/MiniAvatar";
-import { StarsOnlyRead } from "./StarsOnlyRead";
+
+import { StarsForRating } from "./StarsForRating";
 import { useHistory } from "react-router-dom";
 
-export function MiniCardHangout({ user }) {
+export function MiniCardHangoutRating({ user, eventId }) {
+  console.log(user);
+  const { user_id } = user;
   const history = useHistory();
 
   return (
@@ -20,7 +23,7 @@ export function MiniCardHangout({ user }) {
       </ul>
 
       <div id="miniStars">
-        <StarsOnlyRead talla="small" id={user.user_id} />
+        <StarsForRating hangoutId={eventId} user_id={user_id} />
       </div>
     </div>
   );

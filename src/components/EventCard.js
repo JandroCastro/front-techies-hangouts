@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MiniCardHangout } from "../components/MiniCardHangout";
+import { MiniCardHangoutRating } from "./MiniCardHangoutRating";
 import { getAcceptedAttendance } from "../http/attendanceService";
 import { useHistory } from "react-router-dom";
 
@@ -12,6 +13,7 @@ export function EventCard({ event, votar }) {
       .then(response => setAsistentes(response.data))
       .catch(error => console.log(error));
   }, []);
+  console.log(asistentes);
 
   const date = event.event_date.substring(0, 10);
 
@@ -35,7 +37,10 @@ export function EventCard({ event, votar }) {
       <ul id="eventCard-attendants">
         {asistentes.map(asistente => (
           <li>
-            <MiniCardHangout user={asistente} voting={votar} />
+            {(votar && (
+              <MiniCardHangoutRating eventId={event.id} user={asistente} />
+            )) ||
+              (!votar && <MiniCardHangout user={asistente} />)}
           </li>
         ))}
       </ul>

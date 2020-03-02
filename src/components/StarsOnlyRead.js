@@ -3,7 +3,7 @@ import { Rating } from "@material-ui/lab";
 import { getUserRatings } from "../http/ratingsService";
 import { mediaRatings } from "../http/usefulFunctions";
 
-export function StarsOnlyRead({ id, talla }) {
+export function StarsOnlyRead({ id, tamaño }) {
   const [ratings, setValue] = useState([]);
   const media = mediaRatings(ratings);
 
@@ -20,10 +20,10 @@ export function StarsOnlyRead({ id, talla }) {
   return (
     <Rating
       name="read-only"
-      value={isNaN(media) ? 5 : media}
+      value={isNaN(media) ? 0.5 : media}
       readOnly={true}
       precision={0.5}
-      {...talla}
+      size={tamaño}
     />
   );
 }

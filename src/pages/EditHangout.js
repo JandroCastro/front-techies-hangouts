@@ -85,7 +85,7 @@ export function EditHangout() {
             type="text"
             placeholder="Formato YY-mm-dd "
             value={parseDate(hangout.event_date)}
-            onChange={e =>
+            onAvatarSelected={e =>
               setHangout({ ...hangout, event_date: e.target.value })
             }
           />

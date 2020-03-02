@@ -10,3 +10,9 @@ export function createRating(hangoutId, ratingData) {
     ratingData
   );
 }
+
+export function getCreatedRatings(id_rater, event_id) {
+  return axios.get(
+    `${process.env.REACT_APP_BACKEND_URL}/ratings/filter?id_rater=${id_rater}&event_id=${event_id}`
+  );
+}

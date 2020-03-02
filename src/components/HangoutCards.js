@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { useSpring, animated } from "react-spring";
 import { AsistenteQuedada } from "./AsistenteQuedada";
@@ -22,8 +22,6 @@ export function HangoutCards({ event }) {
   const storedUser = JSON.parse(localStorage.getItem("currentUser"));
 
   const history = useHistory();
-
-  const [noVisible, setNoVisible] = useState(true);
 
   const date = event.event_date.split("T");
   const hour = event.event_hour.substring(0, 5);
@@ -50,13 +48,9 @@ export function HangoutCards({ event }) {
   };
   return (
     <animated.div
-      onMouseEnter={function() {
-        setNoVisible(false);
-      }}
       onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
       onMouseLeave={function() {
         set({ xys: [0, 0, 1] });
-        setNoVisible(true);
       }}
       className="card"
       style={{

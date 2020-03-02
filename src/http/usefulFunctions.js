@@ -128,3 +128,16 @@ export function parseDatepicker(object) {
   const date = JSON.stringify(object).substring(1, 11);
   return date;
 }
+
+//######################################RATINGS #################//
+
+export function isThisRatingMade(madeRatings, hangoutId, user_id) {
+  console.log(madeRatings, hangoutId, user_id);
+  madeRatings.find(madeRatingsArray => {
+    return (
+      madeRatingsArray.event_id === hangoutId &&
+      madeRatingsArray.id_rater === storedUser.userId &&
+      madeRatingsArray.id_rated === user_id
+    );
+  });
+}

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import {
   getHangoutAttendance,
-  checkInToHangout
+  checkInToHangout,
+  getAllUserAttendance
 } from "../http/attendanceService";
 import { useHistory } from "react-router-dom";
 import { isAlreadyAnnotated } from "../http/usefulFunctions";

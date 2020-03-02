@@ -3,6 +3,11 @@
   flex-direction: column;
 }
 
+.yourHangouts section {
+  display: grid;
+  grid-template-rows: 80px 1fr;
+}
+
 .yourHangouts section h2 {
   text-align: center;
   color: var(--dark);
@@ -11,12 +16,9 @@
 }
 
 .yourHangouts ul {
-  display: flex;
-  flex-wrap: wrap;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  padding: 1rem;
-  margin: 1rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
 }
 .yourHangouts li {
   padding: 0;
