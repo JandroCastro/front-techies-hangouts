@@ -12,9 +12,11 @@ const storedUser = JSON.parse(localStorage.getItem("currentUser"));
 
 export function mediaRatings(array) {
   const numberOfRatings = array.length;
-  let counter;
-  array.map(data => {
-    return (counter += data.rating);
+
+  let counter = 0;
+
+  array.forEach(data => {
+    counter += data.rating;
   });
 
   const media = counter / numberOfRatings;
@@ -131,13 +133,9 @@ export function parseDatepicker(object) {
 
 //######################################RATINGS #################//
 
-export function isThisRatingMade(madeRatings, hangoutId, user_id) {
-  console.log(madeRatings, hangoutId, user_id);
-  madeRatings.find(madeRatingsArray => {
-    return (
-      madeRatingsArray.event_id === hangoutId &&
-      madeRatingsArray.id_rater === storedUser.userId &&
-      madeRatingsArray.id_rated === user_id
-    );
+export function isThisRatingMade(madeRatings, user_id) {
+  console.log(madeRatings, user_id);
+  return madeRatings.find(madeRatingsArray => {
+    return user_id === madeRatingsArray.id_rated;
   });
 }

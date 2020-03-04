@@ -29,13 +29,13 @@ export function ProfileInfo({ id }) {
           <li>{profile.category}</li>
           <label>Universidad</label>
           <li>{profile.university_id}</li>
-          <label>url de tu Linkedin</label>
+          <label>Linkedin</label>
           <li>{profile.link_url}</li>
           <label>Descripción</label>
           <li>{profile.aboutMe}</li>
         </ul>
       </div>
-      <h2 className="enlaces">enlaces a tus redes sociales</h2>
+      <h3 className="enlaces">enlaces a tus redes sociales</h3>
       <div id="enlacesRRSS">
         <li>
           <a href="https://www.instagram.com/">

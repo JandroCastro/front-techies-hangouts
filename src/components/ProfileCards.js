@@ -1,19 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import logoLinkedin from "../img/linkedin.svg";
 import aceptado from "../img/aceptado.png";
 import descartado from "../img/descartado.png";
 import { MiniAvatar } from "../components/MiniAvatar";
 import { acceptAttendance, rejectAttendance } from "../http/attendanceService";
 import { useParams, useHistory } from "react-router-dom";
-import { Link } from "@material-ui/core";
 import { StarsOnlyRead } from "./StarsOnlyRead";
 
-export function ProfileCards({ profile, manageAttendance }) {
+export function ProfileCards({ profile, manageAttendance, event }) {
   const hangoutId = useParams();
   const history = useHistory();
 
   const handleAccept = () => {
-    return acceptAttendance(hangoutId.id, profile.guest_id)
+    return acceptAttendance(
+      hangoutId.id,
+      profile.guest_id,
+      profile.email,
+      event
+    )
       .then(window.location.reload())
       .catch();
   };
@@ -26,12 +30,13 @@ export function ProfileCards({ profile, manageAttendance }) {
   console.log(profile.guest_id);
   return (
     <React.Fragment>
-      <article className="profilecard">
-        <div onClick={() => history.push(`/profile/${profile.guest_id}`)}>
+      <div className="profilecard">
+        <div
+          id="onclick"
+          onClick={() => history.push(`/profile/${profile.guest_id}`)}
+        >
           <section className="cardavatar">
-            <div>
-              <MiniAvatar url={profile.avatar_url} />
-            </div>
+            <MiniAvatar url={profile.avatar_url} />
           </section>
           <section className="cardinfo">
             <ul>
@@ -61,7 +66,7 @@ export function ProfileCards({ profile, manageAttendance }) {
             </button>
           </section>
         )}
-      </article>
+      </div>
     </React.Fragment>
   );
 }

@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Footer } from "../components/Footer";
-import logo from "../img/logo.jpeg";
 import iconSignin from "../img/signin.svg";
 import iconAttend from "../img/attendEvent.svg";
 import iconShare from "../img/share.svg";
@@ -11,25 +10,31 @@ import iconAdd from "../img/add.svg";
 import iconFind from "../img/findTalent.svg";
 import iconStar from "../img/star.svg";
 import iconEnjoy from "../img/enjoy.svg";
+import video from "../img/video.mp4";
 
 export function Home() {
+  const v = useRef(null);
+  useEffect(() => {
+    v.current.play();
+  }, []);
   return (
     <React.Fragment>
       <div className="principal">
         <section className="up">
-          <div className="titulo">
-            <img src={logo} alt="logo" />
-            <h1>CONÉCTATE</h1>
-            <h1>Interactúa</h1>
-            <h1>Forma parte de nuestra comunidad</h1>
-          </div>
-          <div className="botonHome">
-            <button
-              className="btn"
-              onClick={() => (window.location.href = "/principal")}
-            >
-              enter
-            </button>
+          <video id="video" ref={v} src={video} loop />
+          <div className="up-content">
+            <div className="titulo">
+              <h1>CONÉCTATE . INTERACTÚA</h1>
+              <h1 className="titulo2">Forma parte de nuestra comunidad</h1>
+              <div className="botonHome">
+                <button
+                  className="btn"
+                  onClick={() => (window.location.href = "/principal")}
+                >
+                  enter
+                </button>
+              </div>
+            </div>
           </div>
         </section>
         <section className="medium">

@@ -1,7 +1,7 @@
 .eventCard {
   /*background-color: rgba(104, 96, 96, 0.315);*/
   display: grid;
-  grid-template-rows: 1fr 50px 1fr;
+  grid-template-rows: auto 50px 1fr;
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
     "foto info"
@@ -35,7 +35,7 @@
   grid-area: rotulo;
 }
 
-.eventCard #eventCard-attendants {
+#eventCard-attendants {
   grid-area: asistentes;
   display: flex;
   flex-direction: row;
@@ -46,6 +46,11 @@
 }
 
 .eventCard #eventCard-attendants li {
-  margin-top: 0;
-  padding: 0;
+  margin: 0.8rem;
+}
+#miniStars {
+  text-align: center;
+}
+.block {
+  padding-bottom: 0.4rem;
 }

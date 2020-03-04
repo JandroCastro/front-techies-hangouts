@@ -1,31 +1,25 @@
 #profile img {
-  padding-top: .5rem;
-  
+  padding-top: 0.5rem;
 }
 
 #profile h2 {
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   color: var(--dark);
 }
 
 #profile button {
   margin: 1rem;
-  
 }
 
 #profile .infoperfil li {
   padding: 1rem;
   color: var(--dark);
-  
- 
 }
 #profile#name {
   display: flex;
   align-items: center;
   padding: 2rem;
- 
 }
-
 
 div#enlacesRRSS {
   font-size: 30px;
@@ -38,7 +32,7 @@ div#enlacesRRSS {
 #profile #enlacesRRSS li {
   margin: 3rem;
 }
-.infoperfil{
+.infoperfil {
   text-align: center;
   padding: 1rem;
   margin-top: 100px !important;
@@ -46,22 +40,21 @@ div#enlacesRRSS {
   margin: 0 auto;
   background-color: rgba(128, 128, 128, 0.226);
   margin-bottom: 3rem;
-  
-  
 }
-.infoperfil li{
+.infoperfil li {
   margin-top: 1rem;
   text-align: center;
   margin-bottom: 1rem;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.178);
-  
 }
-.infoperfil label{
+.infoperfil label {
   font-weight: bold;
-
 }
-.enlaces{
+.enlaces {
   text-align: left;
   margin-left: 2.8rem;
 }
 
+button#perfilbutton {
+  margin-left: 43px;
+}

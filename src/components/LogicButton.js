@@ -6,11 +6,11 @@ import {
 } from "../http/attendanceService";
 import { useHistory } from "react-router-dom";
 import { isAlreadyAnnotated } from "../http/usefulFunctions";
+import { useAuth } from "../context/auth-context";
 
 export function LogicButton({ hangoutId, organizatorId }) {
-  const storedUser = JSON.parse(localStorage.getItem("currentUser"));
   const history = useHistory();
-
+  const { currentUser } = useAuth();
   const [attendance, setAttendance] = useState([]);
 
   useEffect(() => {
@@ -20,53 +20,56 @@ export function LogicButton({ hangoutId, organizatorId }) {
   }, []);
 
   const handleClick = () => {
-    if (storedUser !== null) {
-      return checkInToHangout(hangoutId)
-        .then(() => {
-          window.location.reload();
-        })
-        .catch(() => {
-          history.push(`/hangout/${hangoutId}`);
-        });
-    } else {
-      history.push(`/login?id=${hangoutId}`);
-    }
+    checkInToHangout(hangoutId)
+      .then(() => {
+        window.location.reload();
+      })
+      .catch(() => {
+        history.push(`/hangout/${hangoutId}`);
+      });
   };
 
-  if (storedUser === null) {
+  const isLogged = currentUser !== null ? true : false;
+
+  const handleNotLoggedClick = hangoutId => {
+    history.push(`/login?id=${hangoutId}`);
+  };
+
+  if (!isLogged) {
     return (
-      <button className="ghost" onClick={handleClick} id="editar">
+      <button className="ghost" onClick={handleNotLoggedClick} id="editar">
         Quiero ir!
       </button>
     );
+  } else {
+    const alreadyCheckedIn =
+      false || isAlreadyAnnotated(currentUser.userId, attendance);
+
+    const isUserAdmin = currentUser.userId === organizatorId ? true : false;
+
+    return (
+      <React.Fragment>
+        {(isUserAdmin && (
+          <button
+            className="ghost"
+            onClick={() => history.push(`/edit/hangout/${hangoutId}`)}
+            id="editar"
+          >
+            editar quedada
+          </button>
+        )) ||
+          (!isUserAdmin &&
+            ((alreadyCheckedIn && (
+              <span className="btn" id="alertaInscrito">
+                Ya estás inscrito
+              </span>
+            )) ||
+              (!alreadyCheckedIn && (
+                <button className="ghost" onClick={handleClick} id="editar">
+                  Quiero ir!
+                </button>
+              ))))}
+      </React.Fragment>
+    );
   }
-
-  const alreadyCheckedIn =
-    false || isAlreadyAnnotated(storedUser.userId, attendance);
-  const isUserAdmin = storedUser.userId === organizatorId ? true : false;
-
-  return (
-    <React.Fragment>
-      {(isUserAdmin && (
-        <button
-          className="ghost"
-          onClick={() => history.push(`/edit/hangout/${hangoutId}`)}
-          id="editar"
-        >
-          editar quedada
-        </button>
-      )) ||
-        (!isUserAdmin &&
-          ((alreadyCheckedIn && (
-            <span className="btn" id="alertaInscrito">
-              Ya estás inscrito
-            </span>
-          )) ||
-            (!alreadyCheckedIn && (
-              <button className="ghost" onClick={handleClick} id="editar">
-                Quiero ir!
-              </button>
-            ))))}
-    </React.Fragment>
-  );
 }

@@ -127,15 +127,13 @@ export function CreateHangout() {
             <option value="value1">Selecciona una temática</option>
           </select>
           <label className="label"> Selecciona una foto para el evento</label>
-          <div className="fileupload">
-            <input
-              required
-              ref={register({
-                required: "The field is mandatory"
-              })}
-              name="photo_url"
-            />
-          </div>
+          <input
+            required
+            ref={register({
+              required: "The field is mandatory"
+            })}
+            name="photo_url"
+          />
           <label className="label">Descripción</label>
           <textarea
             ref={register({

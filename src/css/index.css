@@ -121,13 +121,11 @@ ul > li {
   display: flex;
 }
 
-.video-container {
-  top: 0%;
-  left: 0%;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
+#video {
+  width: 100vw;
 }
-video.fillWidth {
-  width: 100%;
+
+.block {
+  display: block;
+  text-align: center;
 }

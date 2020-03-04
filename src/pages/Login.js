@@ -7,7 +7,7 @@ export function Login() {
 
   return (
     <main id="login-page">
-      <h2 className="profileTitle">COME TO HANG OUT WITH US</h2>
+      <h2 className="profileTitle">BIENVENIDO A TECHIES HANGOUTS</h2>
       <div
         className={`container ${classContainerSide === true &&
           "right-panel-active"}`}

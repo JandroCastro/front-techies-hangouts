@@ -28,7 +28,7 @@ export function AvatarContainer({ id }) {
         <StarsOnlyRead tamaño={"large"} id={profile.user_id} />
       </span>
       <div id="name">
-        <h2>{profile.name}</h2>
+        <h1>{profile.name}</h1>
       </div>
     </div>
   );

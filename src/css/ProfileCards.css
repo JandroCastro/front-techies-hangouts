@@ -1,45 +1,47 @@
 .profilecard {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  justify-content: center;
+  width: auto;
+  background-color: rgba(128, 128, 128, 0.137);
+  padding: 1rem 0 1rem;
 }
 
 .cardavatar img {
   height: 150px;
   width: 150px;
-}
-
-.cardinfo {
-  margin-left: 2rem;
-  width: 50%;
-}
-
-.cardinfo ul li {
-  text-align: left;
+  display: block;
+  margin: 0 auto;
 }
 
 .cardinfo img {
   width: 40px;
 }
+.cardavatar,
+.cardinfo {
+  width: 100%;
+}
+.cardinfo li {
+  text-align: center;
+}
 
 .ratings {
   width: 100%;
-  text-align: left;
-  margin-left: 1rem;
+  text-align: center;
 }
+
 .ratings .MuiSvgIcon-fontSizeInherit {
   font-size: 1.5rem;
 }
 
 .buttons {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 .buttons #aceptar,
 .buttons #descartar {
   height: 60px;
   width: 60px;
-  margin: 0.5rem;
   padding: 0;
   background-color: Transparent;
   background-repeat: no-repeat;
@@ -52,4 +54,22 @@
 .buttons #aceptar img,
 .buttons #descartar img {
   height: 60px;
+}
+
+#confirmados,
+#pendientes {
+  width: auto;
+  display: grid;
+  grid-template-rows: 40px 1fr;
+  grid-template-columns: repeat(1fr 1fr);
+  grid-area: "title title" "list list";
+  grid-auto-flow: row;
+  grid-auto-rows: 1fr 1fr;
+}
+
+#onclick {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

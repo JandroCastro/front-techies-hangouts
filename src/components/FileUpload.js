@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import { updateAvatar } from "../http/profileService";
 
 export function FileUpload({ onAvatarSelected }) {
   const [files, setFiles] = useState([]);
@@ -42,6 +41,7 @@ export function FileUpload({ onAvatarSelected }) {
   return (
     <div>
       <input
+        id="chooseFile"
         ref={fileInput}
         type="file"
         accept="jpeg"

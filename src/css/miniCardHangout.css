@@ -16,5 +16,9 @@
 }
 
 #miniStars {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+}
+
+.miniCard {
+  background-color: rgba(128, 128, 128, 0.171);
 }

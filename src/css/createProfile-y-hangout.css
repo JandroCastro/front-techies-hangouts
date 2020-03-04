@@ -6,7 +6,6 @@
   font-weight: bold;
   padding: 3rem;
   color: var(--dark);
-  
 }
 .hangout input {
   width: 600px;
@@ -14,7 +13,6 @@
   border: none;
   border-bottom: blue 0.5px solid;
   background-color: rgba(128, 128, 128, 0);
-  
 }
 
 #textarea {
@@ -35,12 +33,12 @@
 }
 form.hangout {
   margin-top: 100px !important;
-max-width: 800px;
-margin: 0 auto;
-background-color: rgba(128, 128, 128, 0.233);
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: rgba(128, 128, 128, 0.233);
 }
 
-.avatar{
+.avatar {
   text-align: center;
 }
 
@@ -51,19 +49,19 @@ background-color: rgba(128, 128, 128, 0.233);
   object-fit: cover;
   object-position: center;
   margin-top: 2rem;
-  
-
-  
 }
-.editavatar{
+.editavatar {
   width: 100px;
   height: 50px;
   margin: 0;
 }
 
- li button{
+li button {
   border: none;
-  background-color:white;
+  background-color: white;
   cursor: pointer;
 }
 
+#chooseFile {
+  width: 0px;
+}

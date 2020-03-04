@@ -13,7 +13,6 @@ export function EventCard({ event, votar }) {
       .then(response => setAsistentes(response.data))
       .catch(error => console.log(error));
   }, []);
-  console.log(asistentes);
 
   const date = event.event_date.substring(0, 10);
 

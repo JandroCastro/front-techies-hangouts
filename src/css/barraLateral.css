@@ -30,6 +30,8 @@ Sidebar
 .sidebar a:hover {
   color: var(--dark);
   margin-left: 0.5rem;
+  background-color: rgba(128, 128, 128, 0.281);
+  border-radius: 10px;
 }
 
 .sidebar a img {

@@ -18,12 +18,19 @@ export function StarsOnlyRead({ id, tamaño }) {
   }, []);
 
   return (
-    <Rating
-      name="read-only"
-      value={isNaN(media) ? 0.5 : media}
-      readOnly={true}
-      precision={0.5}
-      size={tamaño}
-    />
+    <React.Fragment>
+      <Rating
+        name="read-only"
+        value={isNaN(media) ? 0 : media}
+        readOnly={true}
+        precision={0.5}
+        size={tamaño}
+      />
+      {ratings.length === 1 ? (
+        <span className="block">{`${ratings.length} voto`}</span>
+      ) : (
+        <span className="block">{`${ratings.length} votos`}</span>
+      )}
+    </React.Fragment>
   );
 }

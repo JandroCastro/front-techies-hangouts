@@ -33,59 +33,75 @@ export function YourHangouts() {
     <React.Fragment>
       <Header title="TUS EVENTOS" />
       <main className="yourHangouts">
-        <section id="organizadas">
-          <h2>
-            Eventos de los que eres organizador {"(" + organizadas.length + ")"}
-          </h2>
-          <ul>
-            {organizadas.map(hangout => {
-              return (
-                <li>
-                  <EventCard event={hangout} votar={false} />
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-        <section id="asistencias">
-          <h2>Eventos pendientes de asistir {"(" + aceptadas.length + ")"}</h2>
-          <ul>
-            {aceptadas.map(hangout => {
-              return (
-                <li>
-                  <EventCard event={hangout} votar={false} />
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-        <section id="anotadas">
-          <h2>
-            Eventos a falta de confirmación{" "}
-            {"(" + pendientesDeRecibirAceptacion.length + ")"}
-          </h2>
-          <ul>
-            {pendientesDeRecibirAceptacion.map(hangout => {
-              return (
-                <li>
-                  <EventCard event={hangout} votar={false} />
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-        <section id="pasadas">
-          <h2>Eventos a los que has asistido {"(" + asistidas.length + ")"}</h2>
-          <ul>
-            {asistidas.map(hangout => {
-              return (
-                <li>
-                  <EventCard event={hangout} votar={true} />
-                </li>
-              );
-            })}
-          </ul>
-        </section>
+        {organizadas.length === 0 ? null : (
+          <section id="organizadas">
+            <h2>
+              Eventos de los que eres organizador{" "}
+              {"(" + organizadas.length + ")"}
+            </h2>
+            <ul>
+              {organizadas.map(hangout => {
+                return (
+                  <li>
+                    <EventCard event={hangout} votar={false} />
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        )}
+
+        {aceptadas.length === 0 ? null : (
+          <section id="asistencias">
+            <h2>
+              Eventos pendientes de asistir {"(" + aceptadas.length + ")"}
+            </h2>
+            <ul>
+              {aceptadas.map(hangout => {
+                return (
+                  <li>
+                    <EventCard event={hangout} votar={false} />
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        )}
+
+        {pendientesDeRecibirAceptacion.length === 0 ? null : (
+          <section id="anotadas">
+            <h2>
+              Eventos a falta de confirmación{" "}
+              {"(" + pendientesDeRecibirAceptacion.length + ")"}
+            </h2>
+            <ul>
+              {pendientesDeRecibirAceptacion.map(hangout => {
+                return (
+                  <li>
+                    <EventCard event={hangout} votar={false} />
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        )}
+
+        {asistidas.length === 0 ? null : (
+          <section id="pasadas">
+            <h2>
+              Eventos a los que has asistido {"(" + asistidas.length + ")"}
+            </h2>
+            <ul>
+              {asistidas.map(hangout => {
+                return (
+                  <li>
+                    <EventCard event={hangout} votar={true} />
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        )}
       </main>
       <Footer />
     </React.Fragment>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { getAllCities, getAllThematics } from "../http/utilitiesService";
-import FileUpload from "../components/FileUpload";
+
 import { useParams, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { editOneHangout, getOneHangout } from "../http/hangoutsService";
@@ -85,7 +85,7 @@ export function EditHangout() {
             type="text"
             placeholder="Formato YY-mm-dd "
             value={parseDate(hangout.event_date)}
-            onAvatarSelected={e =>
+            onChange={e =>
               setHangout({ ...hangout, event_date: e.target.value })
             }
           />
@@ -151,7 +151,11 @@ export function EditHangout() {
             }
           >
             {cities.map(d => {
-              return <option value={d.id}>{d.name}</option>;
+              return (
+                <option key={d.id} value={d.id}>
+                  {d.name}
+                </option>
+              );
             })}
             <option value="value1">Selecciona una Ciudad</option>
           </select>
@@ -169,23 +173,27 @@ export function EditHangout() {
             }
           >
             {thematics.map(d => {
-              return <option value={d.id}>{d.name}</option>;
+              return (
+                <option key={d.id} value={d.id}>
+                  {d.name}
+                </option>
+              );
             })}
             <option value="value1">Selecciona una temática</option>
           </select>
           <label className="label"> Selecciona una foto para el evento</label>
-          <div className="fileupload">
-            <FileUpload
-              ref={register({
-                required: "The field is mandatory"
-              })}
-              name="photo_url"
-              value={hangout.photo_url}
-              onChange={e =>
-                setHangout({ ...hangout, photo_url: e.target.value })
-              }
-            />
-          </div>
+
+          <input
+            ref={register({
+              required: "The field is mandatory"
+            })}
+            name="photo_url"
+            value={hangout.photo_url}
+            onChange={e =>
+              setHangout({ ...hangout, photo_url: e.target.value })
+            }
+          />
+
           <label className="label">Descripción</label>
           <textarea
             ref={register({

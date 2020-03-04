@@ -2,14 +2,14 @@ div.card {
   display: grid;
   grid-template-columns: 1fr 1fr;
   overflow: hidden;
-  height: 350px;
+  max-height: 350px;
   min-width: 500px;
   background: grey;
   border-radius: 5px;
   background-size: cover;
   background-position: center center;
   box-shadow: 0px 20px 60px -10px rgba(0, 0, 0, 0.4);
-  transition: transform 80ms ease-in;
+  transition: all 400ms ease-in;
   will-change: transform;
   border: 15px solid white;
   margin: 1rem 1rem 1rem 1rem;
@@ -17,7 +17,7 @@ div.card {
 
 .card:hover {
   box-shadow: 0px 15px 45px -8px rgba(0, 0, 0, 0.3);
-  height: auto;
+  max-height: 1000px;
   transform: scaleY(2);
 }
 

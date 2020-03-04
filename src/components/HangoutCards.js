@@ -2,9 +2,7 @@ import React from "react";
 
 import { useSpring, animated } from "react-spring";
 import { AsistenteQuedada } from "./AsistenteQuedada";
-
 import { useHistory } from "react-router-dom";
-
 import { LogicButton } from "./LogicButton";
 import {
   checkInToHangout,
@@ -71,7 +69,7 @@ export function HangoutCards({ event }) {
           </h5>
           <h5>{event.thematicName}</h5>
         </div>
-        {/* <LogicButton hangoutId={event.id} organizatorId={event.user_id} />*/}
+        {/*<LogicButton hangoutId={event.id} organizatorId={event.user_id} /> */}
         <button className="ghost" onClick={handleClick} id="editar">
           Quiero ir!
         </button>

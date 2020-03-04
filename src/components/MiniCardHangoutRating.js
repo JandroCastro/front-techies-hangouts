@@ -3,11 +3,15 @@ import { MiniAvatar } from "../components/MiniAvatar";
 
 import { StarsForRating } from "./StarsForRating";
 import { useHistory } from "react-router-dom";
+import { useAuth } from "../context/auth-context";
 
 export function MiniCardHangoutRating({ user, eventId }) {
-  console.log(user);
   const { user_id } = user;
   const history = useHistory();
+
+  const { currentUser } = useAuth();
+
+  const visible = currentUser.userId === user_id ? false : true;
 
   return (
     <div className="miniCard">
@@ -21,10 +25,11 @@ export function MiniCardHangoutRating({ user, eventId }) {
         <li>{user.userName}</li>
         <li>{user.position}</li>
       </ul>
-
-      <div id="miniStars">
-        <StarsForRating hangoutId={eventId} user_id={user_id} />
-      </div>
+      {visible && (
+        <div id="miniStars">
+          <StarsForRating hangoutId={eventId} user_id={user_id} />
+        </div>
+      )}
     </div>
   );
 }

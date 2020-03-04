@@ -65,21 +65,24 @@ export function DetailedHangout() {
 
           <AvatarContainer id={hangout.user_id} />
         </div>
-        <LogicButton hangoutId={hangout.id} organizatorId={hangout.user_id} />
-        <a
-          className="fa fa-twitter "
-          href="https://twitter.com/intent/tweet?text=Techies%20Hangouts%20Mola!!%20by%20@JandroCastroAl%20"
-          data-size="large"
-          url={<link rel="canonical" href={`/hangouts/${id}`} />}
-          hashtags={"developer,tech"}
-        />
-        <a
-          href={`http://www.linkedin.com/shareArticle?mini=true&url=${process.env.REACT_APP_FRONTEND_URL}hangouts/${id}/&title=VENTE_CON_NOSOTROS!&summary=breve_descripcion&source=TECHIES_HANGOUTS`}
-          class="fa fa-linkedin"
-        ></a>
+
+        <div id="detailedbuttons">
+          <LogicButton hangoutId={hangout.id} organizatorId={hangout.user_id} />
+          <a
+            className="fa fa-twitter "
+            href="https://twitter.com/intent/tweet?text=Techies%20Hangouts%20Mola!!%20by%20@JandroCastroAl%20"
+            data-size="large"
+            url={<link rel="canonical" href={`/hangouts/${id}`} />}
+            hashtags={"developer,tech"}
+          />
+          <a
+            href={`http://www.linkedin.com/shareArticle?mini=true&url=${process.env.REACT_APP_FRONTEND_URL}hangouts/${id}/&title=VENTE_CON_NOSOTROS!&summary=breve_descripcion&source=TECHIES_HANGOUTS`}
+            className="fa fa-linkedin"
+          ></a>
+        </div>
 
         <section id="info">
-          <div id="datosQuedada">
+          <ul id="datosQuedada">
             <h3>Detalles</h3>
             <ul>
               <li>
@@ -99,25 +102,31 @@ export function DetailedHangout() {
                 />
               </li>
             </ul>
-          </div>
+          </ul>
           <div id="detallesAsistentes">
-            <h3>Confirmados</h3>
             <ul id="confirmados">
+              <h3 id="titleconfirmados">Confirmados</h3>
               {filterAcceptedRequest(attendance).map(guest => (
                 <li
+                  id="profileCards"
                   onClick={() => history.push(`/profile/${guest.user_id}`)}
-                  key={guest.user_id}
+                  key={`confirmados-${guest.user_id}`}
                 >
-                  <ProfileCards profile={guest} manageAttendance={false} />
+                  <ProfileCards
+                    profile={guest}
+                    manageAttendance={false}
+                    event={hangout}
+                  />
                 </li>
               )) || "Cargando"}
             </ul>
-            <h3>Pendientes</h3>
             <ul id="pendientes">
+              <h3 id="titlependientes">Pendientes</h3>
               {filterPendignRequest(attendance).map(guest => (
                 <li id="profileCards" key={guest.user_id}>
                   <ProfileCards
                     profile={guest}
+                    event={hangout}
                     manageAttendance={
                       storedUser.userId === hangout.user_id ? true : false
                     }

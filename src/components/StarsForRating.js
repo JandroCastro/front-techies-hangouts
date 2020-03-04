@@ -6,17 +6,18 @@ import { useAuth } from "../context/auth-context";
 import { isThisRatingMade } from "../http/usefulFunctions";
 
 export function StarsForRating({ hangoutId, user_id }) {
-  console.log(user_id);
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(undefined);
   const [madeRatings, setMadeRatings] = useState([]);
-  const [props, setProps] = useState("");
+  const [props, setProps] = useState(undefined);
 
   const { currentUser } = useAuth();
+  const wasLoaded = value !== undefined;
+  const rating = value >= 0 ? value : 0;
 
   useEffect(() => {
     getCreatedRatings(currentUser.userId, hangoutId)
       .then(response => setMadeRatings(response.data))
-      .catch(error => console.log(error));
+      .catch(error => console.error(error));
   }, []);
 
   function handleChange(e) {
@@ -32,39 +33,33 @@ export function StarsForRating({ hangoutId, user_id }) {
       })
       .catch(err => console.error(err));
   }
-  const votacionYaRealizada = isThisRatingMade(madeRatings, hangoutId, user_id);
 
-  console.log(madeRatings);
-  console.log(votacionYaRealizada);
-  if (votacionYaRealizada !== undefined) {
-    setProps("disabled");
+  if (!wasLoaded && madeRatings.length > 0) {
+    const votacionYaRealizada = isThisRatingMade(madeRatings, user_id);
+    if (!!votacionYaRealizada) {
+      console.log(votacionYaRealizada.rating);
+      setValue(votacionYaRealizada.rating);
+      setProps("disabled");
+    } else {
+      setValue(-1);
+    }
+    console.log({ votacionYaRealizada });
   }
 
   return (
     <div>
       <Box component="fieldset" mb={3} borderColor="transparent">
         <Rating
-          name="simple-controlled"
-          value={value}
+          name={`simple-controlled-${hangoutId}-${user_id}`}
+          value={rating}
           size="large"
           onChange={handleChange}
-          {...props}
+          disabled={props !== undefined ? true : false}
         />
-        {votacionYaRealizada && <span>Ya has votado a este usuario</span>}
+        {props !== undefined && (
+          <span className="block">Ya has votado a este usuario</span>
+        )}
       </Box>
     </div>
   );
 }
-
-/*
-export function isThisRatingMade(madeRatings, hangoutId, user_id) {
-  console.log(madeRatings, hangoutId, user_id);
-  madeRatings.find(madeRatingsArray => {
-    return (
-      madeRatingsArray.event_id === hangoutId &&
-      madeRatingsArray.id_rater === storedUser.userId &&
-      madeRatingsArray.id_rated === user_id
-    );
-  });
-}
-*/

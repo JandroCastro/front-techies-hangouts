@@ -75,7 +75,7 @@ export function FormRegister() {
           })}
           type="email"
           name="email"
-          placeholder="Email paentro"
+          placeholder="Introducir e-mail"
         ></input>
         {errors.email && (
           <span className="errorMessage">{errors.email.message}</span>
