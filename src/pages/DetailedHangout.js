@@ -69,16 +69,20 @@ export function DetailedHangout() {
         <div id="detailedbuttons">
           <LogicButton hangoutId={hangout.id} organizatorId={hangout.user_id} />
           <a
-            className="fa fa-twitter "
+            className="fa fa-twitter"
             href="https://twitter.com/intent/tweet?text=Techies%20Hangouts%20Mola!!%20by%20@JandroCastroAl%20"
             data-size="large"
             url={<link rel="canonical" href={`/hangouts/${id}`} />}
             hashtags={"developer,tech"}
-          />
+          >
+            <span style={{ display: "none" }}>twitter</span>
+          </a>
           <a
             href={`http://www.linkedin.com/shareArticle?mini=true&url=${process.env.REACT_APP_FRONTEND_URL}hangouts/${id}/&title=VENTE_CON_NOSOTROS!&summary=breve_descripcion&source=TECHIES_HANGOUTS`}
             className="fa fa-linkedin"
-          ></a>
+          >
+            <span style={{ display: "none" }}>linkedin</span>
+          </a>
         </div>
 
         <section id="info">
@@ -104,36 +108,40 @@ export function DetailedHangout() {
             </ul>
           </ul>
           <div id="detallesAsistentes">
-            <ul id="confirmados">
+            <div>
               <h3 id="titleconfirmados">Confirmados</h3>
-              {filterAcceptedRequest(attendance).map(guest => (
-                <li
-                  id="profileCards"
-                  onClick={() => history.push(`/profile/${guest.user_id}`)}
-                  key={`confirmados-${guest.user_id}`}
-                >
-                  <ProfileCards
-                    profile={guest}
-                    manageAttendance={false}
-                    event={hangout}
-                  />
-                </li>
-              )) || "Cargando"}
-            </ul>
-            <ul id="pendientes">
+              <ul id="confirmados">
+                {filterAcceptedRequest(attendance).map(guest => (
+                  <li
+                    id="profileCards"
+                    onClick={() => history.push(`/profile/${guest.user_id}`)}
+                    key={`confirmados-${guest.user_id}`}
+                  >
+                    <ProfileCards
+                      profile={guest}
+                      manageAttendance={false}
+                      event={hangout}
+                    />
+                  </li>
+                )) || "Cargando"}
+              </ul>
+            </div>
+            <div>
               <h3 id="titlependientes">Pendientes</h3>
-              {filterPendignRequest(attendance).map(guest => (
-                <li id="profileCards" key={guest.user_id}>
-                  <ProfileCards
-                    profile={guest}
-                    event={hangout}
-                    manageAttendance={
-                      storedUser.userId === hangout.user_id ? true : false
-                    }
-                  />
-                </li>
-              ))}
-            </ul>
+              <ul id="pendientes">
+                {filterPendignRequest(attendance).map(guest => (
+                  <li id="profileCards" key={guest.user_id}>
+                    <ProfileCards
+                      profile={guest}
+                      event={hangout}
+                      manageAttendance={
+                        storedUser.userId === hangout.user_id ? true : false
+                      }
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
           {isUserAdmin && (
             <button

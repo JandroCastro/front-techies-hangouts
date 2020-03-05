@@ -20,7 +20,7 @@
   grid-area: main;
   display: flex;
   flex-direction: column;
-  justify-self: center;
+  /* justify-self: center; */
   height: 100vh;
   overflow-x: scroll;
   padding: 0 3rem 0 3rem;

@@ -17,9 +17,10 @@
 }
 
 div#detallesAsistentes {
-  margin-top: 3rem;
-  display: flex;
-  justify-content: space-around;
+  margin: 3rem 2rem 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7rem;
 }
 
 #confirmados,
@@ -53,4 +54,9 @@ button#anotarse {
 
 #delete {
   margin-left: 2.5rem;
+}
+
+#datosQuedada {
+  width: 600px;
+  margin: 0 auto;
 }

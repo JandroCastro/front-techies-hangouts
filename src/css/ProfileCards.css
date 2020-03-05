@@ -2,7 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: auto;
   background-color: rgba(128, 128, 128, 0.137);
   padding: 1rem 0 1rem;
 }
@@ -60,11 +59,8 @@
 #pendientes {
   width: auto;
   display: grid;
-  grid-template-rows: 40px 1fr;
-  grid-template-columns: repeat(1fr 1fr);
-  grid-area: "title title" "list list";
-  grid-auto-flow: row;
-  grid-auto-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
 }
 
 #onclick {

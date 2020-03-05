@@ -23,6 +23,7 @@
 @import "./miniCardHangout.css";
 @import "./asistente-quedada.css";
 @import "./buttons.css";
+@import url("https://fonts.googleapis.com/css?family=Kanit&display=swap");
 
 html {
   box-sizing: border-box;
@@ -63,7 +64,7 @@ h4,
 h5,
 h6 {
   text-transform: uppercase;
-  font-family: var(--font-secondary);
+  font-family: "Kanit", sans-serif;
   text-align: center;
 }
 
@@ -128,4 +129,21 @@ ul > li {
 .block {
   display: block;
   text-align: center;
+}
+#editar {
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+#editar:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+}
+
+#buttonlogin {
+  position: absolute;
+  right: 100px;
+  z-index: 3;
 }

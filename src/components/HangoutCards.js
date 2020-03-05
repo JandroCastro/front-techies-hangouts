@@ -69,10 +69,7 @@ export function HangoutCards({ event }) {
           </h5>
           <h5>{event.thematicName}</h5>
         </div>
-        {/*<LogicButton hangoutId={event.id} organizatorId={event.user_id} /> */}
-        <button className="ghost" onClick={handleClick} id="editar">
-          Quiero ir!
-        </button>
+        <LogicButton hangoutId={event.id} organizatorId={event.user_id} />
 
         <div id="event-organizator">
           <AsistenteQuedada event={event} />

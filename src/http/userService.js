@@ -36,7 +36,8 @@ axios.interceptors.response.use(
     if (
       error.response.status === 401 &&
       !error.config.url.includes("/auth") &&
-      !error.config.url.includes("/rating")
+      !error.config.url.includes("/rating") &&
+      !error.config.url.includes("/attendance")
     ) {
       localStorage.removeItem("currentUser");
       window.location.href = "/login";

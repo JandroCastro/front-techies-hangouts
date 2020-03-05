@@ -10,6 +10,7 @@ import { useAuth } from "../context/auth-context";
 
 export function LogicButton({ hangoutId, organizatorId }) {
   const history = useHistory();
+  console.log(hangoutId);
   const { currentUser } = useAuth();
   const [attendance, setAttendance] = useState([]);
 
@@ -22,6 +23,7 @@ export function LogicButton({ hangoutId, organizatorId }) {
   const handleClick = () => {
     checkInToHangout(hangoutId)
       .then(() => {
+        history.push(`/hangout/${hangoutId}`);
         window.location.reload();
       })
       .catch(() => {
@@ -31,13 +33,13 @@ export function LogicButton({ hangoutId, organizatorId }) {
 
   const isLogged = currentUser !== null ? true : false;
 
-  const handleNotLoggedClick = hangoutId => {
+  const handleNotLoggedClick = () => {
     history.push(`/login?id=${hangoutId}`);
   };
 
   if (!isLogged) {
     return (
-      <button className="ghost" onClick={handleNotLoggedClick} id="editar">
+      <button className="btn" onClick={handleNotLoggedClick} id="editar">
         Quiero ir!
       </button>
     );
@@ -55,7 +57,7 @@ export function LogicButton({ hangoutId, organizatorId }) {
             onClick={() => history.push(`/edit/hangout/${hangoutId}`)}
             id="editar"
           >
-            editar quedada
+            Editar quedada
           </button>
         )) ||
           (!isUserAdmin &&
@@ -65,7 +67,7 @@ export function LogicButton({ hangoutId, organizatorId }) {
               </span>
             )) ||
               (!alreadyCheckedIn && (
-                <button className="ghost" onClick={handleClick} id="editar">
+                <button className="btn" onClick={handleClick}>
                   Quiero ir!
                 </button>
               ))))}

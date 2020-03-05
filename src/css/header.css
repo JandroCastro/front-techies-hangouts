@@ -6,7 +6,6 @@ header {
   justify-content: space-between;
   width: 100%;
   border-bottom: 1px grey solid;
-  
 }
 
 header img {
@@ -28,17 +27,19 @@ header ul {
 #logo {
   height: 110px;
   width: 130px;
- 
 }
 
 #header-profile {
   display: flex;
   flex-direction: column;
 }
-.logout{
+.logout {
   margin-right: 1rem;
-  
 }
-.hola{
+.hola {
   margin-top: 2rem;
+}
+
+.logout img {
+  width: 30px;
 }

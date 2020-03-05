@@ -70,14 +70,6 @@ export function NavLateral() {
                 </span>
               </a>
             </li>
-            <li>
-              <a href="/">
-                <span className="">
-                  <img src={iconContact} />
-                  CONTACTANOS
-                </span>
-              </a>
-            </li>
           </ul>
         </nav>
         <div className="botonCrear">

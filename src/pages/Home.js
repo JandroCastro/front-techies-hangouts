@@ -19,6 +19,13 @@ export function Home() {
   }, []);
   return (
     <React.Fragment>
+      <button
+        onClick={() => (window.location.href = "/login")}
+        id="buttonlogin"
+        className="btn"
+      >
+        Login
+      </button>
       <div className="principal">
         <section className="up">
           <video id="video" ref={v} src={video} loop />

@@ -30,8 +30,7 @@ export function CreateProfile() {
     aboutMe: null,
     university_id: null,
     link_url: null,
-    updated_at: null,
-    university_id: null
+    updated_at: null
   });
 
   const [avatar, setAvatar] = useState("");
@@ -122,9 +121,13 @@ export function CreateProfile() {
               })
             }
           />
-          <label>Escoge tu universidad</label>
+          <label className="label">Escoge tu universidad</label>
           <select
-            name="universidad"
+            ref={register({
+              required: "The field is mandatory"
+            })}
+            name="university_id"
+            value={profile.university_id}
             onChange={e =>
               setProfile({
                 ...profile,
